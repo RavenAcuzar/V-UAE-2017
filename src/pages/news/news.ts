@@ -5,7 +5,6 @@ import { NewslandingPage } from '../newslanding/newslanding';
 import { TheSpeakersPage } from '../thespeakers/thespeakers';
 import { Http, Headers, RequestOptions } from "@angular/http";
 
-
 @Component({
   selector: 'page-news',
   templateUrl: 'news.html'
@@ -17,13 +16,13 @@ export class NewsPage implements OnInit {
   TheSpeakersPage = TheSpeakersPage;
 
   // The news object that will be retrieved from the server
+  id: string = null;
   news = null;
 
-  constructor(public navCtrl: NavController, private loadingController: LoadingController, 
-              private http: Http, private location: Location) {
-  }
+  constructor(public navCtrl: NavController, private navParams: NavParams, private loadingController: LoadingController,
+    private http: Http, private location: Location) {
+    this.id = this.navParams.get('id');
 
-  ngOnInit(): void {
     let loadingPopup = this.loadingController.create({
       content: 'Verifying...'
     });
@@ -32,30 +31,32 @@ export class NewsPage implements OnInit {
     let path = this.location.path();
     console.log(path);
 
-    let id = '';
     let body = new URLSearchParams();
     body.set('action', 'getNews');
-    body.set('URL', id);
+    body.set('URL', this.id);
     body.set('language', window.localStorage['mylanguage']);
 
-    console.log('News ID' + id);
+    console.log('News ID' + this.id);
 
-    let headers = new Headers({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin': '*'
-    });
     let options = new RequestOptions({
-      headers: headers
+      headers: new Headers({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
+      })
     });
 
-    this.http.post('http://cums.the-v.net/site.aspx', body)
+    this.http.post('http://cums.the-v.net/site.aspx', body, options)
       .subscribe(response => {
         this.news = response.json();
       }, null, () => {
         loadingPopup.dismiss();
       });
   }
-  
+
+  ngOnInit(): void {
+
+  }
+
   scrollToTop() {
     this.content.scrollToTop();
   }

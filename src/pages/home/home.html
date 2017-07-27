@@ -61,7 +61,7 @@
   <div class="newscat">
     <h6>NEWS AND UPDATES</h6>
     <div class="row" *ngFor="let news of myNews">
-      <a [navPush]="NewsPage" nav-direction="forward" href="#/app/news?id={{news.Title}}" class="col item">
+      <a (click)="navigateToNews(news.Title)" class="col item">
         <h4>{{news.localTitle}}</h4>
         <h3>in {{news.SubCategory}}</h3>
         <img [src]="news.ImageLink" width="100%" height="auto" class="center ">
