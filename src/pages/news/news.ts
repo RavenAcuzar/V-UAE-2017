@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { IonicPage, Content, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { NewslandingPage } from '../newslanding/newslanding';
 import { TheSpeakersPage } from '../thespeakers/thespeakers';
-import { Http, Headers, RequestOptions } from "@angular/http";
+import { Http, Headers, RequestOptions, URLSearchParams } from "@angular/http";
 
 @Component({
   selector: 'page-news',
@@ -20,7 +20,7 @@ export class NewsPage implements OnInit {
   news = null;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private loadingController: LoadingController,
-    private http: Http, private location: Location) {
+    private http: Http) {
     this.id = this.navParams.get('id');
 
     let loadingPopup = this.loadingController.create({
@@ -28,23 +28,19 @@ export class NewsPage implements OnInit {
     });
     loadingPopup.present();
 
-    let path = this.location.path();
-    console.log(path);
-
     let body = new URLSearchParams();
     body.set('action', 'getNews');
-    body.set('URL', this.id);
+    body.set('URL', encodeURIComponent(this.id));
     body.set('language', window.localStorage['mylanguage']);
-
-    console.log('News ID' + this.id);
 
     let options = new RequestOptions({
       headers: new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
       })
     });
 
-    this.http.post('http://cums.the-v.net/site.aspx', body, options)
+    this.http.post('http://cums.the-v.net/site.aspx', body)
       .subscribe(response => {
         this.news = response.json();
       }, null, () => {
