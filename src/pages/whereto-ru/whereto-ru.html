@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <header class="mainScr mid">
+    <h1>Где лучше всего остановиться в Дубае</h1>
+  </header>
+  <article class="cusContent">
+    <div class="item">
+      <div class="penang-text">Downtown Dubai (Центр города)</div>
+      <div class="penang-desc">
+        Downtown Dubai – это популярный широкомасштабный комплекс Дубая, в котором сосредоточены самые главные достопримечательности города, в том числе Бурдж-Халифа, Дубай Молл и фонтан Дубай. Здесь также расположен Dubai World Trade Center, известный своими небоскрёбами и коммерческими зданиями. Несмотря на топовые коммерческие строения в этом районе, стоимость проживания в отелях здесь довольно умеренная.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-text">Bur Dubai</div>
+      <div class="penang-desc">
+        Bur Dubai – это то место, где сосредоточены все канонические памятники культурного наследия, в том числе Al Fahidi, офис губернатора, музей Dubai Museum и текстильный базар. Это также бойкий деловой центр, а также и ресторанный центр, так как вдоль дороги Al Dhiyafah Road сосредоточено множество кафе и ресторанов.
+        Отели в этом районе предлагают более доступные цены за проживание в отличие от отелей в соседнем Downtown Dubai.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-text">Bastakiya (Старый город)</div>
+      <div class="penang-desc">
+        Если вам хочется погрузиться в особый старинный шарм Дубая, то местечко Bastakiya – это то, что вам нужно. Этот исторический квартал Дубая расположен на южном берегу Дубай-Крик. Здесь представлены как отели класса «люкс», так и вполне бюджетные варианты.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-item">
+        <div class="penang-text">Deira</div>
+        <div class="penang-desc">
+          Район Deira расположен на северной стороне Дубай-Крик, формируя часть старого города, где ранее размещался старый порт Дубай. Это один из первых деловых центров города, а также ближайший к аэропорту квартал города. Именно здесь можно найти самые недорогие отели в Дубае. Если вам по душе интенсивный шопинг и еда в кафе и ресторанах, то можно посетить Al Rigga, так как это более современная часть района Deira.
+        </div>
+      </div>
+    </div>
+
+    <span class="source"> Source: www.visitdubai.com </span>
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; ВЕРНУТЬСЯ НАВЕРХ </div>
+  </article>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="Dubai101PageRU" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Дубай 101
+      </button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <ion-slides autoplay="400" loop="true" speed="1500" pager="true" paginationType="bullets">
+      <ion-slide>
+        <img src="assets/img/limitlessheader1.png"  width="100%" height="auto" class="center ">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/limitlessheader2.png"  width="100%" height="auto" class="center ">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/limitlessheader3.png"  width="100%" height="auto" class="center ">
+      </ion-slide>
+    </ion-slides>
+  </header>
+  <article class="cusContent">
+
+    <p class="headline">Посети киоски The V Booth и купи себе ЭКСКЛЮЗИВНЫЕ товары V-UAE 2017!</p>
+
+    <div class="merchCont">
+      <ion-grid>
+        <ion-row>
+          <!-- START MERCHANDISE ITEM-->
+          <ion-col class="item">
+            <div class="merch-image">
+              <img src="http://the-v.net/images/default-source/vcon17/item-1.jpg" width="100%" height="auto" class="center ">
+            </div>
+            <div class="merch-title">Limitless T-Shirt (Available in 3 colors)</div>
+            <div class="merch-price">RM60</div>
+
+          </ion-col>
+
+          <ion-col class="item">
+            <div class="merch-image">
+              <img src="http://the-v.net/images/default-source/vcon17/item-5.jpg" width="100%" height="auto" class="center ">
+            </div>
+            <div class="merch-title">Limitless Cap (Available in 2 colors)</div>
+            <div class="merch-price">RM50</div>
+
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <!-- START MERCHANDISE ITEM-->
+          <ion-col class="item">
+            <div class="merch-image">
+              <img src="http://the-v.net/images/default-source/vcon17/item-6.jpg" width="100%" height="auto" class="center ">
+            </div>
+            <div class="merch-title">Limitless Bracelet Design 1</div>
+            <div class="merch-price">RM80</div>
+
+          </ion-col>
+
+          <ion-col class="item">
+            <div class="merch-image">
+              <img src="http://the-v.net/images/default-source/vcon17/item-7.jpg" width="100%" height="auto" class="center ">
+            </div>
+            <div class="merch-title">Limitless Bracelet Design 2</div>
+            <div class="merch-price">RM80</div>
+
+          </ion-col>
+
+        </ion-row>
+
+
+      </ion-grid>
+
+    </div>
+  </article>
+  <div (click)="scrollToTop()" class="backtotop">
+    <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; ВЕРНУТЬСЯ НАВЕРХ
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="Dubai101PageRU" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Дубай 101
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="MarkPageRU" ion-button icon-right>
+        Сделай свой значок V-Con
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-tg.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner </h2>
+      <h1>TG Kintanar</h1>
+    </div>
+    <p class = "intro">Dalam tahun pelayanan yang dahsyat di The V, V Partner TG Kintanar telah mendedikasikan untuk mengeksplor cara untuk menyediakan produk yang praktis dan menguntungkan serta pelayanan untuk network QNET yang berkembang.
+    </p>
+    <p>
+      Didukung oleh pengalaman di bidang teknologi dan media, VP TG memasukkan pengetahuan istimewa dan keahlian dalam presentasi produk modern dan pelayanan yang dipengaruhi oleh teknologi terkini.
+      <br/><br/>
+      Dengan inovasi dan teknologi terobosan terkini, VP TG mempelopori konseptualisasi untuk diversifikasi produk yang berkontribusi di pertumbuhan eksponensial. Bertahun-tahun, VP TG telah membantu mengontrol QI pada posisinya sekarang sebagai portal eCommerce terdepan di Asia.
+      <br/><br/>
+      V Partner TG berkontribusi banyak yang berasal dari satu sumber motivasi: melihat perubahan hidup. Dengan berbagi tentang hidupnya dan tantangan dan kesempatan yang telah dating sejak ia baru mulai di industri networking beberapa tahun lalu, V Partner TG terus menginspirasi banyak orang untuk membuat perubahan di beberapa aspek kerja keras manusia – pekerjaan dan keluarga. Salah satu sumber terhebat dalam pemenuhannya adalah melihat perubahan hidup satu orang dan kehidupan keluarganya meningkat.
+
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+    KEMBALI KE ATAS
+  </div>
+
+
+  </article>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageID" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Pembicara
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPdiPageID" ion-button icon-right>
+        Donna Marie Imson-Lecaroz
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

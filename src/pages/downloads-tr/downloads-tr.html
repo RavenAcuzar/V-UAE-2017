@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr high">
+    <h1>SEÇKİN<br>V-UAE 2017 DUVARKAĞITLARI</h1>
+  </header>
+  <article class="cusContent tr">
+
+    <p class="headline">Mobil aygıtlarınız için ÜCRETSİZ indirilebilir bu duvarkağıtlarıyla nereye giderseniz gidin V-Con büyüsünü
+taşıyın!</p>
+    <div class="menus">
+      <a href="../img/wallpaper-mobile.jpg" download><i class="ion-android-arrow-down"></i> Mobil Cihazlar için İndirin</a>
+      <a href="../img/wallpaper-tablet.jpg" download><i class="ion-android-arrow-down"></i> Tablet için İndirin </a>
+    </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="MarkPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        V-Con İzinizi Oluşturun
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="FaqsPageTR" ion-button icon-right>
+        FAQS
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

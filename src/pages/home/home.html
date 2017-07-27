@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <header class="mainScr">
+    <div class="msg">
+      <p>Tick tock. <br/>
+          The time has come to change your life.
+      </p>
+      <h4>Welcome to <br/> V-UAE 2017!</h4>
+    </div>
+    <div class="countdown">
+      <div class="countdown-section">
+        <h6 class="numbers">90</h6>
+        <h6 class="label">DAYS</h6>
+      </div>
+      <div class="countdown-section">
+        <h6 class="numbers">6</h6>
+        <h6 class="label">HOURS</h6>
+      </div>
+      <div class="countdown-section">
+        <h6 class="numbers">32</h6>
+        <h6 class="label">MINUTES</h6>
+      </div>
+      <div class="countdown-section">
+        <h6 class="numbers">49</h6>
+        <h6 class="label">SECONDS</h6>
+      </div>
+    </div>
+
+    <div class="schedule hide">
+      <button>DAILY PROGRAM SCHEDULE</button>
+    </div>
+  </header>
+
+  <!-- VCON Categories -->
+  <div class="categories nopad">
+    <div class="row nopad">
+      <a [navPush]="allAboutPage" class="col col-50 nopad">
+        <div class="title"><span class="tinytxt">ALL ABOUT</span> V-UAE <span class="tinytxt">2017</span></div>
+      </a>
+      <a [navPush]="MarkPage" class="col col-50 nopad">
+        <div class="title"><span class="tinytxt">Make Your</span> V-Con Mark</div>
+      </a>
+    </div>
+    <div class="row nopad">
+      <a [navPush]="DownloadsPage" class="col col-50 nopad" txt50>
+        <div class="title" style="font-size: 16px;">Exclusive V-Con 2017 Downloads</div>
+      </a>
+      <a [navPush]="Dubai101Page" class="col col-50 nopad">
+        <div class="title">DUBAI<span class="tinytxt">101</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="newscat">
+    <h6>NEWS AND UPDATES</h6>
+    <div class="row" *ngFor="let news of myNews">
+      <a [navPush]="NewsPage" nav-direction="forward" href="#/app/news?id={{news.Title}}" class="col item">
+        <h4>{{news.localTitle}}</h4>
+        <h3>in {{news.SubCategory}}</h3>
+        <img [src]="news.ImageLink" width="100%" height="auto" class="center ">
+        <div class="row">
+          <span class="col col-50 nopad date">{{news.CreatedOnDate}}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="backtotop" (click)="scrollToTop()" >
+    <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+    Back to Top
+  </div>
+</ion-content>

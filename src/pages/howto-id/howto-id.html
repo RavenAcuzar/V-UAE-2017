@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <header class="mainScr mid">
+    <h1>How to Get Around in Dubai</h1>
+  </header>
+  <article class="cusContent">
+    <div class="item">
+        <span class="penang-text">Hail a taxi</span>
+        <div class="penang-item">
+          <div class="penang-desc">Available mostly everywhere, Dubai’s taxis can be easily spotted around the city day or night. If you prefer to schedule a ride, you can call for a Dubai taxi pick-up at +971 4 208 0808. The taxi fare per kilometer may sometime change but are generally reasonably priced. If you prefer to use an app to book a ride, Uber or Careem are available.
+        </div>
+        </div>
+    </div>
+
+    <div class="item">
+        <span class="penang-text">Take the Dubai metro or tram</span>
+        <div class="penang-item">
+          <div class="penang-desc">Dubai’s metro and tram system is a great way to get to Dubai’s busy landmarks and popular districts, such as the Dubai Mall, Dubai World Trade Centre, Dubai Marina, and Palm Jumeirah. Dubai Metro tickets can be purchased in the form of a Nol card, which can also be used to pay for bus, tram, and taxi fares. There are multi-day passes available for those who plan on using the metro frequently during your stay.
+
+        </div>
+        </div>
+    </div>
+
+    <div class="item">
+        <span class="penang-text">Ride a bus  </span>
+        <div class="penang-item">
+          <div class="penang-desc">There are nearly 1,500 buses circulating around the city with air conditioned waiting sheds dotting key districts in Dubai, which makes this transportation option a great budget option.
+        </div>
+        </div>
+    </div>
+
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; Back to Top </div>
+
+  </article>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="Dubai101PageID" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Dubai 101
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

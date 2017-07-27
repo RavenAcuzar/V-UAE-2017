@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="AR">
+  <header class="mainScr high">
+    <h1>
+      حصرية<br/>
+      #VCON17 صور خلفيات
+    </h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="headline">خذ معك سحر الفي-كون إنما تذهب مع صور خلفيات المجانية هذه القابلة للتنزيل لأجهزتكم الجوالة!</p>
+    <div class="menus">
+      <a href="assets/img/wallpaper-mobile.jpg" download><i class="ion-android-arrow-down"></i> التنزيل للأجهزة الجوالة</a>
+      <a href="assets/img/wallpaper-tablet.jpg" download><i class="ion-android-arrow-down"></i> التنزيل للأجهزة اللوحية
+</a>
+    </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="MarkPageAR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        ضع علامتك للفي-كون
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="FaqsPageAR" ion-button icon-right>
+        الأسئلة الشائعة
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

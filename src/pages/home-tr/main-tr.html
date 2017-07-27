@@ -1,0 +1,60 @@
+<ion-view id="main" class="en" view-title="" hide-nav-bar="true">
+  <ion-header-bar align-title="left">
+      <div class="buttons menuTop">
+        <button class="button ion-navicon" menu-toggle="left"></button>
+      </div>
+    </ion-header-bar>
+  <ion-content  has-bouncing="false" padding="false" id="top" on-scroll="getScrollPosition()">
+    
+    <header class="mainScr">
+      <div class="msg">
+        <h4>MAY 3-7, 2017</h4>
+        <p>SUBTERRANEAN PENANG INTERNATIONAL CONVENTION & EXHIBITION CENTRE, PENANG, MALAYSIA</p>
+      </div>
+    </header>
+
+    <!-- VCON Categories -->
+    <div class="categories nopad">
+      <div class="row nopad">
+        <a href="#/app/allabout-tr" class="col col-50 nopad">
+          <div class="title"><span class="tinytxt">V-UAE 2017</span> Hakkında Her Şey<span class="tinytxt"></span></div>
+        </a>
+        <a href="#/app/mark-tr" class="col col-50 nopad">
+          <div class="title"><span class="tinytxt">V-Con İzinizi </span> Oluşturun</div>
+        </a>
+      </div>
+      <div class="row nopad">
+        <a href="#/app/downloads-tr" class="col col-50 nopad">
+          <div class="title" style="font-size: 16px;">V-UAE 2017 Duvar Kağıtları</div>
+        </a>
+        <a href="#/app/penang101-tr" class="col col-50 nopad">
+          <div class="title">DUBAI<span class="tinytxt">101</span></div>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="newscat">
+      <h6>Haberler ve Güncellemeler</h6>
+      <div class="row" >
+        <a href="#/app/news?id={{mnews.Title}}" nav-direction="forward"  class="col item"
+     ng-repeat="mnews in myNews | filter: '2017' | orderBy: 'mnews.CreatedOn'">
+          <h4>{{mnews.localTitle}}</h4>
+          <h3>in (category) </h3>
+          <img src="{{mnews.ImageLink}}"  width="100%" height="auto" class="center ">
+          
+          <div class="row">
+            <span class="col col-50 nopad date">{{mnews.CreatedOnDate}}</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="backtotop" ng-controller="PlaylistsCtrl"  ng-click="scrollTop()">
+      <i class="ion-ios-arrow-up"></i> &nbsp; &nbsp;
+      Back to Top
+    </div>
+
+  </ion-content>
+</ion-view>

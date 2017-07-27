@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <header class="mainScr high">
+    <div class="about-title">
+      <h1>À propos du</h1>
+      <h1>V-Malaysia 2017</h1>
+    </div>
+  </header>
+  <article class="cusContent" id="aboutCnt">
+    <p class="headline">Vous avez donc acheté vos billets #VCON17. Et maintenant?</p>
+    <p>Après un très réussi V-Malaysia 2017, The V organise encore un autre événement record dans l'histoire du marketing de réseau. Du 8 au 12 septembre 2017 dans la majestueuse ville de Dubaï, le V-UAE 2017 rassemblera des milliers de networkers de partout dans le monde qui sont imparables dans leur quête du succès. Avec le changement d’emplacement, le deuxième V-Con de cette année est plus grand et fera de nouveau des vagues à travers le monde. Pendant cinq jours consécutifs, il y aura plusieurs discours et présentations de nos V Founders et V Partners, qui sont des orateurs de classe mondiale et peuvent vous diriger vers les réponses que vous recherchez sur le succès et l’entreprise. Il y aura également une exposition des marchandises exclusives, des produits et des promos spéciales. Le V-UAE 2017 qui se tiendra au Hamdan Sports Complex, est sûr de faire une marque inoubliable dans la vie de beaucoup.</p>
+  </article>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="HomePageFR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        <!-- Home -->
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="NewslandingPageFR" ion-button icon-right>
+        Nouvelles et mises à jour
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

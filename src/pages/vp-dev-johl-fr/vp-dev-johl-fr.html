@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-dj.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner </h2>
+      <h1>Dev Johl</h1>
+    </div>
+    <p class = "intro">
+      En passant ses premières années de travail en tant que directeur F & B dans un hôtel 5 étoiles à Singapour, le V Partner Dev a véritablement parcouru un long chemin depuis ce qu'il était autrefois. Il a été inscrit par le VP Pathman Senathirajah en 2000 quand il a été présenté par le AVP Girinder Sharma
+    </p>
+    <p>
+      Lorsqu'on l’interroge sur ce qu'il considère être le moment le plus difficile qu’il a traversé avant, le VP Dev dit que la simple subsistance du réseau lui-même est la tâche la plus fatiguante. En outre, maintenir l'élan dans ses équipes - surtout pendant les périodes de sommeil - est aussi un obstacle difficile.
+      <br/><br/>
+      Pour le VP Dev, le travail d'équipe joue un rôle très important dans une organisation. Le succès dans cette entreprise n'est pas possible sans être en équipe, c'est pourquoi il est reconnaissant envers le VP Sathi Senathirajah, le AVP Rosli Ismail, le VC Devaraj Jeevaratnam, et le reste des membres du CORE InService entre autres, pour avoir été ses piliers de force.
+      <br/><br/>
+      Le VP Dev considère son annonce en tant que V Partner comme l'un de ses plus grands moments jusqu'ici, seulement ombragé par la naissance de ses deux beaux fils - Karan et Jai. Une autre réalisation dont le VP Dev est fier, c'est le fait d’être en mesure de gérer le VCON grâce au soutien du InService Brotherhood.
+      <br/><br/>
+      Le VP Dev compte ses merveilleux parents et ses deux frères, Roop et Venu ainsi que sa femme aimante - Malti Johl et ses enfants super cool Karan et Jai comme ses plus grandes bénédictions.
+      <br/><br/>
+      Pendant le peu de temps que le VP Dev ne voyage pas pour propager la réussite de QNET, il aime passer du temps avec ses garçons et se détendre avec ses proches.
+      <br/><br/>
+      Le VP Dev s'inspire des gens comme Mahatma Gandhi, Nelson Mandela et considère l'humilité de Sachin Tendulkar comme exemplaire et admirable. Il admire également le V Founder Dato' Sri Vijay Eswaran comme son mentor.
+      <br/><br/>
+      Dans les prochaines années, le VP Dev aspire à devenir un meilleur networker, à rendre son équipe meilleure et à continuer à toucher un milliard de cœurs grâce à QNET et The V.
+
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; Back to Top
+    </div>
+
+  </article>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageFR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Les orateurs
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPdwPageFR" ion-button icon-right>
+        Dev Wadhwani
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

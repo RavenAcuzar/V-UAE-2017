@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1>FAQs</h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="question">Что захватить с собой?</p>
+    <p class="answer">Едешь на V-Con? Список из 5 важных вещей, которые нужно иметь при себе:
+      <br><br/>
+      1. Идя на регистрацию, нужно иметь при себе одно (1) удостоверение личности и копию письма с подтверждением, которое было отправлено на электронную почту после покупки билета.
+      <br><br/>
+      2. Достаточная сумма денег на 5 дней, предназначенных для покупки еды, напитков, на транспортные расходы, на приобретение товаров V-Кон, сувениров и т.д. Обращаем твоё внимание, что наличные деньги должны быть либо в долларах США, либо в арабских дирхамах.
+      <br><br/>
+      3. Сменная одежда на 5 дней. Желательно иметь при себе запасную рубашку/футболку или полотенце, беря во внимание жаркую погоду в Дубае в сентябре месяце.
+      <br><br/>
+      4. Иметь при себе мобильный телефон для связи с командой, родными и близкими. Не забудь захватить портативное зарядное устройство, которое позволит тебе заряжать телефон и иные мобильные устройства когда это необходимо.
+      <br><br/>
+      5. Обязательно захвати с собой фотоаппарат, который позволит тебе запечатлеть наиболее памятные моменты V-Con, которые ты потом покажешь своим близким, а также проспектам по возвращению домой.
+      <br/><br/>
+      6. Чтобы лучше всё запомнить и не забыть важные уроки V-Con, захвати с собой блокнот и ручку!
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; ВЕРНУТЬСЯ НАВЕРХ
+    </div>
+  </article>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="DownloadsPageRU" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Обои #VCON17
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="ContactPageRU" ion-button icon-right>
+        Контакты
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

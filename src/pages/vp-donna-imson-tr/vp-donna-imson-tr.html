@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-dil.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner </h2>
+      <h1>Donna Marie Imson-Lecaroz</h1>
+    </div>
+    <p class = "intro">V Partner Donna Marie Imson-Lecaroz doğal olarak çarpıcı güzelliği ve sessiz zarafeti yüzünden değil, fakat yaşama sevinci ile kalabalıkta öne çıkan insanlardan biridir, "VP Donna hayatı sever ve aktardığı birçok role göre: network marketing, girişimcilik ve kurumsal yönetim, etkili bir konuşmacı, cesur yolcu, yaşam öğrencisi, sevecen anne ve en önemlisi sadık bir eş olma gibi alanlarda sosyal açıdan bilinçli bir güç merkezi olarak tasvir edilebilir.
+    </p>
+    <p>
+      1998 yılında V kurulduğunda, öncü partnerlerden biriydi. O zamandan beri şirkette evrimleşti ve iki yıl önce emekli olana kadar QI grubunda kurucu yönetmen olarak çeşitli roller üstlendi. Network marketingdeki inanılmaz başarısıyla, VP Donna'nın V'nin ana direkleri arasında yer aldığı açıkça görülmektedir.
+      <br/><br/>
+      VP Donna, 24 yıllık iş hayatında yaşadığı başarısızlıkları, dersleri, mücadeleleri ve başarılarını paylaşarak dünyanın dört bir yanındaki izleyicilerinden her zaman heyecan verici bir geri dönüş almıştır. Özgünlük, güçlenme ve canlılık tablosu çizen VP Donna, dünyadaki her geçen gün büyüyen V Aile'sindeki binlerce erkek ve kadının ilham kaynağıdır.
+      <br/><br/>
+      Dikkat çekme, fedakârlık ve hizmetkâr liderliğinin V'nin vizyonunun gerçekleşmesine yönlendireceğine güçlü bir şekilde inanmaktadır. Bilgeliği, rehberliği ve desteği, diğer V Partnerlerinin münferit nitelikleri ile birlikte, V'nin misyonunu, onu arayanların değişim, büyüme ve gelişme fırsatları sunma misyonunu sürdürmektedir.
+    </p>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+      BAŞA DÖN
+    </div>
+  </article>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Konuşmacılar
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPrsPageTR" ion-button icon-right>
+        Ranjit Singh
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

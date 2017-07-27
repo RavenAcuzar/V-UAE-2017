@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1>Sıkça Sorulan Sorular</h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="question">Ne getirmeli?</p>
+    <p class="answer">V-Con'a mı gideceksiniz? Aşağıda, getirmeniz gereken 5 önemli şey var:
+      <br/><br/>
+      1. Kayıt sırasında, biletinizi aldıktan hemen sonra size e-posta yoluyla gönderilecek onay mektubunun bir (1) kopyasını ve geçerli bir kimlik getirin.
+      <br/><br/>
+      2. Yiyecek, içecek, ulaşım, V-Con ürünleri, hediyelik eşyalar vb. için harcayabileceğiniz 5 gün sürecek kadar harçlık para getirin. Paranızın USD veya AED olduğundan emin olun.
+      <br/><br/>
+      3. 5 gün için uygun kıyafetler. Ekstra gömlek veya havlu getirdiğinizden emin olun çünkü bu saatlerde Dubai'de sıcak olacak.
+      <br/><br/>
+      4. Ekibiniz ve sevdiklerinizle irtibatta olabilmeniz için sizinle birlikte bir cep telefonu da getirin. Telefonunuzu ve diğer cihazlarınızı istediğiniz zaman şarj edebildiğinizden emin olmak için bir powerbank da getirmeyi unutmayın.
+      <br/><br/>
+      5. Değerli V-Con anılarınızın devam etmesi için yanınıza bir fotoğraf makinesi alın ve eve döndüğünüzde ailenize ve gelecekteki kayıt adaylarınıza gösterebileceğiniz bir şeyleri bulun.
+      <br/><br/>
+      6. Sahnedeki her değerli oturumun tadını çıkarmak istediğinizden, ciddi not almanız için kendi kaleminizi ve defterinizi getirdiğinizden emin olun!
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; BAŞA DÖN
+    </div>
+  </article>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="DownloadsPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        <span style="font-size: 11px;">#VUAE17 Duvar Kağıtları</span>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="ContactPageTR" ion-button icon-right>
+        <span style="font-size: 11px;">Bizimle İletişime Geçin</span>
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,23 @@
+<ion-content no-bounce ion-fixed>
+
+  <article class="selectLang">
+    <ion-list class="selectLang" radio-group>
+      <a ion-item [navPush]="SplashnextPage" (click)="setLanguage('en')">
+        <ion-label>English</ion-label>
+      </a>
+      <a ion-item [navPush]="SplashnextPageAR" (click)="setLanguage('ar')">
+        <ion-label dir="RTL">العربية</ion-label>
+      </a>
+      <a ion-item [navPush]="SplashnextPageFR" (click)="setLanguage('fr')">
+        <ion-label>Français</ion-label>
+      </a>
+      <a ion-item [navPush]="SplashnextPageTR" (click)="setLanguage('tr')">
+        <ion-label>Türk</ion-label>
+      </a>
+      <a ion-item [navPush]="SplashnextPageRU" (click)="setLanguage('ru')">
+        <ion-label>Русский</ion-label>
+      </a>
+    </ion-list>
+
+  </article>
+</ion-content>

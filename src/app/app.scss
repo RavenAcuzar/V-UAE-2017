@@ -1,0 +1,1087 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+$positive: #2a3a80 !default;
+$calm: #519ec8 !default;
+$dark-positive: #445569;
+$extra-dark: #2e3f53;
+$light: #ffffff;
+
+
+
+$BgB: #000;
+body {
+  //General Resets
+  font-family: -apple-system, "Lato" , "Segoe WP", sans-serif !important;
+  color: $light;
+}
+
+.content {
+}
+
+.content {
+  background: none;
+}
+
+.header:after {
+  background: none !important;
+}
+
+ion-navbar ion-title.title {
+  display: none;
+}
+
+.tr h1, .tr p, .tr h2, .tr div, .tr span {font-family: "LatoLatin" !important; font-weight: 900; }
+
+.has-header {
+  top: 0!important;
+}
+.toolbar-background {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 center !important;
+  border: 0 none !important;
+  color: #fff;
+  position: fixed;
+}
+.header .toolbar .bar-buttons {
+  background: none;
+  border: 0 none;
+  color: #fff;
+  font-size: 37px;
+  margin: 10px 0 0 11px;
+  padding: 0;
+  display: block;
+}
+
+.header .toolbar .bar-buttons .icon {
+    font-size: 3rem;
+    padding: 0 !important;
+}
+
+.menu .has-header {
+  top: 210px;
+}
+
+ion-menu .content {
+  background: #357492;
+}
+
+// menu
+
+.menu-inner .list,
+.item {
+  font-size: 1.25rem;
+  font-family: "LatoRegular";
+  text-transform: uppercase;
+  min-height: 3.4rem;
+}
+
+.menu-inner .list > .item-block:first-child,
+.menu-inner .list > .item-block:last-child {
+  border:none;
+}
+
+.item[detail-push] .item-inner, button.item:not([detail-none]) .item-inner, a.item:not([detail-none]) .item-inner {
+  background-image: none;
+}
+
+
+.menu-inner .item  {
+  border: none;
+  color: #fff;
+}
+
+.menu-inner .item .item-inner {
+  border: none;
+}
+
+.menu .bar-stable.bar.bar-header {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 270px;
+}
+
+
+.menu .menu-logo {
+  margin: auto;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.menu .menu-logo img {
+  width: 70%;
+}
+
+.menu-inner .item {
+  border-color: #000;
+  background: 0;
+  border: none;
+}
+
+.menu-inner .item-complex .item-content, .menu-inner .item-radio .item-content {
+  background: 0;
+  color: #fff !important;
+  text-overflow: initial;
+  white-space: initial;
+  padding: 8px 16px 8px 16px;
+  text-align: center;
+}
+.menu-inner .primary a {
+  font-size: 1em;
+}
+.menu-inner .primary .item {
+  /*border-bottom: 1px solid #0c1c64;*/
+}
+.menu-inner .primary .item::before {
+  content: "";
+  display: block;
+  height: 1px;
+  position: relative;
+}
+.menu-inner .primary .item:last-child {
+  /*border-top: 1px solid #0c1c64;*/
+  border-bottom: none;
+  text-align: center;
+}
+.menu .follow {
+  margin: 30px 0 0;
+}
+.menu-inner .follow a i {
+  font-size: 27px;
+}
+.menu-inner .follow a {
+  margin: 0 5px;
+  color: #fff;
+}
+.menu-inner .follow>p {
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+
+.menu-inner .merch-banner {
+  width: 200px;
+  height: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  background:  url("../assets/img/merchbanner.png") repeat scroll center center / cover;
+  margin-bottom: 30px;
+}
+
+ion-header {
+  background: none !important;
+}
+
+ion-header::before, ion-header::after {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+
+page-newslanding.ion-page {
+}
+
+.ion-page .content {
+
+}
+
+.menu-inner .scroll-content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ion-page .content .scroll-content {
+  margin-top: 0 !important;
+}
+
+
+@font-face {
+  font-family: 'LatoBold';
+  src: url('../assets/fonts/Lato-Bol-webfont.eot');
+  src: url('../assets/fonts/Lato-Bol-webfont.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/Lato-Bol-webfont.woff') format('woff'), url('../assets/fonts/Lato-Bol-webfont.ttf') format('truetype'), url('../assets/fonts/Lato-Bol-webfont.svg#LatoBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LatoRegular';
+  src: url('../assets/fonts/Lato-Reg-webfont.eot');
+  src: url('../assets/fonts/Lato-Reg-webfont.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/Lato-Reg-webfont.woff') format('woff'), url('../assets/fonts/Lato-Reg-webfont.ttf') format('truetype'), url('../assets/fonts/Lato-Reg-webfont.svg#LatoRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LatoLight';
+  src: url('../assets/fonts/Lato-Lig-webfont.eot');
+  src: url('../assets/fonts/Lato-Lig-webfont.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/Lato-Lig-webfont.woff') format('woff'), url('../assets/fonts/Lato-Lig-webfont.ttf') format('truetype'), url('../assets/fonts/Lato-Lig-webfont.svg#LatoLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LatoBlack';
+  src: url('../assets/fonts/Lato-Bla-webfont.eot');
+  src: url('../assets/fonts/Lato-Bla-webfont.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/Lato-Bla-webfont.woff') format('woff'), url('../assets/fonts/Lato-Bla-webfont.ttf') format('truetype'), url('../assets/fonts/Lato-Bla-webfont.svg#LatoBlack') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.nopad {
+  padding: 0 !important;
+}
+.txt16 {
+  font-size: 16px !important
+}
+.txt17 {
+  font-size: 17px !important
+}
+.txt20 {
+  font-size: 20px !important
+}
+.txt48 {
+  font-size: 48px !important
+}
+
+.FR .txt48, .RU .txt48 {
+  font-size: 42px !important
+}
+
+.txt50 {
+  font-size: 50px !important
+}
+body {
+  font-family: 'LatoRegular', Arial, sans-serif;
+}
+article.cusContent {
+  padding: 20px;
+  text-align: center;
+}
+.has-footer {
+  bottom: 55px;
+}
+article.cusContent p {
+  font-size: 1.2em;
+  font-family: 'LatoRegular', Arial, sans-serif;
+  line-height: 1.2em;
+  color: #4E4E4E;
+  margin: 0 0 30px 0;
+  font-weight: normal;
+  text-align: left;
+}
+/*for arabic*/
+.ar article.cusContent p {
+  text-align: right !important;
+}
+
+article.cusContent p.headline { text-align: center; }
+
+.cusContent .menus>a {
+  border-width: 1px;
+  border-style: solid;
+  clear: both;
+  display: block;
+  margin: 0 auto 20px;
+  padding: 16px 0;
+  text-decoration: none;
+}
+ion-footer-bar {
+  background: #00a7be none repeat scroll 0 0 !important;
+  border: medium none !important;
+  font-size: 12px;
+  height: 55px !important;
+}
+ion-footer-bar a {
+  color: #fff !important;
+  display: block;
+  position: absolute;
+  right: 16px;
+  text-align: right;
+  text-decoration: none;
+  top: 16px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+ion-footer-bar a.footer-back{
+  position: static;
+  padding-top: 14px;
+}
+ion-footer-bar a i {
+  float: right;
+  font-size: 24px;
+  margin: 0 0 0 20px;
+  position: relative;
+  top: -3px;
+}
+ion-footer-bar a.back i {
+  float: left;
+  font-size: 24px;
+  margin: 0 20px 0 0;
+  position: relative;
+  top: -3px;
+}
+
+.ar p, .ar button, .ar a, .ar i, .ar div.name .ar h1, .ar h2, .ar h3,
+.ar .penang-item
+{ direction: rtl; }
+
+page-dubai101.ar .penang-desc { text-align: right !important; }
+
+/*.backtotop {
+  text-decoration: none;
+  float: right;
+  background: grey;
+  color: #f38c6d;
+  background: #f38c6d;
+  color: white !important;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+.backtotop a {
+  color: #f38c6d;
+  text-decoration: none;
+}*/
+
+.backtotop {
+  background-color: #f5f5f5;
+  width: 90%;
+  margin: 20px;
+  text-align: center;
+  color: #00A7BE;
+  padding:10px;
+  font-size: 100%;
+}
+
+.backtotop a {
+  text-transform: capitalize;
+
+}
+
+/* Buttons */
+
+.btnPosBttm {
+  bottom: 0;
+  position: absolute;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+.mainScr .btnPosBttm {
+  bottom: 16px;
+  background: #00A7BE;
+  transition: all 0.35s ease-in-out 0s;
+  -moz-transition: all 0.35s ease-in-out 0s;
+  -ms-transition: all 0.35s ease-in-out 0s;
+  -o-transition: all 0.35s ease-in-out 0s;
+  -webkit-transition: all 0.35s ease-in-out 0s;
+}
+.mainScr .btnPosBttm:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+.buyticket {
+  display: none;
+  color: #fff;
+  border: 0 none;
+  border-radius: 0;
+  display: block;
+  font-size: 1em;
+  line-height: 46px;
+  padding: 0;
+  text-transform: uppercase;
+  width: 90%;
+  margin: 0 auto;
+}
+.button.buyticket.orange {
+  display: none;
+  background: #f5976f none repeat scroll 0 0;
+  transition: all 0.35s ease-in-out 0s;
+  -moz-transition: all 0.35s ease-in-out 0s;
+  -ms-transition: all 0.35s ease-in-out 0s;
+  -o-transition: all 0.35s ease-in-out 0s;
+  -webkit-transition: all 0.35s ease-in-out 0s;
+}
+.button.buyticket.orange:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+
+/* Main */
+
+header.mainScr {
+  background: #3C4C88;
+  min-height: 433px;
+  padding: 0 16px;
+  position: relative;
+  margin: -20px 0 0 0;
+}
+header.mainScr.mid {
+  min-height: 223px;
+  position: relative;
+}
+header.mainScr.mid h1 {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  font-family: 'LatoLight', Arial, sans-serif;
+  color: #fff;
+}
+.mainScr .msg {
+  font-family: 'LatoBlack', Arial, sans-serif;
+  color: #fff;
+  position: absolute;
+  top: 75px;
+  width: 165px;
+}
+.mainScr .msg h4 {
+  color: #fff;
+}
+.mainScr .msg p { font-size: 90%; }
+.ar .mainScr .msg p { text-align: left; }
+
+
+/* home */
+
+#main header.mainScr {
+  background-image: url("../assets/img/home-background.jpg");
+  background-size: cover;
+}
+
+/* What is V-Con?*/
+
+#whatis header.mainScr {
+  background-image: url("../assets/img/whatisvcon-header.jpg");
+  background-size: cover;
+}
+#whatis article.cusContent {
+  padding: 20px 24px;
+}
+#whatis p.headline {
+  color: #497bbc;
+  font-size: 1.2em;
+  margin: 0 0 30px;
+}
+p.teal14 {
+  color: #00A7BE !important;
+  font-size: 1em !important;
+  line-height: 1em !important;
+}
+
+#whatis header.mainScr.mid h1 { bottom: 30%; }
+
+/* All About V-Malaysia */
+
+page-allabout .content {
+  background: #294B75;
+  color: #fff;
+}
+page-allabout header.mainScr {
+  background-image: url("../assets/img/aboutmalaysia-bg.jpg");
+  background-size: cover;
+  height: 645px;
+}
+page-allabout .about-title {
+  position: absolute;
+  top: 470px;
+  background-color: #00A7BE;
+  left: 0;
+  padding: 20px;
+  width: 80vw;
+}
+page-allabout .about-title h1:first-child, page-allabout .about-title h1:nth-child(2) {
+  font-weight: 300;
+  font-family: "LatoRegular";
+  color: #fff;
+  margin: 0px;
+}
+page-allabout .about-title h1:first-child {
+  font-size: 23px;
+}
+page-allabout .about-title h1:nth-child(2) {
+  font-size: 36px;
+}
+page-allabout .aboutBtn {
+  position: absolute;
+  bottom: 0;
+}
+page-allabout article.cusContent p {
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+page-allabout .headline {
+  font-size: 12px;
+}
+
+/* Why Do it Now? */
+
+#why h1 {
+  color: #2a3a80;
+  font-size: 34px;
+  font-family: "LatoLight", Arial, sans-serif;
+}
+#why .headline {
+  color: #2a3a80;
+  font-size: 20px;
+  margin: 30px auto 20px;
+  text-align: center !important;
+}
+#why article.cusContent p {
+  text-align: left;
+}
+#why .got {
+  font-size: 14px;
+  color: #497BBC;
+  line-height: 17px;
+  text-align: center !important;
+  margin: 20px auto 20px;
+}
+#why .videoCont {
+  height: 200px;
+  margin: 0 0 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+#why  .mainScr { z-index: -1; height: 233px;}
+
+#why .header-logo {
+  margin-top: -50%;
+  z-index: 99;
+}
+
+#why .header-logo img { width: 80%; }
+
+/* Badge Generator */
+
+page-mark {
+  background: #3560A4;
+  background-image: url("../assets/img/bg-mark.jpg");
+  background-size: cover;
+}
+page-mark header.mainScr h1 {
+  color: #fff;
+  font-family: "LatoLight", Arial, sans-serif;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  font-size: 20px;
+  bottom: 20%;
+}
+page-mark header.mainScr {
+  background: none;
+  height: 194px;
+}
+page-mark .cusContent .title {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+page-mark article.cusContent p {
+  color: #fff;
+}
+page-mark article.cusContent .step1 p:nth-child(3) {
+  margin: 0 auto 80px;
+  text-align: left;
+  width: 51%;
+}
+
+
+
+/* V-Con Wallpapers */
+
+page-download header.mainScr h1 {
+  color: #fff;
+  font-family: "LatoLight", Arial, sans-serif;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  font-size: 20px;
+}
+page-download header.mainScr {
+  background-image: url("../assets/img/download-wallpapers-header-bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 355px;
+}
+
+page-download article.cusContent p {
+  color: #B24298;
+  font-size: 14px;
+  line-height: 17px;
+  font-family: "LatoRegular", Arial, sans-serif !important;
+  margin: 0 0 30px 0;
+}
+page-download .menus a {
+  color: #B24298;
+  border-color: #B24298;
+  width: 80%;
+}
+page-download .menus a i {
+  display: inline-block;
+  font-size: 24px;
+  margin: 0 6px 0 0;
+  position: relative;
+  top: 5px;
+}
+
+/* The Speakers */
+
+page-thespeakers { font-family: 'LatoRegular' !important; }
+
+page-thespeakers header.mainScr {
+  background-image: url("../assets/img/speakers-header.jpg");
+}
+
+page-vp header.mainScr.mid {
+  background-image: url("../assets/img/speakers-header.jpg");
+  background-position: center center;
+  background-size: cover;
+  z-index: -1;
+  height:223px;
+}
+
+page-vp .speaker-photo { margin-top: -200px; }
+page-vp .speaker-photo img { width: 80%; }
+
+
+page-thespeakers .speaker-name {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+page-vp .speaker-name h1 {
+  transform: inherit;
+  margin-top: 0;
+  position: initial;
+  color:#00A7BE;
+  font-family: 'LatoRegular';
+  font-size: 36px;
+}
+
+page-vp .speaker-name h2 {
+  font-size: 18px;
+  margin-bottom: 0px;
+  color: #00A7BE;
+  font-family: 'LatoRegular';
+}
+
+page-thespeakers p.intro {
+  margin-top: 10px;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+page-thespeakers .name { font-size: 14px !important; }
+
+page-thespeakers div.light-blue { opacity: .5; font-size: 12px !important;}
+
+/* page-thespeakers img {
+  border-radius: 50%;
+} */
+
+/* News and Updates */
+
+page-newslanding article.cusContent {
+  text-align: left !important;
+}
+.item-thumbnail-left, .item-thumbnail-left .item-content {
+  border: medium none;
+  padding-left: 136px;
+  padding-top: 18px;
+  color: #00a7be;
+}
+page-newslanding a.item h2 {
+  color: #00a7be;
+}
+.item-thumbnail-left>img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content>img:first-child, .item-thumbnail-left .item-content .item-image {
+  width: 110px;
+  height: 80px;
+  max-width: 110px;
+}
+page-newslanding a.item.loadmore {
+  background: #f0f0f0 none repeat scroll 0 0;
+  border: medium none;
+  color: #535353;
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin: 30px 0 0;
+  padding: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+page-newslanding header.mainScr.mid h1 { bottom: 10%; }
+
+
+
+/* Merchandise */
+
+page-merchandise header.mainScr {
+  background-image: url("../assets/img/merchandise_header.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+page-merchandise .headline {
+  color: #00A7BE;
+  margin: 30px 0 40px 0;
+}
+.merchCont {
+  text-align: left;
+}
+.merchCont .item {
+  border: 0 none;
+  margin: 0 0 20px 0;
+}
+.merchCont .item .merch-title {
+  color: #00a7be !important;
+  padding-left: 0;
+  margin: 0 0 10px 0;
+}
+.merchCont .item .merch-price {
+  color: #5a5a5a !important;
+  padding-right: 0;
+  text-align: left;
+}
+
+/* Penang 101 */
+
+page-dubai101 .content { background: #fff; }
+page-dubai101 article.cusContent { height: 100%; }
+
+page-dubai101 header.mainScr {
+  background-image: url("../assets/img/penang101_header.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+page-dubai101 .menus a {
+  color: #00A7BE;
+  border-color: #00A7BE;
+  width: 80%;
+}
+page-dubai101 article.cusContent p.headline {
+  color: #00a7be;
+  margin: 30px 0 50px;
+  font-size: 1em;
+}
+
+page-dubai101 .item {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  margin-top: 10px;
+  margin-top: 10px;
+  white-space: inherit;
+  margin-bottom: 30px;
+}
+page-dubai101 .item img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+page-dubai101 .item .penang-item{
+  display: block;
+  margin-top: 10px;
+}
+
+page-dubai101 .penang-text, page-dubai101 .penang-desc, { text-align: left; }
+
+page-dubai101 .penang-text {
+    color: #00a7be;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+page-dubai101 .penang-desc { font-size: 1.2em; text-align: left !important; }
+
+page-dubai101 .source { font-size: 0.8em; }
+
+
+/* Buy Ticket */
+
+#ticket .scroll-content {
+  background-attachment: fixed;
+  background-image: url("../assets/img/aboutmalaysia-bg.jpg") !important ;
+  background-position: center center;
+  background-size: cover;
+}
+#ticket header.mainScr {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  min-height: 389px;
+}
+#ticket .hasfooter {background-image: url("../assets/img/aboutmalaysia-bg.jpg");}
+
+#ticket .button.buyticket {
+  background: #00a7be none repeat scroll 0 0;
+  font-size: 20px;
+  font-family: "LatoLight", Arial, sans-serif;
+  padding: 10px 0;
+  margin: 0 auto 30px;
+  width: 60%;
+  transition: all 0.35s ease-in-out 0s;
+  -moz-transition: all 0.35s ease-in-out 0s;
+  -ms-transition: all 0.35s ease-in-out 0s;
+  -o-transition: all 0.35s ease-in-out 0s;
+  -webkit-transition: all 0.35s ease-in-out 0s;
+}
+#ticket .button.buyticket:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+#ticket article.cusContent h3 {
+  color: #fff !important;
+  font-size: 19px;
+  font-family: "LatoBlack", Arial, sans-serif;
+}
+#ticket article.cusContent p {
+  color: #fff !important;
+  font-family: "LatoBlack", Arial, sans-serif;
+  font-size: 1em;
+  line-height: 16px;
+  margin: 0 auto;
+  width: 60%;
+}
+
+/* FAQ */
+
+page-faqs header.mainScr {
+  background-image: url("../assets/img/faqs-header.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+page-faqs article.cusContent p {
+  text-align: left;
+}
+page-faqs article.cusContent p.question {
+  font-family: "LatoBlack", Arial, sans-serif;
+}
+page-faqs article.cusContent p.answer {
+  margin: 0 0 30px 0;
+}
+page-faqs .buyticket {
+  margin: -10px auto 30px;
+  width: 100%;
+}
+
+page-faqs .cusContent.arab-rtl p { text-align: right; }
+
+/* Contact */
+
+page-contact {
+  background-image: url("../assets/img/bg-contact.jpg");
+  background-size: cover;
+}
+
+page-contact header.mainScr.mid {
+  min-height: 90px;
+  background: none;
+}
+page-contact h2 {
+  color: #fff;
+  font-family: "LatoLight", Arial, sans-serif;
+  font-size: 28px;
+  margin: 0 0 20px;
+}
+page-contact article.cusContent p {
+  color: #fff;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+page-contact article.cusContent p.med {
+  font-size: 14px;
+  font-family: "LatoBold", Arial, sans-serif;
+  line-height: 17px;
+}
+page-contact article.cusContent .follow a {
+  color: #fff;
+  font-size: 36px;
+  margin: 0 15px;
+}
+page-contact article.cusContent p:nth-child(6) {
+  font-size: 17px !important;
+  line-height: 21px;
+  font-family: "LatoLight", Arial, sans-serif;
+}
+
+page-contact.ar article.cusContent p { text-align: center !important; }
+/* Splash */
+
+#splash {
+  background-color: #2A3A80;
+}
+article.page-change, article.welcomeCont {
+  height: 100%;
+  position: relative;
+}
+
+.page-change input[type="radio"] {
+  display: none;
+}
+
+#splash .list {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  color: #fff;
+  font-family: "LatoLight", Arial, sans-serif;
+  font-size: 16px;
+  left: 50%;
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+#splash .item-radio {
+  border: 0 none;
+  text-align: center;
+  color: #fff;
+  background: none;
+  margin: 0 0 20px 0;
+  font-size: 1em;
+}
+#splash .item-radio .radio-icon {
+  display: none;
+}
+#splash .item-complex .item-content, #splash .item-radio .item-content {
+  padding: 10px 20px;
+  background: none;
+}
+#splash .item-radio input:checked+.radio-content .item-content {
+  background: #00A7BE none repeat scroll 0 0;
+  color: #fff;
+}
+#splash ion-footer-bar {
+  background: none !important;
+}
+
+ion-footer {
+  background: #F59656;
+}
+
+ion-footer .bar-buttons[start] {
+    order: 1;
+}
+
+
+ion-footer-bar .pagination {
+  margin: 0 auto;
+  position: relative;
+  top: 12px;
+}
+ion-footer-bar .pagination i {
+  margin: 0 5px;
+}
+ion-footer-bar a.back {
+  left: 16px !important;
+  text-align: left;
+}
+
+#splash .welcomeCont h1 {
+  color: #fff;
+  font-family: "LatoLight", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  top: 60px;
+  width: 70%;
+}
+
+page-splashnext .welcome {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  color: #fff;
+  font-family: "LatoLight", Arial, sans-serif;
+  font-size: 1em;
+  left: 50%;
+  margin: 30px auto 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+#splash .item-radio:nth-child(2) input {
+  display: none;
+  left: 0 !important;
+}
+.buyticket
+{ font-size: 1.2em; }
+
+/* Font size adjustment for larger screens */
+
+// background color adjustment for ios screens
+page-download article.cusContent,
+page-faqs article.cusContent,
+page-thespeakers article.cusContent,
+page-sched article.cusContent,
+page-dubai101 article.cusContent,
+page-whatto article.cusContent,
+page-whereto article.cusContent,
+page-howto article.cusContent,
+page-merchandise article.cusContent,
+page-vp article.cusContent
+
+ { background-color: #fff; }
+
+ // footer link color
+.bar-button {
+    color: #fff;
+    font-family: "LatoRegular", Arial, sans-serif !important;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+// Arabic
+
+.AR { text-align: right !important; }
+
+.AR .cusContent p, .AR .penang-desc {
+  direction: rtl;
+  text-align: right;
+}
+
+.AR .penang-desc {
+  text-align: right !important;
+}
+
+.content-ios:not([no-bounce])>.scroll-content::before { bottom: 0; }

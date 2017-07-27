@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1>Questions Fréquemment Posées</h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="question">Que faut-il apporter ? </p>
+    <p class="answer">
+      Vous allez au V-Con? Voici les 5 choses importantes que vous devez apporter:
+      <br><br/>
+      1. Pendant l'inscription, apportez une (1) pièce d'identité valide et une copie de la lettre de confirmation qui vous sera envoyée par e-mail juste après l'achat de votre billet.
+      <br><br/>
+      2. Suffisamment d’argent de poche pour 5 jours, que vous pourrez dépenser pour la nourriture, la boisson, le transport, les marchandises du V-Con, les souvenirs, etc. Assurez-vous d'avoir votre argent en USD ou en AED.
+      <br><br/>
+      3. De bons vêtements pour 5 jours. Assurez-vous d'apporter des chemises ou serviettes supplémentaires car il fait très chaud à Dubaï à cette époque.
+      <br><br/>4. Apportez également un téléphone portable avec vous pour vous assurer de pouvoir rester en contact avec votre équipe et vos proches. N'oubliez pas d'apporter également un powerbank pour vous assurer de pouvoir recharger votre téléphone et autres gadgets à tout moment.
+      <br><br/>5. Prenez un appareil photo avec vous pour garder longtemps vos précieux souvenirs du V-Con et ayez quelque chose que vous pourrez montrer à votre famille et vos futurs prospects lorsque vous rentrerez chez vous.
+      <br/><br/>6. Comme vous voulez savourer chaque session précieuse sur scène, assurez-vous d'apporter votre propre stylo et votre cahier pour une prise de notes sérieuse!
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+      HAUT DE LA PAGE
+    </div>
+  </article>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="DownloadsPageFR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        #VCON17 Fonds d’écran
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="ContactPageFR" ion-button icon-right>
+        Contactez-nous
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

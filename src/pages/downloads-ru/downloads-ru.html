@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr high">
+    <h1>ЭКСКЛЮЗИВ<br>#VUAE ОБОИ</h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="headline">Бери с собой магию V-Кон повсюду с помощью этих обоев для твоего мобильного устройства. БЕСПЛАТНО!</p>
+    <div class="menus">
+      <a href="../img/wallpaper-mobile.jpg" download><i class="ion-android-arrow-down"></i> Загрузить для мобильного телефона</a>
+      <a href="../img/wallpaper-tablet.jpg" download><i class="ion-android-arrow-down"></i> Загрузить для планшета</a>
+    </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="MarkPageRU" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Сделай свой значок V-Con
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="FaqsPageRU" ion-button icon-right>
+        FAQS
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

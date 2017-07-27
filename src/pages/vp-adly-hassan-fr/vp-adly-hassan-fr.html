@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-ah.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner</h2>
+      <h1>Adly Hassan</h1>
+    </div>
+    <p>
+      Le VP Adly est un homme de rêve et de conviction. Il a été introduit à QNET par son frère, et sa vie a pris un tournant inattendu. Plein de détermination pour réaliser ses rêves, il a connu du succès juste après quelques années. Pour lui, il n'existe pas de ‘secrets pour réussir’. Vous réussirez tant que vous êtes dédié à être la meilleure personne possible.
+      <br/><br/>
+      Éminent leader-serviteur de son équipe, The Pathfinders, le VP Adly a construit des réseaux au Soudan, aux EAU, en Egypte, en Afrique du Nord et en Afrique de l'Ouest.
+      <br/><br/>
+      Le VP Adly a été annoncé en tant que V Partner au cours du V-Malaysia 2009. Son ajout à la liste des leaders d'élite de The V lui a donné une nouvelle perspicacité et sagesse d’emmener l'organisation au sommet.
+    </p>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+    HAUT DE PAGE
+  </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageFR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Les orateurs
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPssPageFR" ion-button icon-right>
+        Sathi Senathirajah
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

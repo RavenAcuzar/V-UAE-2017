@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <header class="mainScr high">
+    <div class="about-title">
+      <h1>V-Malezya 2017</h1>
+      <h1>Hakkında</h1>
+    </div>
+  </header>
+  <article class="cusContent" id="aboutCnt">
+    <p class="headline">Pekala, # VCON17 biletinizi aldınız. Şimdi neler var? </p>
+    <p>Çok başarılı bir V-Malaysia 2017'den sonra The V, network pazarlama tarihinde bir başka rekor kıran olayı sahneliyor.
+8 - 12 Eylül 2017 tarihleri arasında görkemli Dubai şehrinde gerçekleşecek olan V-UAE 2017, bu başarıya ulaşmak için
+durdurulamayan dünyanın dört bir yanından binlerce networker’ı bir araya getirecek. Konum değişikliği ile bu yılki ikinci
+V-Con daha büyük olacak ve bir kez daha dünya çapında dalgalanmalar gösterecek. Beş gün boyunca, sizi başarı ve işle
+ilgili aradığınız cevaplara yönlendiren birinci sınıf konuşmacılar olan kendi V Kurucularımızın ve V Partnerlerimizin çeşitli
+konuşmaları ve sunumları olacaktır. Ayrıca özel eşyalar, ürünler ve özel tanıtımların sergilendiği bir sergi olacak.
+Hamdan Spor Kompleksinde yapılacak olan V-UAE 2017, birçok insanın hayatında unutulmaz bir iz bırakacak.</p>
+  </article>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="HomePageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        <!-- Home -->
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="NewslandingPageTR" ion-button icon-right>
+        Новости и обновления
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

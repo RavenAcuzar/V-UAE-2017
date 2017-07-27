@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-rs.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner</h2>
+      <h1>Ranjit Singh</h1>
+    </div>
+    <p class="intro">A network marketing leader with decades of treasured experience under his belt, V Partner Ranjit Singh clings steadfastly to the importance of time and taking charge of one’s life NOW and he very well makes sure that his message is communicated clearly through his trainings.
+    </p>
+    <p>
+      V Partner Ranjit is a Professional Network Consultant certified by the University of Illinois and is also the founder of Dream Achievers group. Before joining The V, he successfully ran businesses in the garment and fashion industry in Australia - until network marketing beckoned to him and he never looked back since.
+      <br/><br/>
+      V Partner Ranjit is heavily involved in V-Events such as V-Conventions worldwide. His contributions to The V’s market and business development strategies have helped grow the business beyond expectations. Through the motivational trainings he conducts for The V, he takes his audience to a whole new dimension – from having a reason for being a leader to understanding this reason and eventually believing in the possibility of making great things happen when one taps into his inner entrepreneurial potential. The ‘Lion of Punjab’ as he is often referred to by V Managing Partner Dato’ Sri Vijay, VP Ranjit ranks among the favorite motivational speakers in The V.
+
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; Back to Top
+    </div>
+
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPage" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        The Speakers
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPksPage" ion-button icon-right>
+        Kuna Senathirajah
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

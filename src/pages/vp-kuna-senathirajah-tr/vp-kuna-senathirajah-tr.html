@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-ks.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner</h2>
+      <h1>Kuna Senathirajah</h1>
+    </div>
+    <p class="intro">
+      V Partneri Kunaseelan Senathirajah, güçlü bir networker olmadan önce Pazarlama ve Araştırma alanındaki güçlü geçmişi olan başarılı bir kurumsal yönetici olarak çalışıyordu. 2000 yılında V'ye katılmadan önce V Partneri Kuna, Jones Lang Wooton'da Araştırma Analisti olarak çalışıyordu.
+
+    </p>
+    <p>
+      Üstün performansı, kendisine kısa sürede Ticari ve Finansal Kiralama Müdürü olarak haklı bir terfi kazandırdı. Yönetici olarak görevini, onu Petronas İkiz Kuleler, KL Sentral ve diğer büyük yatırım ve inşaat projeleri gibi Malezya’daki önemli projelerin üzerine koydu.
+      <br/><br/>
+      Sonunda V'ye katıldığında, VP Kuna, Konferanslar ve Uluslararası Olaylar evrelemesinde yeni kavramlar ve yeni fikirler geliştirmekle görevlendirildi. Şirketle olan kariyerinin başlangıcında Malezya, Endonezya, Hindistan ve Orta Doğu'da etkinlikler düzenledi ve yönetti. Ayrıca, V Ambassadors olarak bilinen yeni nesil liderlere dönüşen Küresel Liderlik Forumu (GLF) oluşturma fikrini başlattı.
+      <br/><br/>
+      Bir V Ortağı olarak atanmasıyla Bay Kuna, uluslararası kalabalıklar öncesi eğitimler vermesinde zengin bir deneyim kazandırıyor; kullanılmayan ülkelerdeki gelişmekte olan pazarlar; Kurumsal ve giderek büyüyen küresel lider ağları arasındaki bağları güçlendiriyor ve tüm bunlar diğer 13 V Ortaklarıyla paylaştığı bir taahhüttür.
+
+    </p>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+      BAŞA DÖN
+    </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Konuşmacılar
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPpsPageTR" ion-button icon-right>
+        Pathman Senathirajah
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

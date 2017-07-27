@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1><span class="txt48">Make Your V-Con Mark</span> <br></h1>
+  </header>
+
+  <article class="cusContent">
+    <div class="step1" style="display: block">
+        <p class="title">MAKE YOUR V-CON MARK</p>
+        <p class="headline">Stamp your photos with the magic of V-Con! Simply upload your photo, and wait for the generated image especially marked with a #VUAE17 badge!</p>
+        <!-- <p>1. Upload your photo.<br>
+           2. Choose a badge<br>
+           3. Select ‘MARK IT’<br>
+           4. Download and share your newly marked V-Con photo!</p>
+          <a class="button btnClaim">UPLOAD PHOTO</a> -->
+    </div>
+
+  <div class="step2" style="display: block">
+      <div class="photo"> <img src=""/> (photo here)</div>
+      <p class="title">Choose a Badge</p>
+      <ion-list class="selectBadge" radio-group [(ngModel)]="badge">
+
+        <ion-item>
+          <ion-label> <img src="assets/img/badge-vcon.png" width="100%" height="auto" class="center "></ion-label>
+          <ion-radio value="badgeVCON"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label> <img src="assets/img/badge-v.png" width="100%" height="auto" class="center "></ion-label>
+          <ion-radio value="badgeV"></ion-radio>
+        </ion-item>
+
+      </ion-list>
+  </div>
+
+  <div class="step3" style="display: block">
+      <p class="title">Download & Share</p>
+      <div class="badge"><img src="assets/img/photo-sample.png" width="100%" height="auto" class="center "></div>
+      <div class="row">
+        <div class="col col-50"><a href="" class="button btnClaim">Download</a></div>
+      </div>
+  </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="MerchandisePage" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Merchandise
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="DownloadsPage" ion-button icon-right>
+        #VUAE17 Wallpapers
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-dj.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner </h2>
+      <h1>Dev Johl</h1>
+    </div>
+    <p class = "intro">
+      İlk çalışma yıllarını Singapur'da 5 Yıldızlı Otel'de bir F & B Müdürü olarak geçiren V Partner Dev, eskiden olduğu halinden gerçekten çok yol kat etti. VP Pathman Senathirajah 2000 yılında AVP Girinder Sharma tarafından tanıştırıldı.
+    </p>
+    <p>
+      VP Dev, daha önce karşı karşıya kaldığı en zorlu zaman olarak gördüğü şeyler sorulduğunda, networkün kendisinin en yorucu görev olduğunu ortaya koyuyor. Buna ek olarak, ivmeyi takımlarında tutmayı - özellikle uykulu dönemlerde- zor bir engel olarak görüyor.
+      <br/><br/>
+      VP Dev’e göre, takım çalışması bir organizasyonda çok önemli bir rol oynamaktadır. Bu işte bir takım başarısız olursa, VP Sathi Senathirajah'a, AVP Rosli İsmail'e, VC Devaraj Jeevaratnam'a ve diğerleri arasında CORE InService üyelerinin geri kalanına, güç direkleri olarak gösterdikleri için minnettar kalmasının nedeni budur.
+      <br/><br/>
+      VP Dev, iki güzel oğlu Karan ve Jai'nin doğumuyla gölgelenen, bugüne kadarki en gurur verici anlarından biri olarak V Partneri olarak duyurulduğunu düşünüyor. VP Dev'in gurur duyduğu başka bir başarı ise, InService Brotherhood'un desteğiyle V-Con'u yönetebiliyor olmasıdır.
+      <br/><br/>
+      En çok inandığı formülün Hayal + Sıkı Çalışma =   BA$ARI olduğunu açıklıyor. Ayrıca, her insanın 'reddetmeler' 'inin hayallerini bozmasına izin vermemesi gerektiğine inanıyor. Hayal kırıklığına uğramak günlük yaşamın bir parçasıdır ve sizi kontrol etmesine izin vermek çoğu insanın yarattığı en büyük hatadır. Bundan ders çıkarmalı ve bunu yenmeliyiz!
+      <br/><br/>
+      VP Dev, muhteşem ebeveynleri ve iki kardeşi Roop ve Venu'yu, sevgili eşi Malti Johl ve çılgın havalı çocukları Karan ve Jai'yi en büyük nimetleri olarak görür.
+      <br/><br/>
+      Kısa zaman dilimlerinde, VP Dev, QNET'in başarısını yaygınlaştırmak için seyahat etmiyor; oğullarıyla vakit geçirmekten ve sevdikleriyle rahatlamaktan hoşlanıyor.
+      <br/><br/>
+      VP Dev, Mahatma Gandhi, Nelson Mandela gibi kişilerden ilham alır ve Sachin Tendulkar'ın alçakgönüllülüğünü örnek teşkil eder ve takdire şayandır. Ayrıca V Kurucusu Dato 'Sri Vijay Eswaran'a danışmanlık görevini sürdürüyor.
+      <br/><br/>
+      Önümüzdeki birkaç yıl içinde, VP Dev, daha iyi bir networker olmayı, ekibini en iyi hale getirmeyi ve QNET ve The V aracılığıyla A Milyarlarca Kalplere Dokunmaya devam etmeyi arzuluyor.
+
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; BAŞA DÖN
+    </div>
+
+  </article>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Konuşmacılar
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPdwPageTR" ion-button icon-right>
+        Dev Wadhwani
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

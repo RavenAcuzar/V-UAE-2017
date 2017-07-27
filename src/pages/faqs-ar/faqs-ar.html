@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="AR">
+  <header class="mainScr mid">
+    <h1>ماذا أحضر؟ </h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="question">ماذا أحضر؟</p>
+    <p class="answer">ذاهب إلى الفي-كون؟ هنا 5 أشياء مهمة تحتاج لإحضارها:
+      <br><br/>
+      1. أثناء التسجيل، احضر (1) هوية شخصية سارية المفعول ونسخة من رسالة التأكيد التي سيتم إرسالها لكم عبر البريد الإلكتروني مباشرة بعد شراء التذكرة.
+
+      <br><br/>
+      2. ما يكفي من مصروف الجيب لمدة 5 أيام، والتي قد تنفق على الطعام والشراب، والنقل، معروضات الفي-كون، والهدايا التذكارية، الخ. تأكد من النقود التي معك إما دولارات أمريكية أو دراهم إماراتية.
+
+      <br><br/>3. ملابس كافية لمدة 5 أيام. تأكد من إحضار قمصان إضافية أو المناشف لأن الطقس أكثر حرارة في هذا الوقت من العام.
+
+      <br><br/>4. احضر هاتف نقال معك وكذلك للتأكد من أنه يمكنك البقاء على اتصال مع فريقك وأحبتك. لا تنسى أن تحضر أيضاً بنك طاقة متنقل للتأكد من إمكانية إعادة شحن الهاتف وغيرها من الأدوات الخاصة بك في أي وقت.
+      <br><br/>5. خذ معك كاميرا لإبقاء ذكريات الفي-كون الثمينة تدوم، والحصول على شيء يمكن أن تريه لعائلتك ومرشحيك في المستقبل عند العودة إلى المنزل.
+
+      <br/><br/>6. بينما أنت ترغب في الاستمتاع بكل جلسة قيمة على المنصة، تأكد من إحضارك لمذكرتك الخاصة وقلمك لبعض التسجيل جاد للملاحظات!
+
+    </p>
+
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;     العودة إلى أعلى
+ </div>
+
+  </article>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="DownloadsPageAR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        صور خلفيات في-كون 2017
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="ContactPageAR" ion-button icon-right>
+        اتصل بنا
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

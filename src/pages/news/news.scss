@@ -1,0 +1,34 @@
+page-news {
+  article.cusContent {background-color: #fff; }
+  header.mainScr {
+    background-image: url("../assets/img/news-header.jpg");
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .insideCont>img {
+    height: auto;
+    margin: 0 0 10px;
+    max-width: 100%;
+  }
+
+  h3 {
+    font-size: 26px;
+    color: #2A3A80;
+    font-family: "LatoLight", Arial, sans-serif;
+    margin: 10px 0 30px;
+  }
+  .date {
+    font-size: 12px;
+    margin: 0 0 30px 0;
+    color: #999;
+  }
+
+  .insideCont p {
+    text-align: left;
+    font-size: 1em !important;
+    line-height: 18px !important;
+  }
+
+  .insideCont > div.news-summary > img {display: none;}
+}

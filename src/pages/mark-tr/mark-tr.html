@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1><span class="txt48">V-Con İzinizi Oluşturun</span> </h1>
+  </header>
+
+  <article class="cusContent">
+    <div class="step1" style="display: block">
+    <!-- <p class="title">V-Con İzinizi Oluşturun </p> -->
+    <p class="headline">V-Con büyüsüyle fotoğraflarınızı damgalayın! Sadece fotoğrafınızı yükleyin ve özellikle #VUAE17 rozeti ile işaretlenmiş oluşturulan görüntüyü bekleyin!
+     <!-- <nobr>V-Con</nobr> büyüsüyle süsleyin! Şu 3 kolay adımda uygulayın: </p>
+    <p>1. Fotoğrafınızı yükleyin. <br>
+       2. Bir rozet seçin <br>
+       3. 'İŞARETLE' seçeneğini seçin. <br>
+       4. Yeni işaretlenmiş <nobr>V-Con</nobr> fotoğrafınızı indirin ve paylaşın!</p> -->
+      <a class="button btnClaim"> Fotoğrafınızı YÜKLEYİN</a>
+  </div>
+
+  <div class="step2" style="display: block">
+      <div class="photo"> <img src=""/> (photo here)</div>
+      <p class="title">Bir Rozet Seçin</p>
+      <ion-list class="selectBadge" radio-group [(ngModel)]="badge">
+
+        <ion-item>
+          <ion-label> <img src="assets/img/badge-vcon.png" width="100%" height="auto" class="center "></ion-label>
+          <ion-radio value="badgeVCON"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label> <img src="assets/img/badge-v.png" width="100%" height="auto" class="center "></ion-label>
+          <ion-radio value="badgeV"></ion-radio>
+        </ion-item>
+
+      </ion-list>
+  </div>
+
+  <div class="step3" style="display: block">
+      <p class="title">İndirin ve Paylaşın</p>
+      <div class="badge"><img src="assets/img/photo-sample.png" width="100%" height="auto" class="center "></div>
+      <div class="row">
+        <div class="col col-50"><a href="" class="button btnClaim">İNDİRİN</a></div>
+      </div>
+
+  </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="MerchandisePageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Ürünleri
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="DownloadsPageTR" ion-button icon-right>
+        #VUAE17 Duvar Kağıtları
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

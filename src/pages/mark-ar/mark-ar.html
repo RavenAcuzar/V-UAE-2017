@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="AR">
+  <header class="mainScr mid">
+    <h1><span class="txt48">ضع علامتك للفي-كون</span></h1>
+  </header>
+
+  <article class="cusContent">
+    <div class="step1" style="display: block">
+    <p class="title">ضع علامتك للفي-كون</p>
+    <p class="headline">علم على صورك بسحر الفي-كون! ببساطة حمل صورتك، انتظر الصورة الناتجة معلمة بعلامة VUAE17#!</p>
+    <!-- <p dir="RTL" style="text-align: right" >1. حمل صورتك<br>
+       2.  اختار الشارة<br>
+       3.  اختار "علمها"<br>
+       4.   قم بتنزيلها وشارك صورتك للفي-كون المعلم عليها حديثاً!</p>
+      <a class="button btnClaim">حمل صورتك</a> -->
+  </div>
+
+  <div class="step2" style="display: block">
+      <div class="photo"> <img src=""/> (photo here)</div>
+      <p class="title">اختار شارة</p>
+        <ion-list class="selectBadge" radio-group [(ngModel)]="badge">
+
+          <ion-item>
+            <ion-label> <img src="assets/img/badge-vcon.png" width="100%" height="auto" class="center "></ion-label>
+            <ion-radio value="badgeVCON"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label> <img src="assets/img/badge-v.png" width="100%" height="auto" class="center "></ion-label>
+            <ion-radio value="badgeV"></ion-radio>
+          </ion-item>
+
+        </ion-list>
+  </div>
+
+  <div class="step3" style="display: block">
+      <p class="title">نزل وشارك</p>
+      <div class="badge"><img src="assets/img/photo-sample.png" width="100%" height="auto" class="center "></div>
+      <div class="row">
+        <div class="col col-50"><a href="" class="button btnClaim">نزل</a></div>
+
+      </div>
+
+  </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="MerchandisePageAR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        معروضات
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="DownloadsPageAR" ion-button icon-right dir="RTL">
+        <ion-icon ios="ios-arrow-back" name="arrow-forward"></ion-icon>
+        صور خلفيات #VUAE &nbsp;
+
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

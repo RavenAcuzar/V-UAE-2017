@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-tg.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner </h2>
+      <h1>TG Kintanar</h1>
+    </div>
+    <p class = "intro">V Partner TG Kintanar, V'ye yıllarca vermiş olduğu müthiş hizmetinde QNET'in büyüyen networküne pratik ve karlı ürünler ve hizmetler sunma yollarını araştırmaya adamıştır.
+    </p>
+    <p>
+      Teknoloji ve medyadaki yoğun tecrübeleriyle desteklenen VP TG, son teknolojiden etkilenen modern ürünleri ve hizmetleri sunmada olağanüstü bilgi ve tecrübeye sahiptir.
+      <br/><br/>
+      En son yenilikler ve teknolojik gelişmelere paralel olarak VP TG, V'nin büyümesine katkıda bulunan çeşitlendirilmiş ürünler için kavramsallaştırmaya öncülük etmektedir. Yıllar boyunca VP TG, QI'nın Asya'daki önde gelen e-ticaret portalı olarak şimdiki konumuna getirilmesine yardımcı oldu.
+      <br/><br/>
+      V Partner TG'nin sayısız katkısı, bir motivasyon kaynağından gelmektedir: hayatların değiştiğini görmek. Yıllar önce network endüstrisinde başladığı günden bu yana hayatını ve meydan okumalarını ve fırsatlarını paylaşarak, V Partneri TG, bir çok insana insani çabanın - iş ve aile dahil - belirli yönlerinde bir değişiklik yapmak için ilham vermeyi sürdürmüştür. En büyük yerine getirme kaynaklarından biri, bireylerin ve ailelerinin hayatlarını iyileştirmektir.
+
+    </p>
+
+
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;      BAŞA DÖN </div>
+  </article>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Konuşmacılar
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPdiPageTR" ion-button icon-right>
+        Donna Marie Imson-Lecaroz
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

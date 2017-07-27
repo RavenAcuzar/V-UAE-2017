@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-ds.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner</h2>
+      <h1>David Sharma</h1>
+    </div>
+    <p class="intro">
+      V Partner (VP) David Sharma nereye giderse gitsin, başarı ve tanınmayı da mutlaka peşinden götürür. V'ye katılmadan önce, hazır giyim imalatı ve ihracatı alanında tanınmıştı. Bir süre boyunca, Hong Kong merkezli bir finansal hizmetler şirketinde de önemli bir yer tutmuştur.
+    </p>
+    <p>
+      Doğrudan satıştaki başarı hikayesi, daha sonra The Global Leadership Forum'un (GLF) bir parçası olmak için davet edildikten sonra 2004'te V'e katıldığı gün ön plana çıktı; bu liderler listesi, tüm dünyada çeşitli önemli pazarlarda başkalarını gözlemlemek ve temsil etmek üzere seçilmişti. Bugünün V Ortakları ve V Konsey Üyeleri bu nedenle GLF'den esinlenmiştir. VP David Sharma, çalışmalarında Associate V Partner unvanını aldığında birçok V-Etkinlikler ve network geliştirme faaliyetlerine daha da derinlemesine katıldı. Aynı zamanda, Ticaret Sistemlerinde ve network süreçlerinde Kıdemli Kurumsal Yönetim'e danışmanlık yapma sorumluluğunu da taşıyarak V’de Danışman olarak görev yapmıştır. Bu rol, V Corporate ile Network arasındaki bağlantıyı da güçlendirmiştir.
+      <br/><br/>
+      Çalışmaları için gösterdiği özveri ve tutku V-Endonezya 2012'de kabul edildi ve burada V Partner olarak onurlandırıldı, süper elit liderler grubuna katıldı ve tüm QNET IR'leri için ilham kaynağı oldu.
+      <br/><br/>
+      Bugün VP David, bir V Partner ve V Yönetici Direktör olarak rollerini ciddiye alır ve başarısını V Kurucusu Dato 'Sri Vijay Eswaran ve V Managing Director olan Pathman Senathirajah'a ithaf eder; bu kişiler hayatındaki görev ve sorumluluklarını yerine getirmek için kendisine rehberlik edenlerdir ve destek verenlerdir. Bugün, şirket ve networkü daha üst seviyelere daha fazla yönlendirerek tüm iyi niyetiyle bunların karşılığını verir.
+    </p>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+      BAŞA DÖN
+    </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Konuşmacılar
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPmkPageTR" ion-button icon-right>
+        Mahendra Kumar
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

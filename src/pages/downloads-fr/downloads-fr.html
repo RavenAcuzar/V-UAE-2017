@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr high">
+    <h1>Exclusif<br>FONDS D'ÉCRAN V-UAE 2017 </h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="headline">Emmenez la magie du V-Con partout où vous allez avec ces fonds d'écran téléchargeables GRATUITEMENT pour vos appareils mobiles!</p>
+    <div class="menus">
+      <a href="../assets/img/wallpaper-mobile.jpg" download><ion-icon name="arrow-round-down"></ion-icon>Téléchargement pour mobile</a>
+      <a href="../assets/img/wallpaper-tablet.jpg" download><ion-icon name="arrow-round-down"></ion-icon>Téléchargement pour tablette</a>
+    </div>
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="MarkPageFR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Faites votre marque V-Con
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="FaqsPageFR" ion-button icon-right>
+        FAQS
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

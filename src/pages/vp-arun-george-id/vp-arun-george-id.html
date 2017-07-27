@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vp-ag.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Partner</h2>
+      <h1>Arun George</h1>
+    </div>
+    <p class="intro">Terkadang anda butuh untuk dikeluarkan dari zona nyaman anda untuk menyadari bahwa ada rumput yang lebih hijau dan menggiurkan di luar sana. Bagi V Partner Arun George, dibutuhkan presentasi bisnis QNET untuk menarik ia di luar dunia perusahaan, di mana ia telah menjadi sukses di Unilever pada usia 23 tahun.
+    </p>
+    <p>
+      Tahun 2000, ia menjadi penuh waktu di networking; tahun 2002, ia membentuk Titans bersama dengan pemain bertabur bintang dalam rangka mengambil alih pangsa pasar Timur Tengah, Africa, dan Asia dengan cepat. Sebagai bibit networking dan sekarang global mentor di The V Family, tantangan terbesarnya tetap sama: “membantu orang untuk mengidentifikasi potensi dirinya dan membantu orang menerima bisnis ini.”
+      <br/><br/>
+      Memaksa ia untuk bekerja dengan orang-oranguntuk membantu mereka mencapai tujuan mereka melalui network marketing, terutama dengan timnya. Dengan kesalahpahaman eksternal dan konflik, seluruh kesempatan industri tidak selalu diterima. Bagaimanapun juga, perasaan menjadi manis ketika mencapai: “Kapanpun kita dihadapi dengan tantangan dan membantu orang untuk membangun hasil, tim, menyadari potensi dirinya, dan terus maju – pencapaian terbesar [adalah] apa yang kita [dapat] raih bersama sebagai TIM seluruh dunia.”
+      <br/><br/>
+      Ia mungkin telah terbit menjadi rangking V Partner sejak V-Uganda 2008, tapi kerjanya jauh dari usai. Sekarang, ia berusaha keras lebih dari sebelumnya untuk berbagi pengalamannya dan lebih menghargai orang.Hampir semua: “[Saya ingin] membantu irang menyadari bahwa ini adala bisnis yang berpotensi, bukan berdasarkan keberuntungan atau apapun. Tapi jika anda mengijinkan formula konvensional seperti bisnis lainnya, [ini] adalah benar-benar terprediksi selama anda konsisten,”
+      <br/><br/>
+      Bagi Arun George, tidak ada trik sulap dalam bisnis. “Bekerja keras – [itulah] apa yang paling penting.” Dan jika anda mengikuti jejaknya, anda akan bertemu dengan kesuksesan anda.
+    </p>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+    KEMBALI KE ATAS
+  </div>
+
+
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageID" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Pembicara
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPahPageID" ion-button icon-right>
+        Adly Hassan
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

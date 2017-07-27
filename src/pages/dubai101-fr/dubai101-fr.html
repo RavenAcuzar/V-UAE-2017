@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1>Dubai 101</h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="headline">La première fois dans cette ville majestueuse? Voici un guide complet sur l'endroit où rester, ce qu'il faut faire et comment se déplacer à Dubaï!</p>
+    <div class="menus">
+      <a [navPush]="WheretoPageFR">OÙ RESTER À DUBAI</a>
+      <a [navPush]="HowtoPageFR">COMMENT SE DÉPLACER À DUBAI</a>
+      <a [navPush]="WhattoPageFR">QUE FAIRE À DUBAI</a>
+    </div>
+
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="SchedPageFR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Grille de programme quotidienne
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="MerchandisePageFR" ion-button icon-right>
+        Marchandise
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

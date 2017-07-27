@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1>Les meilleurs endroits pour séjourner à Dubaï</h1>
+  </header>
+  <article class="cusContent">
+    <div class="item">
+        <div class="penang-text">Downtown Dubai</div>
+        <div class="penang-desc">
+          Le Downtown Dubai est un quartier populaire de Dubaï pour les visiteurs, car il contient la plupart des attractions modernes de la ville, comme le Burj Khalifa Tower, le Dubai Mall et le Dubai Fountain. Le Dubai World Trade Center peut également être trouvé ici, ce qui est populaire parmi ses nombreux gratte-ciels et bureaux de la ville. Avec les meilleurs établissements commerciaux qui pimentent cette région, les hôtels situés ici ont tendance à coûter plus cher.
+        </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-text">Bur Dubai</div>
+      <div class="penang-desc">
+        Bur Dubai est l'endroit où se trouvent certains des monuments historiques les plus emblématiques de la ville, comme le quartier historique d'Al Fahidi, le bureau du gouverneur, le Dubai Museum et le Textile Souq. C'est aussi un centre commercial et gastronomique très fréquenté, avec beaucoup de restaurants le long de la route Al Dhiyafah.
+        Les hôtels de cette région sont plus abordables par rapport à ceux du quartier voisin Downtown Dubai.
+      </div>
+    </div>
+
+    <div class="item">
+          <div class="penang-text">Bastakiya (vieille ville)</div>
+          <div class="penang-desc">
+            Si vous souhaitez découvrir le charme du vieux monde de Dubaï, le quartier Bastakiya est bon pour vous. Situé à la rive sud de la crique de Dubaï, c'est le cœur traditionnel et le quartier historique de Dubaï. Des hôtels économiques et des auberges de luxe peuvent être trouvés dans cette zone.
+          </div>
+    </div>
+
+    <div class="item">
+        <div class="penang-item">
+          <div class="penang-text">Deira</div>
+          <div class="penang-desc">
+            Le district de Deira se trouve du côté nord de la crique de Dubaï, qui est une vieille ville où se trouvait l'ancienne zone portuaire de Dubaï. L'un des premiers secteurs d'activité de la ville, c'est le quartier le plus proche de l'aéroport. C'est là que se trouvent la plupart des options d'hébergement économique de Dubaï. Si vous êtes à la recherche de beaucoup de restaurants et de magasins, vous pouvez vous diriger vers Al Rigga, qui est la partie la plus contemporaine de Deira.
+          </div>
+        </div>
+    </div>
+
+    <span class="source"> Source: www.visitdubai.com </span>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; HAUT DE LA PAGE </div>
+
+  </article>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="Dubai101PageFR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Dubai 101
+      </button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-footer>

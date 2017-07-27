@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid vp">
+
+  </header>
+  <article class="cusContent">
+    <div class="speaker-photo"><img src="assets/img/m-vf-jtb.png" width="100%" height="auto" class="center ">
+    </div>
+    <div class= "speaker-name">
+      <h2>V Founder</h2>
+      <h1>Joseph Bismark</h1>
+    </div>
+    <p class="intro">"V Kurucusu Joseph Bismark, binlerce girişimci adayın lideridir. Ruhsal disiplini ve dövüş sanatlarındaki derin deneyimleri ile tanınır. "
+    </p>
+    <p>
+      V, kendisine, şu anda sayıları birkaç milyonu aşan networkün kalbinde özel bir noktayı miras bırakıyor. Kişiliği ile çok katmanlı bir insan olan Bay Bismark, birçokları tarafından V’nin içinde güçlü bir denge kuvveti olduğunu düşünür.
+      <br/>
+      <br/>
+      Bay Bismark dokuz yaşında evden ayrıldı ve 17 yaşına kadar elektriği, ısıtması veya diğer modern olanaklara sahip olmadan, Filipinler dağlarında yaşamaya başladı. Kurucumuz, aynı zamanda bir yoga eğitmeni ve Taekwondo'da üçüncü kuşak derecesine sahiptir.
+      <br/>
+      <br/>
+      Bay Bismark'ın ruhani arka planı ve doğuştan gelen liderlik nitelikleri ona grubun içinde oynadığı çeşitli rolleri yönetme gücünü vermiştir. İş dünyasına girmesi Filipinler'deki büyük bir üniversitede dövüş sanatları eğitmeni olarak çalışırken gerçekleşmiştir. Bu da, V Kurucusu Dato 'Sri Vijay Eswaran'ı tanıdığı zamana denk gelir. Vedik Felsefesi ve maneviyat üzerindeki ortak ilgileri onları bir araya getirdi. Kısa bir süre sonra, bugün küresel bir iş haline dönüşen küçük bir network pazarlama şirketi kuruldu.
+      <br/>
+      <br/>
+      Bay Bismark, sadece iş ilişkileri kurmak değil, müşterileri ve meslektaşları ile samimi dostluklar kurarak şirkette aktif bir rol oynamaktadır. İlgisi ve kararları, ekonomik, sosyal ya da ırksal kökenleri ne olursa olsun insanlara yardım etme arzusu tarafından yönlendirilir. Başarı, maddi başarılara değil, başkalarına anlamlı hizmet sunarak ve manevi büyüme yoluyla elde edilen iç tatmin ve barış üzerine inşa edilmiştir.
+      <br/>
+      <br/>
+      Haziran 2010'da, V-Malezya 2010 sırasında ilk kitabı The Gem Collection: A Complication of Wisdom ile birlikte zaten etkileyici olan dosyasına "yazar" ünvanını da eklemiştir.
+      <br/>
+      <br/>
+      Bismark, grubun çeşitli operasyonlarını denetler ve dünyayı dolaşmadığı zamanlarda ailesiyle birlikte Singapur'da yaşar.
+    </p>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
+      BAŞA DÖN
+    </div>
+  </article></ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="TheSpeakersPageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Konuşmacılar
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="VPtgPageTR" ion-button icon-right>
+        VP TG Kintanar
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

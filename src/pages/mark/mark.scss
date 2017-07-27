@@ -1,0 +1,92 @@
+page-mark {
+  .selectBadge ion-item {
+      width: 30%;
+      display: inline-block;
+      padding: 0;
+      border: 0 !important;
+      background: none;
+  }
+
+  .selectBadge ion-item.item-radio-checked {
+    background: #fff !important;
+}
+
+  .selectBadge .item .item-inner {
+      border: 0 !important;
+      margin: 0;
+      padding: 0 !important;
+  }
+
+  .item .radio {
+    margin: 0 !important;
+  }
+
+  .radio-inner {
+    border-color: #fff !important;
+  }
+
+  .selectBadge ion-item.item-radio-checked .radio-inner {
+    border-color: red !important;
+  }
+
+  .item-radio ion-label {
+    color: #488aff;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+.step2 label.item-radio {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 0 none;
+  display: inline-block;
+  height: 200px;
+  margin: 0 2px;
+  width: 30%;
+}
+.step2 .item-radio .radio-icon {
+  color: #fff;
+  margin: 0 auto;
+  position: relative;
+  display: none;
+}
+.step2 .item-complex .item-content, .step2 .item-radio .item-content {
+  background: rgba(0, 167, 190, 0.37);
+  padding: 2px;
+}
+.step3 .col a {
+  color: #fff;
+  text-decoration: none;
+}
+.btnClaim {
+  color: #fff;
+  border: 0 none;
+  border-radius: 0;
+  display: block;
+  font-size: 12px;
+  line-height: 46px;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0 auto;
+}
+.button.btnClaim {
+  background: #B24298 none repeat scroll 0 0;
+  transition: all 0.35s ease-in-out 0s;
+  -moz-transition: all 0.35s ease-in-out 0s;
+  -ms-transition: all 0.35s ease-in-out 0s;
+  -o-transition: all 0.35s ease-in-out 0s;
+  -webkit-transition: all 0.35s ease-in-out 0s;
+}
+.button.btnClaim:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+.photo {
+  height: 270px;
+  width: 270px;
+  background-color: #000;
+  margin: 40px auto;
+  color: #fff;
+}
+
+}

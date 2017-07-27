@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <header class="mainScr mid">
+    <h1>Best Areas to Stay in Dubai</h1>
+  </header>
+  <article class="cusContent">
+    <div class="item">
+      <div class="penang-text">Downtown Dubai</div>
+      <div class="penang-desc">
+        Downtown Dubai, Burj Khalifa Kulesi, Dubai Mall ve Dubai Çeşmesi gibi kentin modern cazibe merkezlerinin çoğunu içerdiği için ziyaretçiler için Dubai'nin popüler bir semtidir. Dubai Dünya Ticaret Merkezi, kentin gökdelenleri ve ofisleri arasında popüler olan burada da bulunabilir. Bu bölgede bulunan en iyi ticaret kuruluşlarıyla, burada bulunan otellerin maliyeti daha yüksektir.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-text">Bur Dubai</div>
+      <div class="penang-desc">
+        Bur Dubai, Al Fahidi tarihi bölgesi, Valilik, Dubai Müzesi ve Tekstil Souq gibi kentin en simgesel tarihsel simgelerinin bulunduğu bazı yerlerden. Aynı zamanda Al Dhiyafah Yolu boyunca çok sayıda restoranı olan yoğun bir ticaret ve yemek merkezidir. Bu bölgedeki oteller, komşu Downtown Dubai'ye kıyasla daha uygun fiyatlıdır.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-text">Bastakiya (Old Town)</div>
+      <div class="penang-desc">
+        Dubai'nin eski cazibesini yaşamak istiyorsanız, Bastakiya mahallesi size göre. Dubai Körfezi'nin güney kıyısında bulunan Loctaed, Dubai'nin geleneksel kalbi ve tarihi bölgesi. Bu bölgede ekonomik ve lüks oteller bulunmaktadır.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-item">
+        <div class="penang-text">Deira</div>
+        <div class="penang-desc">
+          Deira bölgesi, eski Dubai liman bölgesinin bulunduğu eski şehrin bir parçası olan Dubai Körfezi'nin kuzey tarafındadır. Kasabadaki ilk iş alanlarından biri, havaalanına en yakın ilçedir. Burası Dubai'nin bütçeye uygun konaklama yerlerinin çoğunun bulunduğu yerdir. Çok sayıda yemek ve alışveriş için, Deira'nın çağdaş parçası olan Al Rigga'ya gidebilirsiniz.
+        </div>
+      </div>
+    </div>
+
+    <span class="source"> Source: www.visitdubai.com </span>
+    <div (click)="scrollToTop()" class="backtotop">
+        <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; BAŞA DÖN </div>
+  </article>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="Dubai101PageTR" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Dubai 101
+      </button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-footer>

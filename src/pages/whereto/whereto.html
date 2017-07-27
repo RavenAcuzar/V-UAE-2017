@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <header class="mainScr mid">
+    <h1>Best Areas to Stay in Dubai</h1>
+  </header>
+  <article class="cusContent">
+    <div class="item">
+      <div class="penang-text">Downtown Dubai</div>
+      <div class="penang-desc">
+        Downtown Dubai is a popular district of Dubai for visitors as it contains most of the modern attractions of the city, such as the Burj Khalifa Tower, Dubai Mall, and Dubai Fountain. The Dubai World Trade Center can also be found here, which is popular
+        amongst its and many of the city’s skyscrapers and offices. With top commercial establishments that pepper this area, hotels located here tend to cost more.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-text">Bur Dubai</div>
+      <div class="penang-desc">
+        Bur Dubai is where some of the most iconic historical landmarks of the city can be found, such as the Al Fahidi historical district, the Governor’s office, the Dubai Museum, and the Textile Souq. It is also a busy commercial and dining centre, with lots
+        of restaurants along Al Dhiyafah Road. Hotels in this area are more affordable compared to those of neighbouring Downtown Dubai.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-text">Bastakiya (Old Town)</div>
+      <div class="penang-desc">
+        If you wish to experience Dubai’s old world charm, then the Bastakiya neighbourhood is right for you. Loctaed at the south shore of Dubai Creek, it is the traditional heart and historic quarter of Dubai. Both budget hotels and luxury inns can be found
+        in this area.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="penang-item">
+        <div class="penang-text">Deira</div>
+        <div class="penang-desc">
+          The Deira district is on the north side of the Dubai Creek, which is an old part of town where the old Dubai port area was located. One of the first business areas in town, it is the closest district to the airport. This is where most budget accommodation
+          options of Dubai can be found. If you are up for lots of dining and shopping, you can head to Al Rigga, which is the more contemporary part of Deira.
+        </div>
+      </div>
+    </div>
+
+    <span class="source"> Source: www.visitdubai.com </span>
+    <div (click)="scrollToTop()" class="backtotop">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; Back to Top </div>
+  </article>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="Dubai101Page" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Dubai 101
+      </button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-footer>

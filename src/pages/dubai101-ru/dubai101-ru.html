@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header class="mainScr mid">
+    <h1>Dubai 101</h1>
+  </header>
+  <article class="cusContent">
+
+    <p class="headline">Впервые в этом городе? Предлагаем несколько советов о том, где остановиться, чем заняться и как перемещаться в Дубае!</p>
+    <div class="menus">
+      <a [navPush]="WheretoPageRU">Где лучше всего остановиться в Дубае</a>
+      <a [navPush]="HowtoPageRU">Как перемещаться по Дубаю</a>
+      <a [navPush]="WhattoPageRU">10 мест, которые нельзя не увидеть в Дубае</a>
+    </div>
+
+  </article>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button [navPush]="SchedPageRU" ion-button icon-left>
+        <ion-icon name="arrow-back"></ion-icon>
+        Ежедневное расписание
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button [navPush]="MerchandisePageRU" ion-button icon-right>
+        Товары
+        <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
