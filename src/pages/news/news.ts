@@ -17,7 +17,7 @@ export class NewsPage implements OnInit {
 
   // The news object that will be retrieved from the server
   id: string = null;
-  news = null;
+  news  = {};
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private loadingController: LoadingController,
     private http: Http) {
@@ -42,7 +42,7 @@ export class NewsPage implements OnInit {
 
     this.http.post('http://cums.the-v.net/site.aspx', body)
       .subscribe(response => {
-        this.news = response.json();
+        this.news = response.json()[0];
       }, null, () => {
         loadingPopup.dismiss();
       });
