@@ -40,8 +40,7 @@ export class NewsPage implements OnInit {
 
     let options = new RequestOptions({
       headers: new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/x-www-form-urlencoded'
       })
     });
 
