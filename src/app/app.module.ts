@@ -321,7 +321,7 @@ import { JsonpModule } from '@angular/http';
 
   ],
   imports: [
-    BrowserModule, HttpModule,
+    BrowserModule, HttpModule, JsonpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
