@@ -62,7 +62,7 @@
     <h6>NEWS AND UPDATES</h6>
     <div class="row" *ngFor="let news of myNews">
       <a (click)="navigateToNews(news.Title)" class="col item">
-        <h4>{{news.localTitle}}</h4>
+        <h4 [innerHTML]="news.localTitle"></h4>
         <h3>in {{news.SubCategory}}</h3>
         <img [src]="news.ImageLink" width="100%" height="auto" class="center ">
         <div class="row">

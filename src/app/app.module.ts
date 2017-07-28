@@ -260,6 +260,7 @@ import { SplashnextPageTR } from '../pages/splashnext-tr/splashnext-tr';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { JsonpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -320,7 +321,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
   ],
   imports: [
-    BrowserModule, HttpModule,
+    BrowserModule, HttpModule, JsonpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

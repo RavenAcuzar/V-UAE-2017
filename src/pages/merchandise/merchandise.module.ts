@@ -7,7 +7,7 @@ import { MerchandisePage } from '../merchandise/merchandise';
     MerchandisePage,
   ],
   imports: [
-    IonicPageModule.forChild(MerchandisePage),
+    IonicPageModule.forChild(MerchandisePage), 
   ],
   exports: [
     MerchandisePage
