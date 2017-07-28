@@ -321,7 +321,7 @@ import { JsonpModule } from '@angular/http';
 
   ],
   imports: [
-    BrowserModule, HttpModule, JsonpModule,
+    BrowserModule, HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -380,7 +380,8 @@ import { JsonpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    JsonpModule
   ]
 })
 export class AppModule {}
