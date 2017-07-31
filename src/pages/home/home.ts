@@ -16,15 +16,18 @@ export class HomePage implements OnInit {
 
   // the object that will hold the new objects retrieved from the server
   myNews = [];
-
   allAboutPage = allAboutPage;
   MarkPage = MarkPage;
   NewsPage = NewsPage;
   Dubai101Page = Dubai101Page;
   DownloadsPage = DownloadsPage;
-
   constructor(public navCtrl: NavController, private http: Http, private loadingController: LoadingController) {
+    
+    this.getNews(); 
+  }
 
+  getNews(){
+    this.myNews=[];
     let loadingPopup = this.loadingController.create({
       content: 'Verifying...'
     });
@@ -41,15 +44,13 @@ export class HomePage implements OnInit {
         'Content-Type': 'application/x-www-form-urlencoded'
       })
     });
-
     this.http.post('http://cums.the-v.net/site.aspx', body, options)
-      .subscribe(response => {
-        this.myNews = response.json();
-      }, null, () => {
-        loadingPopup.dismiss();
-      });
+          .subscribe(response => {
+            this.myNews = response.json();
+          }, null, () => {
+            loadingPopup.dismiss();
+          });
   }
-
   ngOnInit(): void {
     
   }

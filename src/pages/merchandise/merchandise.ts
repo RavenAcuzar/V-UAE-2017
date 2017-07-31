@@ -11,11 +11,44 @@ import { MarkPage } from '../mark/mark';
 export class MerchandisePage {
 Dubai101Page = Dubai101Page;
 MarkPage = MarkPage;
+<<<<<<< Updated upstream
 constructor() {}
+=======
+myMerchandise =[];
+constructor(private _jsonp: Jsonp, private loadingController: LoadingController) {
+  
+  
 
+}
 ionViewDidLoad() {
   console.log('ionViewDidLoad MerchandisePage');
+  this.methodname();
+  alert(this.myMerchandise.toString());
+  
 }
+
+
+methodname()
+{
+  this.myMerchandise=[];
+
+  let loadingPopup = this.loadingController.create({
+      content: 'Verifying...'
+    });
+    loadingPopup.present();
+  
+  var url='https://the-v.net/Resources/VCONApp_Merchandise.json?callback=JSON_CALLBACK'+'&dummy='+Date.now();
+
+  this._jsonp.request(url)
+  .subscribe((result)=>{
+    this.myMerchandise=result.json()[0];
+    alert(this.myMerchandise.toString());
+    //console.log ('ionViewDidLoad '+this.myMerchandise);
+  },null, ()=>{
+    loadingPopup.dismiss();
+  });
+}
+>>>>>>> Stashed changes
 
 @ViewChild(Content) content: Content;
 
