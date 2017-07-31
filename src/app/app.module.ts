@@ -261,6 +261,8 @@ import { SplashnextPageTR } from '../pages/splashnext-tr/splashnext-tr';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { JsonpModule } from '@angular/http';
+import { FileTransfer } from "@ionic-native/file-transfer";
+import { FileOpener } from "@ionic-native/file-opener";
 
 @NgModule({
   declarations: [
@@ -380,8 +382,8 @@ import { JsonpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    JsonpModule
+    FileTransfer, FileOpener,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
