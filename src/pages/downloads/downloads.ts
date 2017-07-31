@@ -28,7 +28,7 @@ export class DownloadsPage {
 
     if (this.platform.is('cordova')) {
       if (this.platform.is('ios')) {
-        this.downloadLocation = cordova.file.documentsDirectory;
+        this.downloadLocation = cordova.file.externalDataDirectory;
         this.canDownload = true;
       } else if (this.platform.is('android')) {
         this.downloadLocation = cordova.file.externalDataDirectory;
