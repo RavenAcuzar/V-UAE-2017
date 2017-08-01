@@ -22,55 +22,19 @@
   </header>
   <article class="cusContent">
 
-    <p class="headline"> Visit The V Booth, and get your hands on these EXCLUSIVE V-Malaysia 2017 merchandise!</p>
+    <p class="headline"> Visit The V Booth, and get your hands on these EXCLUSIVE V-UAE 2017 merchandise!</p>
 
     <div class="merchCont">
       <ion-grid>
-        <ion-row>
-          <!-- START MERCHANDISE ITEM-->
-          <ion-col class="item">
+        <ion-row *ngFor="let merch of myMerchandise">
+          <ion-col class="item" >
             <div class="merch-image">
-              <img src="http://the-v.net/images/default-source/vcon17/item-1.jpg" width="100%" height="auto" class="center ">
+              <img [src]="merch.image" width="100%" height="auto">
             </div>
-            <div class="merch-title">Limitless T-Shirt (Available in 3 colors)</div>
-            <div class="merch-price">RM60</div>
-
+            <div class="merch-title">{{merch.title}}</div>
+            <div class="merch-price">{{merch.price}}</div>
           </ion-col>
-
-          <ion-col class="item">
-            <div class="merch-image">
-              <img src="http://the-v.net/images/default-source/vcon17/item-5.jpg" width="100%" height="auto" class="center ">
-            </div>
-            <div class="merch-title">Limitless Cap (Available in 2 colors)</div>
-            <div class="merch-price">RM50</div>
-
-          </ion-col>
-
         </ion-row>
-
-        <ion-row>
-          <!-- START MERCHANDISE ITEM-->
-          <ion-col class="item">
-            <div class="merch-image">
-              <img src="http://the-v.net/images/default-source/vcon17/item-6.jpg" width="100%" height="auto" class="center ">
-            </div>
-            <div class="merch-title">Limitless Bracelet Design 1</div>
-            <div class="merch-price">RM80</div>
-
-          </ion-col>
-
-          <ion-col class="item">
-            <div class="merch-image">
-              <img src="http://the-v.net/images/default-source/vcon17/item-7.jpg" width="100%" height="auto" class="center ">
-            </div>
-            <div class="merch-title">Limitless Bracelet Design 2</div>
-            <div class="merch-price">RM80</div>
-
-          </ion-col>
-
-        </ion-row>
-
-
       </ion-grid>
 
     </div>

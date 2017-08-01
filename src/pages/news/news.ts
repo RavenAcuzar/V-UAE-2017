@@ -21,6 +21,12 @@ export class NewsPage implements OnInit {
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private loadingController: LoadingController,
     private http: Http) {
+      this.getNewsView();
+      }
+
+  getNewsView(){
+    this.id=null;
+    this.news={};
     this.id = this.navParams.get('id');
 
     let loadingPopup = this.loadingController.create({
@@ -46,6 +52,7 @@ export class NewsPage implements OnInit {
       }, null, () => {
         loadingPopup.dismiss();
       });
+
   }
 
   ngOnInit(): void {

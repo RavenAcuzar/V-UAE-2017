@@ -17,6 +17,10 @@ allAboutPage = allAboutPage;
 TheSpeakersPage = TheSpeakersPage;
 NewsPage = NewsPage;
   constructor(public navCtrl: NavController, private http: Http, private loadingController: LoadingController) {
+    this.getNews();
+  }
+  getNews(){
+    this.myNews=[];
     let loadingPopup = this.loadingController.create({
       content: 'Verifying...'
     });
