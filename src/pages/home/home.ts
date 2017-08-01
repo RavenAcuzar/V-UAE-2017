@@ -6,12 +6,24 @@ import { MarkPage } from '../mark/mark';
 import { Dubai101Page } from '../dubai101/dubai101';
 import { DownloadsPage } from '../downloads/downloads';
 import { NewsPage } from '../news/news';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
+  private _VDate;
+
+  private _diff: number;
+
+  public _days: number;
+
+  public _hours: number;
+
+  public _minutes: number;
+
+  public _seconds: number;
   @ViewChild(Content) content: Content;
 
   // the object that will hold the new objects retrieved from the server
@@ -22,12 +34,12 @@ export class HomePage implements OnInit {
   Dubai101Page = Dubai101Page;
   DownloadsPage = DownloadsPage;
   constructor(public navCtrl: NavController, private http: Http, private loadingController: LoadingController) {
-    
-    this.getNews(); 
+
+    this.getNews();
   }
 
-  getNews(){
-    this.myNews=[];
+  getNews() {
+    this.myNews = [];
     let loadingPopup = this.loadingController.create({
       content: 'Verifying...'
     });
@@ -45,14 +57,43 @@ export class HomePage implements OnInit {
       })
     });
     this.http.post('http://cums.the-v.net/site.aspx', body, options)
-          .subscribe(response => {
-            this.myNews = response.json();
-          }, null, () => {
-            loadingPopup.dismiss();
-          });
+      .subscribe(response => {
+        this.myNews = response.json();
+      }, null, () => {
+        loadingPopup.dismiss();
+      });
   }
-  ngOnInit(): void {
+  ngOnInit() {
+
+    this._VDate = "2017-09-08";
+    this.countDown();
     
+  }
+
+  countDown(){
+    Observable.interval(1000).map((x) => {
+      this._diff = Date.parse(this._VDate) - Date.parse(new Date().toString());
+    }).subscribe((x) => {
+      this._days = this.getDays(this._diff);
+      this._hours = this.getHours(this._diff);
+      this._minutes = this.getMinutes(this._diff);
+      this._seconds = this.getSeconds(this._diff);
+    });
+  }
+  getDays(t) {
+    return Math.floor(t / (1000 * 60 * 60 * 24));
+  }
+
+  getHours(t) {
+    return Math.floor((t / (1000 * 60 * 60)) % 24);
+  }
+
+  getMinutes(t) {
+    return Math.floor((t / 1000 / 60) % 60);
+  }
+
+  getSeconds(t) {
+    return Math.floor((t / 1000) % 60);
   }
 
   navigateToNews(id: String) {
