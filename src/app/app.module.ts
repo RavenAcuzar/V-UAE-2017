@@ -264,6 +264,7 @@ import { JsonpModule } from '@angular/http';
 import { FileTransfer } from "@ionic-native/file-transfer";
 import { FileOpener } from "@ionic-native/file-opener";
 import { FileChooser } from "@ionic-native/file-chooser";
+import { File } from "@ionic-native/file";
 
 @NgModule({
   declarations: [
@@ -383,7 +384,7 @@ import { FileChooser } from "@ionic-native/file-chooser";
   providers: [
     StatusBar,
     SplashScreen,
-    FileTransfer, FileOpener, FileChooser,
+    FileTransfer, FileOpener, FileChooser, File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
