@@ -76,9 +76,7 @@ export class DownloadsPage {
       }).catch(e => {
         this.file.createDir(this.downloadLocation, folderLocation, false).then(_ => {
             this.downloadFile(fileDestination, url);
-          }).catch(e => {
-            console.log('an error occurred while creating the directory... ' + JSON.stringify(e));
-          });
+          }).catch(this.onErrorWithWallpaperDownload);
       });
     }
   }
@@ -89,13 +87,11 @@ export class DownloadsPage {
     });
     loadingPopup.present();
 
-    console.log(fileDestination);
-    console.log(JSON.stringify(this.file));
     this.fileTransferObject.download(url, fileDestination, true).then((entry) => {
       loadingPopup.dismiss();
       let alert = this.alertCtrl.create({
         title: 'Download successful!',
-        subTitle: 'You can now use the wallpaper. Click \'Open\' to view the downloaded wallpaper. ' + entry.toURL(),
+        subTitle: 'You can now use the wallpaper. Click \'Open\' to view the downloaded wallpaper.',
         buttons: [
           {
             text: 'Open',
@@ -106,11 +102,16 @@ export class DownloadsPage {
                     alert.dismiss();
                     return false;
                   })
-                  .catch(this.onErrorWhileOpening);
-              }, this.onErrorWhileOpening);
+                  .catch(e => {
+                    alert.dismiss();
+                    this.onErrorWithWallpaperDownload(e);
+                  });
+              }, e => {
+                alert.dismiss();
+                this.onErrorWithWallpaperDownload(e);
+              });
             }
-          },
-          {
+          }, {
             text: 'Ok',
             handler: () => {
               alert.dismiss();
@@ -137,7 +138,7 @@ export class DownloadsPage {
     });
   }
 
-  private onErrorWhileOpening(error) {
+  private onErrorWithWallpaperDownload(error) {
     let alert = this.alertCtrl.create({
       title: 'Error occurred!',
       subTitle: 'Cannot open the downloaded wallpaper. Please try again.',
