@@ -82,6 +82,7 @@ export class MarkPage {
           }
         }]
       });
+      alert.present();
       loadingPopUp.dismiss();
     });
   }
