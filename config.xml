@@ -96,4 +96,8 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.2.3"/>
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1"/>
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
+    <plugin name="cordova-plugin-filechooser" spec="^1.0.1" />
+    <plugin name="cordova-plugin-photo-library" spec="~2.0.4">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="To save the wallpapers to your device." />
+    </plugin>
 </widget>
