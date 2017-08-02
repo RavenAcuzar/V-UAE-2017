@@ -12,6 +12,9 @@ import { Http } from '@angular/http';
 })
 @Injectable()
 export class MerchandisePage {
+  Dubai101Page = Dubai101Page;
+  MarkPage = MarkPage;
+  
   @ViewChild(Slides) slides: Slides;
   @ViewChild(Content) content: Content;
   myMerchandise = [];

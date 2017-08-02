@@ -217,6 +217,22 @@ page-newslanding.ion-page {
   margin-top: 0 !important;
 }
 
+.alert{
+color: black;
+title{
+  color: black
+}
+button{
+color: black;
+}
+}
+.alertDanger{
+color: red;
+button{
+color: red;
+}
+}
+
 
 @font-face {
   font-family: 'LatoBold';

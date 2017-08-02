@@ -62,7 +62,8 @@ export class DownloadsPage {
             alert.dismiss();
             return false;
           }
-        }]
+        }],
+        cssClass: 'alertDanger'
       });
       alert.present();
 
@@ -118,7 +119,8 @@ export class DownloadsPage {
               return false;
             }
           }
-        ]
+        ],
+        cssClass: 'alert'
       });
       alert.present();
     }).catch((error) => {
@@ -132,7 +134,8 @@ export class DownloadsPage {
             alert.dismiss();
             return false;
           }
-        }]
+        }],
+        cssClass: 'alertDanger'
       });
       alert.present();
     });
@@ -148,7 +151,8 @@ export class DownloadsPage {
           alert.dismiss();
           return false;
         }
-      }]
+      }],
+      cssClass: 'alertDanger'
     });
   };
 }

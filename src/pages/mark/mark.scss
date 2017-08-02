@@ -1,4 +1,53 @@
 page-mark {
+
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+  .inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+  .inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+  .inputfile-1 + label {
+    color: #f1e5e6;
+    background-color: #B24298;
+    transition: all 0.35s ease-in-out 0s;
+  -moz-transition: all 0.35s ease-in-out 0s;
+  -ms-transition: all 0.35s ease-in-out 0s;
+  -o-transition: all 0.35s ease-in-out 0s;
+  -webkit-transition: all 0.35s ease-in-out 0s;
+}
+
+  .inputfile-1:focus + label,
+  .inputfile-1.has-focus + label,
+  .inputfile-1 + label:hover {
+    transform: scale(1.05);
+      background-color: #722040;
+}
+
   .selectBadge ion-item {
       width: 30%;
       display: inline-block;
@@ -82,8 +131,8 @@ page-mark {
   color: #fff;
 }
 .photo {
-  height: 270px;
-  width: 270px;
+  height: auto;
+  width: auto;
   background-color: #000;
   margin: 40px auto;
   color: #fff;

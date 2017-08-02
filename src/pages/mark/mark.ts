@@ -17,7 +17,8 @@ export class MarkPage {
 
   DownloadsPage = DownloadsPage;
   MerchandisePage = MerchandisePage;
-
+  filename : string;
+  ss: boolean = false;
   badge: string = ''; // id of the badge
   chosenFilePath: string = '';
   badgeImageIsReady: boolean = false;
@@ -53,6 +54,9 @@ export class MarkPage {
   }
 
   badgeValueChanged() {
+    
+    if(this.ss){
+
     let loadingPopUp = this.loadingCtrl.create({
       content: 'Processing your image...'
     });
@@ -80,15 +84,36 @@ export class MarkPage {
             alert.dismiss();
             return false;
           }
-        }]
+        }],
+        cssClass:'alertDanger'
       });
       alert.present();
       loadingPopUp.dismiss();
     });
+    }
+    else{
+      let alert = this.alertCtrl.create({
+        title: 'Error occurred!',
+        subTitle: 'No Photo selected.',
+        buttons: [{
+          text: 'Ok',
+          handler: () => {
+            alert.dismiss();
+            return false;
+          }
+        }],
+        cssClass:'alertDanger'
+      });
+      alert.present();
+    }
   }
 
   inputImageChanged(event) {
     this.chosenFilePath = event.target.files[0];
+    //console.log(JSON.stringify(this.chosenFilePath));
+    this.ss=true;
+    this.filename=event.target.files[0].name;
+
   }
 
   downloadImage() {
@@ -102,7 +127,8 @@ export class MarkPage {
             alert.dismiss();
             return false;
           }
-        }]
+        }],
+        cssClass:'alertDanger'
       });
       alert.present();
 
@@ -168,7 +194,8 @@ export class MarkPage {
               return false;
             }
           }
-        ]
+        ],
+        cssClass:'alert'
       });
       alert.present();
     }).catch((error) => {
@@ -182,7 +209,8 @@ export class MarkPage {
             alert.dismiss();
             return false;
           }
-        }]
+        }],
+        cssClass:'alertDanger'
       });
       alert.present();
     });
@@ -198,7 +226,8 @@ export class MarkPage {
           alert.dismiss();
           return false;
         }
-      }]
+      }],
+      cssClass:'alertDanger'
     });
   }
 }

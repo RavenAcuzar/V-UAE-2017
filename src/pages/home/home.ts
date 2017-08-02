@@ -14,15 +14,10 @@ import { Observable } from 'rxjs/Rx';
 })
 export class HomePage implements OnInit {
   private _VDate;
-
   private _diff: number;
-
   public _days: number;
-
   public _hours: number;
-
   public _minutes: number;
-
   public _seconds: number;
   @ViewChild(Content) content: Content;
 
@@ -64,7 +59,7 @@ export class HomePage implements OnInit {
       });
   }
   ngOnInit() {
-
+    
     this._VDate = "2017-09-08";
     this.countDown();
     
