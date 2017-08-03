@@ -5,55 +5,32 @@
     </button>
   </ion-toolbar>
 </ion-header>
+
 <ion-content class="AR">
   <header class="mainScr mid">
     <h1>الأخبار والمستجدات</h1>
   </header>
   <article class="cusContent">
-
     <div class="list">
-      <!-- <a href="#/app/news?id={{mnews.Title}}" nav-direction="forward" class="item item-thumbnail-left" href="#" ng-repeat="mnews in myNews | filter: '2017' | orderBy: 'mnews.CreatedOn'">
-        <img  src="{{mnews.ImageLink}}" width="100%" height="auto" class="center ">
-        <h2>{{mnews.localTitle}}</h2>
-      </a> -->
       <div class="newscat">
-
-        <div class="row">
-          <a [navPush]="NewsPageAR" nav-direction="forward" class="col item">
-            <h4>Coming Together Towards Progress</h4>
-            <h3>in General Announcements </h3>
-            <img src="assets/img/0622-coming-together-towards-progress-th.jpg" width="100%" height="auto" class="center ">
-
+        <div class="row" *ngFor="let news of myNews">
+          <a (click)="navigateToNews(news.Title)" class="col item">
+            <h4 [innerHTML]="news.localTitle"></h4>
+            <h3>in {{news.SubCategory}}</h3>
+            <img [src]="news.ImageLink" width="100%" height="auto" class="center ">
             <div class="row">
-              <span class="col col-50 nopad date">22 Jun 2017</span>
+              <span class="col col-50 date">{{news.CreatedOnDate}}</span>
             </div>
           </a>
-
-          <a [navPush]="NewsPageAR" nav-direction="forward" class="col item">
-            <h4>tripsavr 2.0 for a Great Travel Experience</h4>
-            <h3>in General Announcements </h3>
-            <img src="assets/img/0622-tripsavr-20-for-a-great-travel-experience-th.jpg" width="100%" height="auto" class="center ">
-
-            <div class="row">
-              <span class="col col-50 nopad date">22 Jun 2017</span>
-            </div>
-          </a>
-
         </div>
       </div>
-
     </div>
-
-    <div class="backtotop" (click)="scrollToTop()" >
-      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
-      العودة إلى أعلى
+    <div class="backtotop" (click)="scrollToTop()">
+      <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; العودة إلى أعلى
     </div>
-
-
   </article>
-
-
 </ion-content>
+
 <ion-footer>
   <ion-toolbar>
     <ion-buttons start>

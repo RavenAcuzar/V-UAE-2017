@@ -9,36 +9,30 @@
 <ion-content no-bounce>
   <header class="mainScr">
     <div class="msg">
-      <p>Tik tak. <br/>
-          Hayatınızı değiştirmek için zaman geldi!
-      </p>
-      <h4> V-UAE 2017 <br/>'ye hoş geldiniz!
-
-      </h4>
+      <p>Tik tak.<br/>Hayatınızı değiştirmek için zaman geldi!</p>
+      <h4>V-UAE 2017<br/>'ye hoş geldiniz!</h4>
     </div>
-    <div class="countdown ">
+    <div class="countdown">
       <div class="countdown-section">
-        <h6 class="numbers">90</h6>
+        <h6 class="numbers">{{_days}}</h6>
         <h6 class="label">GÜNLER</h6>
       </div>
       <div class="countdown-section">
-        <h6 class="numbers">6</h6>
+        <h6 class="numbers">{{_hours}}</h6>
         <h6 class="label">SAATLER</h6>
       </div>
       <div class="countdown-section">
-        <h6 class="numbers">32</h6>
+        <h6 class="numbers">{{_minutes}}</h6>
         <h6 class="label">DAKİKALAR</h6>
       </div>
       <div class="countdown-section">
-        <h6 class="numbers">49</h6>
+        <h6 class="numbers">{{_seconds}}</h6>
         <h6 class="label">SANİYELER</h6>
       </div>
     </div>
-
     <div class="schedule hide">
       <button>DAILY PROGRAM SCHEDULE </button>
     </div>
-
   </header>
 
   <!-- VCON Categories -->
@@ -61,27 +55,21 @@
     </div>
   </div>
 
-
   <div class="newscat">
     <h6>Haberler ve Güncellemeler</h6>
-    <div class="row" >
-      <a [navPush]="NewsPageTR" nav-direction="forward"  class="col item">
-        <h4>Coming Together Towards Progress</h4>
-        <h3>in General Announcements </h3>
-        <img src="assets/img/0622-coming-together-towards-progress-th.jpg"  width="100%" height="auto" class="center ">
-
+    <div class="row" *ngFor="let news of myNews">
+      <a (click)="navigateToNews(news.Title)" class="col item">
+        <h4 [innerHTML]="news.localTitle"></h4>
+        <h3>in {{news.SubCategory}}</h3>
+        <img [src]="news.ImageLink" width="100%" height="auto" class="center ">
         <div class="row">
-          <span class="col col-50 nopad date">Date</span>
+          <span class="col col-50 date">&nbsp;{{news.CreatedOnDate}}</span>
         </div>
       </a>
-
     </div>
   </div>
 
-  <div class="backtotop" (click)="scrollToTop()" >
-    <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp;
-    BAŞA DÖN
+  <div class="backtotop" (click)="scrollToTop()">
+    <ion-icon name="arrow-up"></ion-icon> &nbsp; &nbsp; BAŞA DÖN
   </div>
-
-
 </ion-content>

@@ -1,27 +1,31 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Content, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { allAboutPageAR } from '../allabout-ar/allabout-ar';
 import { MarkPageAR } from '../mark-ar/mark-ar';
 import { Dubai101PageAR } from '../dubai101-ar/dubai101-ar';
 import { DownloadsPageAR } from '../downloads-ar/downloads-ar';
 import { NewsPageAR } from '../news-ar/news-ar';
+import { HomePage } from "../home/home";
+import { Http } from "@angular/http";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home-ar.html',
 })
-export class HomePageAR {
-
+export class HomePageAR extends HomePage {
   @ViewChild(Content) content: Content;
-
-  scrollToTop() {
-    this.content.scrollToTop();
-  }
 
   allAboutPageAR = allAboutPageAR;
   MarkPageAR = MarkPageAR;
   Dubai101PageAR = Dubai101PageAR;
   DownloadsPageAR = DownloadsPageAR;
   NewsPageAR = NewsPageAR;
-  constructor() { }
+
+  constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController) {
+    super(navCtrl, http, loadingController);
+  }
+
+  scrollToTop() {
+    this.content.scrollToTop();
+  }
 }

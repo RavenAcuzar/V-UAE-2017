@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
-import { IonicPage, Content, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, LoadingController, Events } from 'ionic-angular';
 import { allAboutPage } from '../allabout/allabout';
 import { MarkPage } from '../mark/mark';
 import { Dubai101Page } from '../dubai101/dubai101';
@@ -12,24 +12,30 @@ import { Observable } from 'rxjs/Rx';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
+  @ViewChild(Content) content: Content;
+
+  myNews = [];
+
+  allAboutPage = allAboutPage;
+  MarkPage = MarkPage;
+  NewsPage = NewsPage;
+  Dubai101Page = Dubai101Page;
+  DownloadsPage = DownloadsPage;
+
   private _VDate;
   private _diff: number;
   public _days: number;
   public _hours: number;
   public _minutes: number;
   public _seconds: number;
-  @ViewChild(Content) content: Content;
 
-  // the object that will hold the new objects retrieved from the server
-  myNews = [];
-  allAboutPage = allAboutPage;
-  MarkPage = MarkPage;
-  NewsPage = NewsPage;
-  Dubai101Page = Dubai101Page;
-  DownloadsPage = DownloadsPage;
-  constructor(public navCtrl: NavController, private http: Http, private loadingController: LoadingController) {
+  constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController) {
+  }
 
+  ionViewDidEnter() {
+    this._VDate = "2017-09-08";
+    this.countDown();
     this.getNews();
   }
 
@@ -58,14 +64,8 @@ export class HomePage implements OnInit {
         loadingPopup.dismiss();
       });
   }
-  ngOnInit() {
-    
-    this._VDate = "2017-09-08";
-    this.countDown();
-    
-  }
 
-  countDown(){
+  countDown() {
     Observable.interval(1000).map((x) => {
       this._diff = Date.parse(this._VDate) - Date.parse(new Date().toString());
     }).subscribe((x) => {

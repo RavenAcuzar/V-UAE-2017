@@ -10,17 +10,21 @@ import { NewsPage } from '../news/news';
   selector: 'page-newslanding',
   templateUrl: 'newslanding.html'
 })
-export class NewslandingPage implements OnInit{
- @ViewChild(Content) content: Content;
-myNews = [];
-allAboutPage = allAboutPage;
-TheSpeakersPage = TheSpeakersPage;
-NewsPage = NewsPage;
-  constructor(public navCtrl: NavController, private http: Http, private loadingController: LoadingController) {
+export class NewslandingPage {
+  @ViewChild(Content) content: Content;
+
+  myNews = [];
+  
+  allAboutPage = allAboutPage;
+  TheSpeakersPage = TheSpeakersPage;
+  NewsPage = NewsPage;
+
+  constructor(public navCtrl: NavController, public http: Http, public loadingController: LoadingController) {
     this.getNews();
   }
-  getNews(){
-    this.myNews=[];
+
+  getNews() {
+    this.myNews = [];
     let loadingPopup = this.loadingController.create({
       content: 'Verifying...'
     });
@@ -45,11 +49,7 @@ NewsPage = NewsPage;
         loadingPopup.dismiss();
       });
   }
-  
 
-  ngOnInit(): void{
-
-  }
   navigateToNews(id: String) {
     this.navCtrl.push(NewsPage, {
       id: id

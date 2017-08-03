@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Content, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, Events } from 'ionic-angular';
 import { SplashnextPage } from '../splashnext/splashnext';
 import { SplashnextPageAR } from '../splashnext-ar/splashnext-ar';
 import { SplashnextPageID } from '../splashnext-id/splashnext-id';
 import { SplashnextPageFR } from '../splashnext-fr/splashnext-fr';
 import { SplashnextPageRU } from '../splashnext-ru/splashnext-ru';
 import { SplashnextPageTR } from '../splashnext-tr/splashnext-tr';
+import { LanguageService } from "../../app/services/language.service";
 
 @IonicPage()
 @Component({
@@ -20,10 +21,11 @@ export class SplashPage {
   SplashnextPageRU = SplashnextPageRU;
   SplashnextPageTR = SplashnextPageTR;
 
-  constructor() { 
+  constructor(private events: Events) { 
   }
 
   setLanguage(language) {
     window.localStorage['mylanguage'] = language;
+    LanguageService.publishLanguageChange(this.events);
   }
 }
