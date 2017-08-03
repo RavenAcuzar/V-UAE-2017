@@ -130,7 +130,7 @@ import { HowtoPageRU } from '../pages/howto-ru/howto-ru';
 import { HowtoPageTR } from '../pages/howto-tr/howto-tr';
 import { SplashPage } from '../pages/splash/splash';
 import { ChangeLangPage } from '../pages/changelang/changelang';
-
+import { Deeplinks } from "@ionic-native/deeplinks";
 
 @Component({
   templateUrl: 'app.html'
@@ -141,105 +141,161 @@ export class MyApp {
   rootPage: any = SplashPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+      private deeplink: Deeplinks) {
     this.initializeApp();
+    
+    // switch(window.localStorage['mylanguage'])
+    // {
+    //   case 'en':
+        this.pages = [
+          { title: 'Home', component: HomePage },
+          { title: 'All About V-UAE 2017', component: allAboutPage },
+          { title: 'News and Updates', component: NewslandingPage },
+          { title: 'The Speakers', component: TheSpeakersPage },
+          { title: 'Daily Program Schedule', component: SchedPage },
+          { title: 'Dubai 101', component: Dubai101Page },
+          { title: 'Merchandise', component: MerchandisePage },
+          { title: 'Make Your V-Con Mark', component: MarkPage },
+          { title: '#VUAE17 Wallpapers', component: DownloadsPage },
+          { title: 'FAQs', component: FaqsPage },
+          { title: 'Contact Us', component: ContactPage },
+          { title: 'Change Language', component: SplashPage}
+        ];
+    // break;
+    // case 'ar':
+    //     this.pages = [
+    //       { title: 'الرئيسية', component: HomePageAR },
+    //       { title: 'كل ما يخص V-UAE 2017', component: allAboutPageAR },
+    //       { title: 'الأخبار والمستجدات', component: NewslandingPageAR },
+    //       { title: 'المتحدثين', component: TheSpeakersPageAR },
+    //       { title: 'الجدول اليومي للبرنامج', component: SchedPageAR },
+    //       { title: 'دبي 101', component: Dubai101PageAR },
+    //       { title: 'معروضات #VCON17', component: MerchandisePageAR },
+    //       { title: 'ضع علامتك للفي-كون', component: MarkPageAR },
+    //       { title: 'صور خلفيات #VCON17', component: DownloadsPageAR },
+    //       { title: 'الأسئلة الشائعة', component: FaqsPageAR },
+    //       { title: 'اتصل بنا', component: ContactPageAR },
+    //       { title: 'أختار اللغة', component: SplashPage }
+    //     ];
+    // break;
+    // case 'fr':
+    //     this.pages = [
+    //       { title: 'ACCUEIL', component: HomePageFR },
+    //       { title: 'Tout sur le V-UAE 2017', component: allAboutPageFR },
+    //       { title: 'Actualité et Mises à jour', component: NewslandingPageFR },
+    //       { title: 'Les Orateurs', component: TheSpeakersPageFR },
+    //       { title: 'Grille de programme quotidienne', component: SchedPageFR },
+    //       { title: 'Dubai 101', component: Dubai101PageFR },
+    //       { title: 'Marchandise', component: MerchandisePageFR },
+    //       { title: 'Faites votre marque V-Con', component: MarkPageFR },
+    //       { title: '#VUAE17 Fonds d’écran', component: DownloadsPageFR },
+    //       { title: 'FAQs', component: FaqsPageFR },
+    //       { title: 'Contactez-nous', component: ContactPageFR },
+    //       { title: 'Sélectionnez une langue', component: SplashPage }
+    //     ];
+    //   break;
+    //   case 'id':
+    //     this.pages = [
+    //       { title: 'Home', component: HomePageID },
+    //       { title: 'All About V-UAE 2017', component: allAboutPageID },
+    //       { title: 'News and Updates', component: NewslandingPageID },
+    //       { title: 'The Speakers', component: TheSpeakersPageID },
+    //       { title: 'Daily Program Schedule', component: SchedPageID },
+    //       { title: 'Dubai 101', component: Dubai101PageID },
+    //       { title: 'Merchandise', component: MerchandisePageID },
+    //       { title: 'Make Your V-Con Mark', component: MarkPageID },
+    //       { title: '#VUAE17 Wallpapers', component: DownloadsPageID },
+    //       { title: 'FAQs', component: FaqsPageID },
+    //       { title: 'Contact Us', component: ContactPageID },
+    //       { title: 'Change Language', component: SplashPage }
+    //     ];
+    //   break;
+    //   case 'ru':
+    //     this.pages = [
+    //       { title: 'ДОМАШНЯЯ СТРАНИЦА', component: HomePageRU },
+    //       { title: 'Всё о V-UAE 2017', component: allAboutPageRU },
+    //       { title: 'Новости и объявления', component: NewslandingPageRU },
+    //       { title: 'Спикеры', component: TheSpeakersPageRU },
+    //       { title: 'Ежедневное расписание', component: SchedPageRU },
+    //       { title: 'Дубай 101', component: Dubai101PageRU },
+    //       { title: 'Товары #VCON17', component: MerchandisePageRU },
+    //       { title: 'Сделай свой значок V-Con', component: MarkPageRU },
+    //       { title: 'Обои #VCON17', component: DownloadsPageRU },
+    //       { title: 'Вопросы-ответы', component: FaqsPageRU },
+    //       { title: 'Контакты', component: ContactPageRU },
+    //       { title: 'Выбор языка', component: SplashPage }
+    //     ];
+    //   break;
+    //   case 'tr':
+    //     this.pages = [
+    //       { title: 'ANA SAYFA', component: HomePageTR },
+    //       { title: 'V-UAE 2017 Hakkında Her Şey', component: allAboutPageTR },
+    //       { title: 'Haberler ve Güncellemeler', component: NewslandingPageTR },
+    //       { title: 'Konuşmacılar', component: TheSpeakersPageTR },
+    //       { title: 'Günlük Program ', component: SchedPageTR },
+    //       { title: 'Dubai 101', component: Dubai101PageTR },
+    //       { title: 'V-UAE 2017 Ürünleri', component: MerchandisePageTR },
+    //       { title: 'V-Con İzinizi Oluşturun', component: MarkPageTR },
+    //       { title: 'V-UAE 2017 Duvar Kağıtları', component: DownloadsPageTR },
+    //       { title: 'SSS', component: FaqsPageTR },
+    //       { title: 'Bizimle İletişime Geçin', component: ContactPageTR },
+    //       { title: 'Dil Seçin', component: SplashPage }
+    //     ];
+    //   break;
 
+    // }
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'All About V-UAE 2017', component: allAboutPage },
-      { title: 'News and Updates', component: NewslandingPage },
-      { title: 'The Speakers', component: TheSpeakersPage },
-      { title: 'Daily Program Schedule', component: SchedPage },
-      { title: 'Dubai 101', component: Dubai101Page },
-      { title: 'Merchandise', component: MerchandisePage },
-      { title: 'Make Your V-Con Mark', component: MarkPage },
-      { title: '#VUAE17 Wallpapers', component: DownloadsPage },
-      { title: 'FAQs', component: FaqsPage },
-      { title: 'Contact Us', component: ContactPage },
-      { title: 'Change Language', component: SplashPage}
-    ];
-
-
-  //    this.pages = [
-  //    { title: 'الرئيسية', component: HomePageAR },
-  //    { title: 'كل ما يخص V-UAE 2017', component: allAboutPageAR },
-  //    { title: 'الأخبار والمستجدات', component: NewslandingPageAR },
-  //    { title: 'المتحدثين', component: TheSpeakersPageAR },
-  //    { title: 'الجدول اليومي للبرنامج', component: SchedPageAR },
-  //    { title: 'دبي 101', component: Dubai101PageAR },
-  //    { title: 'معروضات #VCON17', component: MerchandisePageAR },
-  //    { title: 'ضع علامتك للفي-كون', component: MarkPageAR },
-  //    { title: 'صور خلفيات #VCON17', component: DownloadsPageAR },
-  //    { title: 'الأسئلة الشائعة', component: FaqsPageAR },
-  //    { title: 'اتصل بنا', component: ContactPageAR },
-  //    { title: 'أختار اللغة', component: SplashPage }
-  //  ];
-
-  //    this.pages = [
-  //    { title: 'ACCUEIL', component: HomePageFR },
-  //    { title: 'Tout sur le V-UAE 2017', component: allAboutPageFR },
-  //    { title: 'Actualité et Mises à jour', component: NewslandingPageFR },
-  //    { title: 'Les Orateurs', component: TheSpeakersPageFR },
-  //    { title: 'Grille de programme quotidienne', component: SchedPageFR },
-  //    { title: 'Dubai 101', component: Dubai101PageFR },
-  //    { title: 'Marchandise', component: MerchandisePageFR },
-  //    { title: 'Faites votre marque V-Con', component: MarkPageFR },
-  //    { title: '#VUAE17 Fonds d’écran', component: DownloadsPageFR },
-  //    { title: 'FAQs', component: FaqsPageFR },
-  //    { title: 'Contactez-nous', component: ContactPageFR },
-  //    { title: 'Sélectionnez une langue', component: SplashPage }
-  //  ];
-
-  //    this.pages = [
-  //    { title: 'Home', component: HomePageID },
-  //    { title: 'All About V-UAE 2017', component: allAboutPageID },
-  //    { title: 'News and Updates', component: NewslandingPageID },
-  //    { title: 'The Speakers', component: TheSpeakersPageID },
-  //    { title: 'Daily Program Schedule', component: SchedPageID },
-  //    { title: 'Dubai 101', component: Dubai101PageID },
-  //    { title: 'Merchandise', component: MerchandisePageID },
-  //    { title: 'Make Your V-Con Mark', component: MarkPageID },
-  //    { title: '#VUAE17 Wallpapers', component: DownloadsPageID },
-  //    { title: 'FAQs', component: FaqsPageID },
-  //    { title: 'Contact Us', component: ContactPageID },
-  //    { title: 'Change Language', component: SplashPage }
-  //  ];
-
-  //    this.pages = [
-  //    { title: 'ДОМАШНЯЯ СТРАНИЦА', component: HomePageRU },
-  //    { title: 'Всё о V-UAE 2017', component: allAboutPageRU },
-  //    { title: 'Новости и объявления', component: NewslandingPageRU },
-  //    { title: 'Спикеры', component: TheSpeakersPageRU },
-  //    { title: 'Ежедневное расписание', component: SchedPageRU },
-  //    { title: 'Дубай 101', component: Dubai101PageRU },
-  //    { title: 'Товары #VCON17', component: MerchandisePageRU },
-  //    { title: 'Сделай свой значок V-Con', component: MarkPageRU },
-  //    { title: 'Обои #VCON17', component: DownloadsPageRU },
-  //    { title: 'Вопросы-ответы', component: FaqsPageRU },
-  //    { title: 'Контакты', component: ContactPageRU },
-  //    { title: 'Выбор языка', component: SplashPage }
-  //  ];
-
-  //    this.pages = [
-  //    { title: 'ANA SAYFA', component: HomePageTR },
-  //    { title: 'V-UAE 2017 Hakkında Her Şey', component: allAboutPageTR },
-  //    { title: 'Haberler ve Güncellemeler', component: NewslandingPageTR },
-  //    { title: 'Konuşmacılar', component: TheSpeakersPageTR },
-  //    { title: 'Günlük Program ', component: SchedPageTR },
-  //    { title: 'Dubai 101', component: Dubai101PageTR },
-  //    { title: 'V-UAE 2017 Ürünleri', component: MerchandisePageTR },
-  //    { title: 'V-Con İzinizi Oluşturun', component: MarkPageTR },
-  //    { title: 'V-UAE 2017 Duvar Kağıtları', component: DownloadsPageTR },
-  //    { title: 'SSS', component: FaqsPageTR },
-  //    { title: 'Bizimle İletişime Geçin', component: ContactPageTR },
-  //    { title: 'Dil Seçin', component: SplashPage }
-  //  ];
-
+    
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+this.deeplink.routeWithNavController(this.nav, {
+  '/splash':SplashPage,
+  '/home': HomePage,
+  '/about':allAboutPage,
+  '/contact':ContactPage,
+  '/download-wallpaper': DownloadsPage,
+  '/dubai101': Dubai101Page,
+  '/dubai101/where-to-stay': WheretoPage,
+  '/dubai101/what-to-do': WhattoPage,
+  '/dubai101/how-to-get-around':HowtoPage,
+  '/speakers': TheSpeakersPage,
+  '/speakers/vfp-joseph-bismark':VFPPage,
+  '/speakers/vmp-dato-sri-vijay-eswaran':VMPPage,
+  '/speakers/vp-adly-hassan':VPahPage,
+  '/speakers/vp-arun-george':VPagPage,
+  '/speakers/vp-cherian-mathew': VPcmPage,
+  '/speakers/vp-david-sharma': VPdsPage,
+  '/speakers/vp-dev-johl':VPdjPage,
+  '/speakers/vp-dev-wadhwani': VPdwPage,
+  '/speakers/vp-donna-imson': VPdiPage,
+  '/speakers/vp-dr-motaz-qais':VPmqPage,
+  '/speakers/vp-ferdie-tolentino':VPftPage,
+  '/speakers/vp-hendra-nilam':VPhnPage,
+  '/speakers/vp-kpadma':VPkpPage,
+  '/speakers/vp-kuna-senathirajah':VPksPage,
+  '/speakers/vp-mahendra-kumar':VPmkPage,
+  '/speakers/vp-pathman-senathirajah':VPpsPage,
+  '/speakers/vp-ranjit-singh':VPrsPage,
+  '/speakers/vp-tg-kintanar': VPtgPage,
+  '/schedule':SchedPage,
+  '/merchandise':MerchandisePage,
+  '/vcon-mark':MarkPage,
+  '/faqs':FaqsPage,
+  '/news-and-updates': NewslandingPage,
+  '/news-and-updates/:id':NewsPage
+}).subscribe((match) => {
+  // match.$route - the route we matched, which is the matched entry from the arguments to route()
+  // match.$args - the args passed in the link
+  // match.$link - the full link data
+  //this.nav.setRoot(match.$route);
+  console.log('Successfully matched route', match);
+}, (nomatch) => {
+  // nomatch.$link - the full link data
+  console.error('Got a deeplink that didn\'t match', nomatch);
+});
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();

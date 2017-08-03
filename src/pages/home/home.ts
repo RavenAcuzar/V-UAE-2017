@@ -59,10 +59,10 @@ export class HomePage implements OnInit {
       });
   }
   ngOnInit() {
-    
+
     this._VDate = "2017-09-08";
     this.countDown();
-    
+
   }
 
   countDown(){
