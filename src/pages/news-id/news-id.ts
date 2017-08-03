@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NewsPage } from "../news/news";
+import { Http } from "@angular/http";
 
 
 @Component({
   selector: 'page-news',
   templateUrl: 'news-id.html'
 })
-export class NewsPageID {
+export class NewsPageID  extends NewsPage {
 
-  constructor(public navCtrl: NavController) {
-
+   constructor(protected navCtrl: NavController, protected navParams: NavParams, protected loadingController: LoadingController,
+    protected http: Http) {
+      super(navCtrl, navParams,loadingController,http);
+    }
+    
+   scrollToTop() {
+    this.content.scrollToTop();
   }
-
 }
+  

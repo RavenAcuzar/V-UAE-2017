@@ -18,9 +18,9 @@ export class DownloadsPage {
   downloadLocation: string = '';
   canDownload: boolean = false;
 
-  constructor(private fileTransfer: FileTransfer, private navCtrl: NavController,
-    private platform: Platform, private alertCtrl: AlertController, private file: File,
-    private fileOpener: FileOpener, private loadingCtrl: LoadingController) {
+  constructor(protected fileTransfer: FileTransfer, protected navCtrl: NavController,
+    protected platform: Platform, protected alertCtrl: AlertController, protected file: File,
+    protected fileOpener: FileOpener, protected loadingCtrl: LoadingController) {
 
     this.fileTransferObject = this.fileTransfer.create();
 

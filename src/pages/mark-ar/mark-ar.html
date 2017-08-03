@@ -15,17 +15,21 @@
     <div class="step1" style="display: block">
     <p class="title">ضع علامتك للفي-كون</p>
     <p class="headline">علم على صورك بسحر الفي-كون! ببساطة حمل صورتك، انتظر الصورة الناتجة معلمة بعلامة VUAE17#!</p>
-    <!-- <p dir="RTL" style="text-align: right" >1. حمل صورتك<br>
+     <p dir="RTL" style="text-align: right" >1. حمل صورتك<br>
        2.  اختار الشارة<br>
-       3.  اختار "علمها"<br>
-       4.   قم بتنزيلها وشارك صورتك للفي-كون المعلم عليها حديثاً!</p>
-      <a class="button btnClaim">حمل صورتك</a> -->
+       3.   قم بتنزيلها وشارك صورتك للفي-كون المعلم عليها حديثاً!</p>
+      <input type="file" name="UploadedImage" id="file-1" class="inputfile inputfile-1" accept="image/*" #inputImage (change)="inputImageChanged($event)"/>
+      <label *ngIf="!ss" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+        <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+        <span>حمل صورتك</span>
+      </label>
+      <label *ngIf="ss">{{filename}}</label>
   </div>
 
   <div class="step2" style="display: block">
-      <div class="photo"> <img src=""/> (photo here)</div>
+      <div class="photo" *ngIf="badgeImageIsReady"><img [src]="badgeImagePath"/></div>
       <p class="title">اختار شارة</p>
-        <ion-list class="selectBadge" radio-group [(ngModel)]="badge">
+        <ion-list class="selectBadge" radio-group [(ngModel)]="badge" (ngModelChange)="badgeValueChanged()">
 
           <ion-item>
             <ion-label> <img src="assets/img/badge-vcon.png" width="100%" height="auto" class="center "></ion-label>
@@ -41,10 +45,10 @@
   </div>
 
   <div class="step3" style="display: block">
-      <p class="title">نزل وشارك</p>
-      <div class="badge"><img src="assets/img/photo-sample.png" width="100%" height="auto" class="center "></div>
+      <!-- <p class="title"></p> -->
+      <!-- <div class="badge"><img src="assets/img/photo-sample.png" width="100%" height="auto" class="center "></div> -->
       <div class="row">
-        <div class="col col-50"><a href="" class="button btnClaim">نزل</a></div>
+        <div class="col col-50"><a href="" class="button btnClaim" (click)="downloadImage()">نزل وشارك</a></div>
 
       </div>
 

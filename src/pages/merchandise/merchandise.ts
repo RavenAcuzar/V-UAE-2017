@@ -19,7 +19,7 @@ export class MerchandisePage {
   @ViewChild(Content) content: Content;
   myMerchandise = [];
 
-  constructor(private http: Http, private loadingController: LoadingController) {
+  constructor(protected http: Http, protected loadingController: LoadingController) {
     let loadingPopup = this.loadingController.create({
       content: 'Verifying...'
     });

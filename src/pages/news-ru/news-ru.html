@@ -11,12 +11,12 @@
     <h1>Новости и объявления</h1>
   </header>
   <article class="cusContent newsinside">
-    <h3>Coming Together Towards Progress</h3>
-    <div class="date">22 Jun 2017</div>
+    <h3 [innerHTML]="news.localTitle"></h3> 
+    <div class="date">{{news.CreatedOnDate}}</div>
     <div class="insideCont">
       <div class="insideCont">
-        <img src="http://the-v.net/images/default-source/news/2017/0622-coming-together-towards-progress-th.jpg">
-        <div ng-bind-html="myNews[0].description" class="ng-binding news-summary"><img alt="" src="http://the-v.net/images/default-source/news/2017/0622-coming-together-towards-progress.jpg"><p>VC Karla Helena shares how &nbsp;V-Malaysia 2017 reminded her to overcome life’s adversities. The said event stressed the importance of creating solutions instead of focusing on problems. </p><p>She was also very touched as her two-month old baby was welcomed on the V-Con stage. It only goes to show that this business stands together as one family. The support she experienced motivated her to continue leading a life full of achievements.&nbsp;</p><p class="ListParagraph1CxSpFirst"><a href="http://the-v.net/vtube/video?id=5479462258001">Watch VC Karla Touched By The Magic of V-Malaysia 2017 on VTube+!</a></p><p>You can now also watch this video via the VTube+ app now available for download via <a href="https://play.google.com/store/apps/details?id=net.thev.vtube14284"><strong>GooglePlay</strong></a> and
+        <img [src]="news.ImageLink">
+        <div [innerHTML]="news.description" class="ng-binding news-summary"><img alt="" src="http://the-v.net/images/default-source/news/2017/0622-coming-together-towards-progress.jpg"><p>VC Karla Helena shares how &nbsp;V-Malaysia 2017 reminded her to overcome life’s adversities. The said event stressed the importance of creating solutions instead of focusing on problems. </p><p>She was also very touched as her two-month old baby was welcomed on the V-Con stage. It only goes to show that this business stands together as one family. The support she experienced motivated her to continue leading a life full of achievements.&nbsp;</p><p class="ListParagraph1CxSpFirst"><a href="http://the-v.net/vtube/video?id=5479462258001">Watch VC Karla Touched By The Magic of V-Malaysia 2017 on VTube+!</a></p><p>You can now also watch this video via the VTube+ app now available for download via <a href="https://play.google.com/store/apps/details?id=net.thev.vtube14284"><strong>GooglePlay</strong></a> and
         <a href="https://itunes.apple.com/ph/app/vtube+/id1098484090?mt=8"><strong>AppStore!</strong></a></p>
       </div>
 

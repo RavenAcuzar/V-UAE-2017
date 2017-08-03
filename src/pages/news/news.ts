@@ -19,8 +19,8 @@ export class NewsPage implements OnInit {
   id: string = null;
   news  = {};
 
-  constructor(public navCtrl: NavController, private navParams: NavParams, private loadingController: LoadingController,
-    private http: Http) {
+  constructor(protected navCtrl: NavController, protected navParams: NavParams, protected loadingController: LoadingController,
+    protected http: Http) {
       this.getNewsView();
       }
 

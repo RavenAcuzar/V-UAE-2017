@@ -29,10 +29,10 @@ export class MarkPage {
   downloadLocation: string;
   canDownload: boolean;
 
-  constructor(private fileChooser: FileChooser, private http: Http,
-    private fileTransfer: FileTransfer, private platform: Platform,
-    private file: File, private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController, private fileOpener: FileOpener) {
+  constructor(protected fileChooser: FileChooser, protected http: Http,
+    protected fileTransfer: FileTransfer, protected platform: Platform,
+    protected file: File, protected loadingCtrl: LoadingController,
+    protected alertCtrl: AlertController, protected fileOpener: FileOpener) {
 
     this.fileTransferObject = this.fileTransfer.create();
     if (this.platform.is('cordova')) {
