@@ -64,6 +64,12 @@ export class HomePage {
         loadingPopup.dismiss();
       });
   }
+    
+  ngOnInit() {
+    this._VDate = "2017-09-08";
+    this.countDown();
+
+  }
 
   countDown() {
     Observable.interval(1000).map((x) => {

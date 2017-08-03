@@ -265,6 +265,7 @@ import { FileTransfer } from "@ionic-native/file-transfer";
 import { FileOpener } from "@ionic-native/file-opener";
 import { FileChooser } from "@ionic-native/file-chooser";
 import { File } from "@ionic-native/file";
+import {Deeplinks} from "@ionic-native/deeplinks";
 
 @NgModule({
   declarations: [
@@ -384,7 +385,7 @@ import { File } from "@ionic-native/file";
   providers: [
     StatusBar,
     SplashScreen,
-    FileTransfer, FileOpener, FileChooser, File,
+    FileTransfer, FileOpener, FileChooser, File, Deeplinks,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -132,6 +132,7 @@ import { SplashPage } from '../pages/splash/splash';
 import { ChangeLangPage } from '../pages/changelang/changelang';
 import { LanguageService } from "./services/language.service";
 
+import { Deeplinks } from "@ionic-native/deeplinks";
 
 @Component({
   templateUrl: 'app.html'
@@ -142,8 +143,8 @@ export class MyApp {
   rootPage: any = SplashPage;
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, 
-      public splashScreen: SplashScreen, private events: Events) {
+  constructor(public platform: Platform, public statusBar: StatusBar,
+    public splashScreen: SplashScreen, private events: Events) {
     this.initializeApp();
     this.updateMenuLanguage();
 
@@ -154,6 +155,51 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.deeplink.routeWithNavController(this.nav, {
+        '/splash': SplashPage,
+        '/home': HomePage,
+        '/about': allAboutPage,
+        '/contact': ContactPage,
+        '/download-wallpaper': DownloadsPage,
+        '/dubai101': Dubai101Page,
+        '/dubai101/where-to-stay': WheretoPage,
+        '/dubai101/what-to-do': WhattoPage,
+        '/dubai101/how-to-get-around': HowtoPage,
+        '/speakers': TheSpeakersPage,
+        '/speakers/vfp-joseph-bismark': VFPPage,
+        '/speakers/vmp-dato-sri-vijay-eswaran': VMPPage,
+        '/speakers/vp-adly-hassan': VPahPage,
+        '/speakers/vp-arun-george': VPagPage,
+        '/speakers/vp-cherian-mathew': VPcmPage,
+        '/speakers/vp-david-sharma': VPdsPage,
+        '/speakers/vp-dev-johl': VPdjPage,
+        '/speakers/vp-dev-wadhwani': VPdwPage,
+        '/speakers/vp-donna-imson': VPdiPage,
+        '/speakers/vp-dr-motaz-qais': VPmqPage,
+        '/speakers/vp-ferdie-tolentino': VPftPage,
+        '/speakers/vp-hendra-nilam': VPhnPage,
+        '/speakers/vp-kpadma': VPkpPage,
+        '/speakers/vp-kuna-senathirajah': VPksPage,
+        '/speakers/vp-mahendra-kumar': VPmkPage,
+        '/speakers/vp-pathman-senathirajah': VPpsPage,
+        '/speakers/vp-ranjit-singh': VPrsPage,
+        '/speakers/vp-tg-kintanar': VPtgPage,
+        '/schedule': SchedPage,
+        '/merchandise': MerchandisePage,
+        '/vcon-mark': MarkPage,
+        '/faqs': FaqsPage,
+        '/news-and-updates': NewslandingPage,
+        '/news-and-updates/:id': NewsPage
+      }).subscribe((match) => {
+        // match.$route - the route we matched, which is the matched entry from the arguments to route()
+        // match.$args - the args passed in the link
+        // match.$link - the full link data
+        //this.nav.setRoot(match.$route);
+        console.log('Successfully matched route', match);
+      }, (nomatch) => {
+        // nomatch.$link - the full link data
+        console.error('Got a deeplink that didn\'t match', nomatch);
+      });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
