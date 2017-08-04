@@ -68,7 +68,6 @@ export class HomePage {
   ngOnInit() {
     this._VDate = "2017-09-08";
     this.countDown();
-
   }
 
   countDown() {

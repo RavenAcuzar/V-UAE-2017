@@ -144,7 +144,7 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar,
-    public splashScreen: SplashScreen, private events: Events) {
+    public splashScreen: SplashScreen, private events: Events, private deeplink: DeepLinks) {
     this.initializeApp();
     this.updateMenuLanguage();
 
