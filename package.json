@@ -91,6 +91,9 @@
                 "DEEPLINK_4_HOST": " ",
                 "DEEPLINK_5_SCHEME": " ",
                 "DEEPLINK_5_HOST": " "
+            },
+            "cordova-plugin-photo-library": {
+                "PHOTO_LIBRARY_USAGE_DESCRIPTION": "To save the wallpapers to your device."
             }
         },
         "platforms": [
