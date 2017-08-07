@@ -55,13 +55,13 @@
 <ion-footer>
   <ion-toolbar>
     <ion-buttons start>
-      <button [navPush]="MerchandisePage" ion-button icon-left>
+      <button [navPush]="MerchandisePage" navPop ion-button icon-left>
         <ion-icon name="arrow-back"></ion-icon>
         Merchandise
       </button>
     </ion-buttons>
     <ion-buttons end>
-      <button [navPush]="DownloadsPage" ion-button icon-right>
+      <button [navPush]="DownloadsPage"  navPop ion-button icon-right>
         #VUAE17 Wallpapers
         <ion-icon ios="ios-arrow-forward" name="arrow-forward"></ion-icon>
       </button>

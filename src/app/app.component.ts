@@ -204,6 +204,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    }).catch(_ => {
+      alert('Cannot load application!');
     });
   }
 

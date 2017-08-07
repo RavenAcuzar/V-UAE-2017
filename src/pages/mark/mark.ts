@@ -33,19 +33,21 @@ export class MarkPage {
     protected fileTransfer: FileTransfer, protected platform: Platform,
     protected file: File, protected loadingCtrl: LoadingController,
     protected alertCtrl: AlertController, protected fileOpener: FileOpener) {
+  }
 
+  ionViewDidLoad() {
     this.fileTransferObject = this.fileTransfer.create();
     if (this.platform.is('cordova')) {
       if (this.platform.is('ios')) {
-        this.downloadLocation = file.dataDirectory;
+        this.downloadLocation = this.file.dataDirectory;
         this.canDownload = true;
       } else if (this.platform.is('android')) {
-        this.downloadLocation = file.externalDataDirectory;
+        this.downloadLocation = this.file.externalDataDirectory;
         this.canDownload = true;
       }
     } else {
       if (this.platform.is('core') || this.platform.is('mobileweb') || this.platform.is('windows')) {
-        this.downloadLocation = file.dataDirectory;
+        this.downloadLocation = this.file.dataDirectory;
         this.canDownload = true;
       } else {
         this.canDownload = false;
