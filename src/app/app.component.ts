@@ -8,11 +8,9 @@ import { HomePageAR } from '../pages/home-ar/home-ar';
 import { HomePageFR } from '../pages/home-fr/home-fr';
 import { HomePageTR } from '../pages/home-tr/home-tr';
 import { HomePageRU } from '../pages/home-ru/home-ru';
-import { HomePageID } from '../pages/home-id/home-id';
 
 import { allAboutPage } from '../pages/allabout/allabout';
 import { allAboutPageAR } from '../pages/allabout-ar/allabout-ar';
-import { allAboutPageID } from '../pages/allabout-id/allabout-id';
 import { allAboutPageFR } from '../pages/allabout-fr/allabout-fr';
 import { allAboutPageTR } from '../pages/allabout-tr/allabout-tr';
 import { allAboutPageRU } from '../pages/allabout-ru/allabout-ru';
@@ -20,55 +18,43 @@ import { allAboutPageRU } from '../pages/allabout-ru/allabout-ru';
 import { NewslandingPage } from '../pages/newslanding/newslanding';
 import { NewslandingPageAR } from '../pages/newslanding-ar/newslanding-ar';
 import { NewslandingPageFR } from '../pages/newslanding-fr/newslanding-fr';
-import { NewslandingPageID } from '../pages/newslanding-id/newslanding-id';
 import { NewslandingPageRU } from '../pages/newslanding-ru/newslanding-ru';
 import { NewslandingPageTR } from '../pages/newslanding-tr/newslanding-tr';
 
 import { NewsPage } from '../pages/news/news';
-import { NewsPageAR } from '../pages/news-ar/news-ar';
-import { NewsPageFR } from '../pages/news-fr/news-fr';
-import { NewsPageID } from '../pages/news-id/news-id';
-import { NewsPageRU } from '../pages/news-ru/news-ru';
-import { NewsPageTR } from '../pages/news-tr/news-tr';
 
 import { TheSpeakersPage } from '../pages/thespeakers/thespeakers';
 import { TheSpeakersPageAR } from '../pages/thespeakers-ar/thespeakers-ar';
 import { TheSpeakersPageFR } from '../pages/thespeakers-fr/thespeakers-fr';
-import { TheSpeakersPageID } from '../pages/thespeakers-id/thespeakers-id';
 import { TheSpeakersPageRU } from '../pages/thespeakers-ru/thespeakers-ru';
 import { TheSpeakersPageTR } from '../pages/thespeakers-tr/thespeakers-tr';
 
 import { SchedPage } from '../pages/sched/sched';
 import { SchedPageAR } from '../pages/sched-ar/sched-ar';
-import { SchedPageID } from '../pages/sched-id/sched-id';
 import { SchedPageFR } from '../pages/sched-fr/sched-fr';
 import { SchedPageRU } from '../pages/sched-ru/sched-ru';
 import { SchedPageTR } from '../pages/sched-tr/sched-tr';
 
 import { Dubai101Page } from '../pages/dubai101/dubai101';
 import { Dubai101PageAR } from '../pages/dubai101-ar/dubai101-ar';
-import { Dubai101PageID } from '../pages/dubai101-id/dubai101-id';
 import { Dubai101PageFR } from '../pages/dubai101-fr/dubai101-fr';
 import { Dubai101PageRU } from '../pages/dubai101-ru/dubai101-ru';
 import { Dubai101PageTR } from '../pages/dubai101-tr/dubai101-tr';
 
 import { MerchandisePage } from '../pages/merchandise/merchandise';
 import { MerchandisePageAR } from '../pages/merchandise-ar/merchandise-ar';
-import { MerchandisePageID } from '../pages/merchandise-id/merchandise-id';
 import { MerchandisePageFR } from '../pages/merchandise-fr/merchandise-fr';
 import { MerchandisePageRU } from '../pages/merchandise-ru/merchandise-ru';
 import { MerchandisePageTR } from '../pages/merchandise-tr/merchandise-tr';
 
 import { MarkPage } from '../pages/mark/mark';
 import { MarkPageAR } from '../pages/mark-ar/mark-ar';
-import { MarkPageID } from '../pages/mark-id/mark-id';
 import { MarkPageFR } from '../pages/mark-fr/mark-fr';
 import { MarkPageRU } from '../pages/mark-ru/mark-ru';
 import { MarkPageTR } from '../pages/mark-tr/mark-tr';
 
 import { DownloadsPage } from '../pages/downloads/downloads';
 import { DownloadsPageAR } from '../pages/downloads-ar/downloads-ar';
-import { DownloadsPageID } from '../pages/downloads-id/downloads-id';
 import { DownloadsPageFR } from '../pages/downloads-fr/downloads-fr';
 import { DownloadsPageRU } from '../pages/downloads-ru/downloads-ru';
 import { DownloadsPageTR } from '../pages/downloads-tr/downloads-tr';
@@ -76,13 +62,11 @@ import { DownloadsPageTR } from '../pages/downloads-tr/downloads-tr';
 import { FaqsPage } from '../pages/faqs/faqs';
 import { FaqsPageAR } from '../pages/faqs-ar/faqs-ar';
 import { FaqsPageFR } from '../pages/faqs-fr/faqs-fr';
-import { FaqsPageID } from '../pages/faqs-id/faqs-id';
 import { FaqsPageRU } from '../pages/faqs-ru/faqs-ru';
 import { FaqsPageTR } from '../pages/faqs-tr/faqs-tr';
 
 import { ContactPage } from '../pages/contact/contact';
 import { ContactPageAR } from '../pages/contact-ar/contact-ar';
-import { ContactPageID } from '../pages/contact-id/contact-id';
 import { ContactPageFR } from '../pages/contact-fr/contact-fr';
 import { ContactPageRU } from '../pages/contact-ru/contact-ru';
 import { ContactPageTR } from '../pages/contact-tr/contact-tr';
@@ -107,29 +91,10 @@ import { VPrsPage } from '../pages/vp-ranjit-singh/vp-ranjit-singh';
 import { VPssPage } from '../pages/vp-sathi-senathirajah/vp-sathi-senathirajah';
 import { VPtgPage } from '../pages/vp-tg-kintanar/vp-tg-kintanar';
 
-
 import { WhattoPage } from '../pages/whatto/whatto';
-import { WhattoPageAR } from '../pages/whatto-ar/whatto-ar';
-import { WhattoPageFR } from '../pages/whatto-fr/whatto-fr';
-import { WhattoPageID } from '../pages/whatto-id/whatto-id';
-import { WhattoPageRU } from '../pages/whatto-ru/whatto-ru';
-import { WhattoPageTR } from '../pages/whatto-tr/whatto-tr';
-
 import { WheretoPage } from '../pages/whereto/whereto';
-import { WheretoPageAR } from '../pages/whereto-ar/whereto-ar';
-import { WheretoPageFR } from '../pages/whereto-fr/whereto-fr';
-import { WheretoPageID } from '../pages/whereto-id/whereto-id';
-import { WheretoPageRU } from '../pages/whereto-ru/whereto-ru';
-import { WheretoPageTR } from '../pages/whereto-tr/whereto-tr';
-
 import { HowtoPage } from '../pages/howto/howto';
-import { HowtoPageAR } from '../pages/howto-ar/howto-ar';
-import { HowtoPageFR } from '../pages/howto-fr/howto-fr';
-import { HowtoPageID } from '../pages/howto-id/howto-id';
-import { HowtoPageRU } from '../pages/howto-ru/howto-ru';
-import { HowtoPageTR } from '../pages/howto-tr/howto-tr';
 import { SplashPage } from '../pages/splash/splash';
-import { ChangeLangPage } from '../pages/changelang/changelang';
 import { LanguageService } from "./services/language.service";
 
 import { Deeplinks } from "@ionic-native/deeplinks";
@@ -261,20 +226,6 @@ export class MyApp {
       { title: 'FAQs', component: FaqsPageFR },
       { title: 'Contactez-nous', component: ContactPageFR },
       { title: 'Sélectionnez une langue', component: SplashPage }
-    ],
-    'id': [
-      { title: 'Home', component: HomePageID },
-      { title: 'All About V-UAE 2017', component: allAboutPageID },
-      { title: 'News and Updates', component: NewslandingPageID },
-      { title: 'The Speakers', component: TheSpeakersPageID },
-      { title: 'Daily Program Schedule', component: SchedPageID },
-      { title: 'Dubai 101', component: Dubai101PageID },
-      { title: 'Merchandise', component: MerchandisePageID },
-      { title: 'Make Your V-Con Mark', component: MarkPageID },
-      { title: '#VUAE17 Wallpapers', component: DownloadsPageID },
-      { title: 'FAQs', component: FaqsPageID },
-      { title: 'Contact Us', component: ContactPageID },
-      { title: 'Change Language', component: SplashPage }
     ],
     'ru': [
       { title: 'ДОМАШНЯЯ СТРАНИЦА', component: HomePageRU },

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WhattoPageFR } from '../whatto-fr/whatto-fr';
 import { WheretoPageFR } from '../whereto-fr/whereto-fr';
 import { HowtoPageFR } from '../howto-fr/howto-fr';

@@ -3,7 +3,6 @@ import { IonicPageModule } from 'ionic-angular';
 import {Dubai101PageAR} from "./dubai101-ar";
 import {Dubai101PageTR} from "../dubai101-tr/dubai101-tr";
 import {Dubai101PageRU} from "../dubai101-ru/dubai101-ru";
-import {Dubai101PageID} from "../dubai101-id/dubai101-id";
 import {Dubai101PageFR} from "../dubai101-fr/dubai101-fr";
 
 @NgModule({
@@ -19,13 +18,6 @@ export class Dubai101PageARModule {}
   exports: [ Dubai101PageFR ]
 })
 export class Dubai101PageFRModule {}
-
-@NgModule({
-  declarations: [ Dubai101PageID ],
-  imports: [ IonicPageModule.forChild(Dubai101PageID) ],
-  exports: [ Dubai101PageID ]
-})
-export class Dubai101PageIDModule {}
 
 @NgModule({
   declarations: [ Dubai101PageRU ],
