@@ -7,7 +7,6 @@ import { Crop } from "@ionic-native/crop";
 import { PhotoLibrary } from "@ionic-native/photo-library";
 import { Base64ToGallery } from "@ionic-native/base64-to-gallery";
 import { SocialSharing } from "@ionic-native/social-sharing";
-import { FormGroup, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: 'page-mark',
@@ -35,8 +34,7 @@ export class MarkPage {
     private photoLibrary: PhotoLibrary,
     private alert: AlertController,
     private camera: Camera,
-    private crop: Crop,
-    private formBuilder: FormBuilder
+    private crop: Crop
   ) { }
 
   choosePhoto() {
