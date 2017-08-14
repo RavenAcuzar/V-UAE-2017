@@ -26,15 +26,15 @@ export class MarkPage {
   @ViewChild('editor') editorRef;
 
   constructor(
-    private platform: Platform,
-    private navCtrl: NavController,
-    private base64ToGallery: Base64ToGallery,
-    private socialSharing: SocialSharing,
-    private loading: LoadingController,
-    private photoLibrary: PhotoLibrary,
-    private alert: AlertController,
-    private camera: Camera,
-    private crop: Crop
+    protected platform: Platform,
+    protected navCtrl: NavController,
+    protected base64ToGallery: Base64ToGallery,
+    protected socialSharing: SocialSharing,
+    protected loading: LoadingController,
+    protected photoLibrary: PhotoLibrary,
+    protected alert: AlertController,
+    protected camera: Camera,
+    protected crop: Crop
   ) { }
 
   choosePhoto() {
@@ -106,8 +106,10 @@ export class MarkPage {
         this.badgeKindImgPath = 'assets/img/badge-overlay-TEMPLATE.png';
         break;
       default:
+        this.isBadgeSelected = false;
         throw new Error('Unknown badge kind!');
     }
+    this.isBadgeSelected = true;
 
     if (!this.isImageSelected) {
       let alert = this.alert.create({
@@ -122,7 +124,6 @@ export class MarkPage {
       return;
     }
 
-    this.isBadgeSelected = true;
     let applyLoad = this.loading.create({
       content: 'Processing your image...'
     });
@@ -149,7 +150,7 @@ export class MarkPage {
   }
 
   savePhoto() {
-    if (this.isImageSelected) {
+    if (this.isImageSelected && this.isBadgeSelected) {
       let loading = this.loading.create({
         content: 'Saving image to gallery...'
       });
@@ -174,10 +175,30 @@ export class MarkPage {
         console.error('Something went wrong!');
         this.errCallback(e);
       });
-    } else {
+    } else if (!this.isImageSelected && !this.isBadgeSelected) {
+      let alert = this.alert.create({
+        title: 'Oops',
+        message: 'Select an image and a badge first!',
+        buttons: [{
+          text: 'OK',
+          handler: () => { alert.dismiss(); }
+        }]
+      });
+      alert.present();
+    } else if (!this.isImageSelected) {
       let alert = this.alert.create({
         title: 'Oops',
         message: 'Select an image first!',
+        buttons: [{
+          text: 'OK',
+          handler: () => { alert.dismiss(); }
+        }]
+      });
+      alert.present();
+    } else if (!this.isBadgeSelected) {
+      let alert = this.alert.create({
+        title: 'Oops',
+        message: 'Select a badge first!',
         buttons: [{
           text: 'OK',
           handler: () => { alert.dismiss(); }
