@@ -1,235 +1,224 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Platform, LoadingController, AlertController } from 'ionic-angular';
 import { MerchandisePage } from '../merchandise/merchandise';
 import { DownloadsPage } from '../downloads/downloads';
-import { FileChooser } from "@ionic-native/file-chooser";
-import { Http } from "@angular/http";
-import { FileTransferObject, FileTransfer } from "@ionic-native/file-transfer";
-import { File } from "@ionic-native/file";
-import { FileOpener } from "@ionic-native/file-opener";
+import { Camera, CameraOptions } from "@ionic-native/camera";
+import { Crop } from "@ionic-native/crop";
+import { PhotoLibrary } from "@ionic-native/photo-library";
+import { Base64ToGallery } from "@ionic-native/base64-to-gallery";
+import { SocialSharing } from "@ionic-native/social-sharing";
+import { FormGroup, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: 'page-mark',
   templateUrl: 'mark.html'
 })
 export class MarkPage {
-  @ViewChild('inputImage') inputImage: ElementRef;
-
   DownloadsPage = DownloadsPage;
   MerchandisePage = MerchandisePage;
-  filename : string;
-  ss: boolean = false;
-  badge: string = ''; // id of the badge
-  chosenFilePath: string = '';
-  badgeImageIsReady: boolean = false;
-  badgeImagePath: string;
-  badgeImageId: string;
 
-  fileTransferObject: FileTransferObject;
-  downloadLocation: string;
-  canDownload: boolean;
+  badgeKind: string = null;
+  isImageSelected: boolean = false;
+  isBadgeSelected: boolean = false;
+  private badgeKindImgPath: string = null;
+  private imageData: string = null;
+  private croppedImagePath: string = null;
 
-  constructor(protected fileChooser: FileChooser, protected http: Http,
-    protected fileTransfer: FileTransfer, protected platform: Platform,
-    protected file: File, protected loadingCtrl: LoadingController,
-    protected alertCtrl: AlertController, protected fileOpener: FileOpener) {
-  }
+  @ViewChild('editor') editorRef;
 
-  ionViewDidLoad() {
-    this.fileTransferObject = this.fileTransfer.create();
-    if (this.platform.is('cordova')) {
-      if (this.platform.is('ios')) {
-        this.downloadLocation = this.file.dataDirectory;
-        this.canDownload = true;
-      } else if (this.platform.is('android')) {
-        this.downloadLocation = this.file.externalDataDirectory;
-        this.canDownload = true;
-      }
-    } else {
-      if (this.platform.is('core') || this.platform.is('mobileweb') || this.platform.is('windows')) {
-        this.downloadLocation = this.file.dataDirectory;
-        this.canDownload = true;
-      } else {
-        this.canDownload = false;
-      }
+  constructor(
+    private platform: Platform,
+    private navCtrl: NavController,
+    private base64ToGallery: Base64ToGallery,
+    private socialSharing: SocialSharing,
+    private loading: LoadingController,
+    private photoLibrary: PhotoLibrary,
+    private alert: AlertController,
+    private camera: Camera,
+    private crop: Crop,
+    private formBuilder: FormBuilder
+  ) { }
+
+  choosePhoto() {
+    const loadPhoto: CameraOptions = {
+      quality: 50,
+      correctOrientation: true,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.FILE_URI,
+    };
+    let imageLoad = this.loading.create({
+      content: 'Waiting for image to load...'
+    });
+    imageLoad.present();
+
+    let localErrCallback = e => {
+      if (e !== 'Selection cancelled.' && (e.code && e.code !== 'userCancelled'))
+        this.errCallback(e);
+      imageLoad.dismiss();
     }
+
+    this.camera.getPicture(loadPhoto).then(selectedImagePath => {
+      this.crop.crop(selectedImagePath, { quality: 100 }).then(croppedImagePath => {
+        let canvas = <HTMLCanvasElement>this.editorRef.nativeElement;
+        let context = canvas.getContext('2d');
+
+        if (this.isBadgeSelected) {
+          let overlayImage = new Image();
+          overlayImage.onload = () => {
+            let baseImage = new Image();
+            baseImage.onload = () => {
+              canvas.width = overlayImage.width;
+              canvas.height = overlayImage.height;
+
+              context.drawImage(baseImage, 0, 0, overlayImage.width, overlayImage.height);
+              context.drawImage(overlayImage, 0, 0, overlayImage.width, overlayImage.height);
+
+              this.imageData = canvas.toDataURL();
+              imageLoad.dismiss();
+            };
+            baseImage.src = this.croppedImagePath;
+          };
+          overlayImage.src = this.badgeKindImgPath;
+        } else {
+          let baseImage = new Image();
+          baseImage.onload = () => {
+            canvas.width = baseImage.width;
+            canvas.height = baseImage.height;
+
+            context.drawImage(baseImage, 0, 0, baseImage.width, baseImage.height);
+            imageLoad.dismiss();
+          };
+          baseImage.src = croppedImagePath;
+        }
+
+        this.croppedImagePath = croppedImagePath;
+        this.isImageSelected = true;
+
+      }, localErrCallback);
+    }, localErrCallback);
   }
 
   badgeValueChanged() {
-    
-    if(this.ss){
+    switch (this.badgeKind) {
+      case '1':
+        this.badgeKindImgPath = 'assets/img/overlay-v.png';
+        break;
+      case '2':
+        this.badgeKindImgPath = 'assets/img/badge-overlay-TEMPLATE.png';
+        break;
+      default:
+        throw new Error('Unknown badge kind!');
+    }
 
-    let loadingPopUp = this.loadingCtrl.create({
+    if (!this.isImageSelected) {
+      let alert = this.alert.create({
+        title: 'Oops',
+        message: 'Select an image first!',
+        buttons: [{
+          text: 'OK',
+          handler: () => { alert.dismiss(); }
+        }]
+      });
+      alert.present();
+      return;
+    }
+
+    this.isBadgeSelected = true;
+    let applyLoad = this.loading.create({
       content: 'Processing your image...'
     });
-    loadingPopUp.present();
 
-    let guid = this.createGuid();
-    let formData = new FormData();
-    formData.append("UploadedImage", this.chosenFilePath);
-    formData.append("type", "coverbadge");
-    formData.append("action", guid);
-    formData.append("badge", this.badge);
+    let canvas = <HTMLCanvasElement>this.editorRef.nativeElement;
+    let context = canvas.getContext('2d');
 
-    this.http.post('http://cums.the-v.net/app_site.aspx', formData, {}).subscribe((response) => {
-      this.badgeImagePath = "http://cums.the-v.net/app_site.aspx?id=" + guid + ".jpeg";
-      this.badgeImageIsReady = true;
-      loadingPopUp.dismiss();
-    }, e => {
-      this.badgeImageIsReady = false;
-      let alert = this.alertCtrl.create({
-        title: 'Error occurred!',
-        subTitle: 'Cannot place the badge on your image. Please try again.',
-        buttons: [{
-          text: 'Ok',
-          handler: () => {
-            alert.dismiss();
-            return false;
-          }
-        }],
-        cssClass:'alertDanger'
+    let overlayImage = new Image();
+    overlayImage.onload = () => {
+      let baseImage = new Image();
+      baseImage.onload = () => {
+        canvas.width = overlayImage.width;
+        canvas.height = overlayImage.height;
+
+        context.drawImage(baseImage, 0, 0, overlayImage.width, overlayImage.height);
+        context.drawImage(overlayImage, 0, 0, overlayImage.width, overlayImage.height);
+
+        this.imageData = canvas.toDataURL();
+        applyLoad.dismiss();
+      };
+      baseImage.src = this.croppedImagePath;
+    };
+    overlayImage.src = this.badgeKindImgPath;
+  }
+
+  savePhoto() {
+    if (this.isImageSelected) {
+      let loading = this.loading.create({
+        content: 'Saving image to gallery...'
       });
-      alert.present();
-      loadingPopUp.dismiss();
-    });
-    }
-    else{
-      let alert = this.alertCtrl.create({
-        title: 'Error occurred!',
-        subTitle: 'No Photo selected.',
-        buttons: [{
-          text: 'Ok',
-          handler: () => {
-            alert.dismiss();
-            return false;
-          }
-        }],
-        cssClass:'alertDanger'
-      });
-      alert.present();
-    }
-  }
+      loading.present();
 
-  inputImageChanged(event) {
-    this.chosenFilePath = event.target.files[0];
-    //console.log(JSON.stringify(this.chosenFilePath));
-    this.ss=true;
-    this.filename=event.target.files[0].name;
+      this.base64ToGallery.base64ToGallery(this.imageData, { prefix: '_img' }).then(libraryItem => {
+        loading.dismiss();
 
-  }
-
-  downloadImage() {
-    if (!this.canDownload) {
-      let alert = this.alertCtrl.create({
-        title: 'Cannot download!',
-        subTitle: 'Your platform is not supported.',
-        buttons: [{
-          text: 'Ok',
-          handler: () => {
-            alert.dismiss();
-            return false;
-          }
-        }],
-        cssClass:'alertDanger'
-      });
-      alert.present();
-
-    } else {
-      if (this.badgeImageIsReady) {
-        let filename = "/BadgeImage.png";
-        let folderLocation = "VUAE2017/";
-        let fileDestination = this.downloadLocation + folderLocation + filename;
-
-        this.file.checkDir(this.downloadLocation, folderLocation).then(_ => {
-          this.downloadFile(fileDestination, this.badgeImagePath);
-        }).catch(e => {
-          this.file.createDir(this.downloadLocation, folderLocation, false).then(_ => {
-            this.downloadFile(fileDestination, this.badgeImagePath);
-          }).catch(this.onErrorWithWallpaperDownload);
-        });
-      }
-    }
-
-  }
-
-  createGuid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
-
-  private downloadFile(fileDestination: string, url: string) {
-    let loadingPopup = this.loadingCtrl.create({
-      content: 'Downloading...'
-    });
-    loadingPopup.present();
-
-    this.fileTransferObject.download(url, fileDestination, true).then((entry) => {
-      loadingPopup.dismiss();
-      let alert = this.alertCtrl.create({
-        title: 'Download successful!',
-        subTitle: 'Hooray! Click \'Open\' to view your marked photo.',
-        buttons: [
-          {
-            text: 'Open',
-            handler: () => {
-              entry.file((file) => {
-                this.fileOpener.open(entry.toURL(), file.type)
-                  .then(() => {
-                    alert.dismiss();
-                    return false;
-                  })
-                  .catch(e => {
-                    alert.dismiss();
-                    this.onErrorWithWallpaperDownload(e);
-                  });
-              }, e => {
-                alert.dismiss();
-                this.onErrorWithWallpaperDownload(e);
-              });
-            }
+        let alert = this.alert.create({
+          title: 'Yay!',
+          message: 'Your image has been successfully saved to your gallery.',
+          buttons: [{
+            text: 'Share',
+            handler: () => { this.share(libraryItem); }
           }, {
-            text: 'Ok',
-            handler: () => {
-              alert.dismiss();
-              return false;
-            }
-          }
-        ],
-        cssClass:'alert'
+            text: 'OK',
+            handler: () => { alert.dismiss(); }
+          }]
+        });
+        alert.present();
+      }, e => {
+        console.error('Something went wrong!');
+        this.errCallback(e);
+      });
+    } else {
+      let alert = this.alert.create({
+        title: 'Oops',
+        message: 'Select an image first!',
+        buttons: [{
+          text: 'OK',
+          handler: () => { alert.dismiss(); }
+        }]
       });
       alert.present();
-    }).catch((error) => {
-      loadingPopup.dismiss();
-      let alert = this.alertCtrl.create({
-        title: 'Error occurred!',
-        subTitle: 'Your marked photo was not downloaded successfully. Please try again.',
+    }
+  }
+
+  private share(libraryItem: string) {
+    let prefix = '';
+    if (this.platform.is('android')) {
+      prefix = 'file://';
+    }
+
+    let filepath = prefix + libraryItem;
+    this.socialSharing.share('#VCON17', '', filepath).then(() => {
+      let alert = this.alert.create({
+        title: 'Success!',
+        message: 'Your image has been successfully shared.',
         buttons: [{
-          text: 'Ok',
-          handler: () => {
-            alert.dismiss();
-            return false;
-          }
-        }],
-        cssClass:'alertDanger'
+          text: 'OK',
+          handler: () => { alert.dismiss(); }
+        }]
       });
       alert.present();
     });
   }
 
-  private onErrorWithWallpaperDownload(error) {
-    let alert = this.alertCtrl.create({
-      title: 'Error occurred!',
-      subTitle: 'Cannot open your badged image. Please try again.',
+  private errCallback(err) {
+    console.error(JSON.stringify(err));
+    let alert = this.alert.create({
+      title: 'Oh no! :(',
+      message: 'Something went wrong.',
       buttons: [{
-        text: 'Ok',
-        handler: () => {
-          alert.dismiss();
-          return false;
-        }
-      }],
-      cssClass:'alertDanger'
+        text: 'OK',
+        handler: () => { alert.dismiss(); }
+      }]
     });
-  }
+    alert.present();
+  };
 }

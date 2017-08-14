@@ -5,7 +5,7 @@ import { TheSpeakersPage } from '../thespeakers/thespeakers';
 import { allAboutPage } from '../allabout/allabout';
 import { NewsPage } from '../news/news';
 
-@IonicPage()
+ 
 @Component({
   selector: 'page-newslanding',
   templateUrl: 'newslanding.html'

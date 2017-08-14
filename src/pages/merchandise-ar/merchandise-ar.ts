@@ -5,7 +5,7 @@ import { MarkPageAR } from '../mark-ar/mark-ar';
 import { MerchandisePage } from "../merchandise/merchandise";
 import { Http } from "@angular/http";
 
-@IonicPage()
+ 
 @Component({
   selector: 'page-merchandise',
   templateUrl: 'merchandise-ar.html'

@@ -6,7 +6,7 @@ import { NewsPageTR } from '../news-tr/news-tr';
 import { Http } from "@angular/http";
 import { NewslandingPage } from "../newslanding/newslanding";
 
-@IonicPage()
+ 
 @Component({
   selector: 'page-newslanding',
   templateUrl: 'newslanding-tr.html'

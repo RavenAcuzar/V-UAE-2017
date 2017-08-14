@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePageAR } from '../home-ar/home-ar';
 import { NewslandingPageAR } from '../newslanding-ar/newslanding-ar';
 
-@IonicPage()
+ 
 @Component({
   selector: 'page-allabout',
   templateUrl: 'allabout-ar.html'

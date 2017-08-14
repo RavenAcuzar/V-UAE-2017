@@ -5,7 +5,7 @@ import { Dubai101Page } from '../dubai101/dubai101';
 import { MarkPage } from '../mark/mark';
 import { Http } from '@angular/http';
 
-@IonicPage()
+ 
 @Component({
   selector: 'page-merchandise',
   templateUrl: 'merchandise.html',

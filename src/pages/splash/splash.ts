@@ -7,7 +7,7 @@ import { SplashnextPageRU } from '../splashnext-ru/splashnext-ru';
 import { SplashnextPageTR } from '../splashnext-tr/splashnext-tr';
 import { LanguageService } from "../../app/services/language.service";
 
-@IonicPage()
+ 
 @Component({
   selector: 'page-splash',
   templateUrl: 'splash.html'

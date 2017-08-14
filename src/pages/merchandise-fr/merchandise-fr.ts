@@ -5,7 +5,7 @@ import { MarkPageFR } from '../mark-fr/mark-fr';
 import { MerchandisePage } from "../merchandise/merchandise";
 import { Http } from "@angular/http";
 
-@IonicPage()
+ 
 @Component({
   selector: 'page-merchandise',
   templateUrl: 'merchandise-fr.html'
