@@ -24,6 +24,7 @@ export class NewslandingPage {
 
   constructor(public navCtrl: NavController, public http: Http, public loadingController: LoadingController,
   public toastCtrl:ToastController,public network: Network) {
+    this.checkNetworkConnection();
     this.getNews();
   }
 
