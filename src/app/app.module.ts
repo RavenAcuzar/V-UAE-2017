@@ -236,6 +236,7 @@ import { Network } from "@ionic-native/network";
 import { File } from "@ionic-native/file";
 import { FileTransfer } from "@ionic-native/file-transfer";
 import { AndroidPermissions } from "@ionic-native/android-permissions";
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -298,6 +299,7 @@ import { AndroidPermissions } from "@ionic-native/android-permissions";
   imports: [
     BrowserModule, HttpModule, JsonpModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
