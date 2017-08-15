@@ -36,9 +36,15 @@ export class SchedPage {
   }
 
   reloadData() {
-    this.retrieveConfig().then(() => {
+    return this.retrieveConfig().then(() => {
       this.retrieveScheduleData();
     });
+  }
+
+  reloadDataViaRefresher(e) {
+    this.reloadData().then(() => {
+      e.complete();
+    })
   }
 
   retrieveConfig() {

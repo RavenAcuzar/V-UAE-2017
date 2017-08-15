@@ -3,13 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <button ion-button>
-      <ion-icon name="refresh" (click)="reloadData()"></ion-icon>
-    </button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="reloadDataViaRefresher($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Refresh" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <header class="mainScr mid">
     <h1>
       Daily Program Schedule <br/> {{scheduleToday.label}}
