@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Content, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { NewslandingPageTR } from '../newslanding-tr/newslanding-tr';
 import { TheSpeakersPageTR } from '../thespeakers-tr/thespeakers-tr';
 import { NewsPage } from "../news/news";
 import { Http } from "@angular/http";
+import { Network } from "@ionic-native/network";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class NewsPageTR  extends NewsPage{
     this.content.scrollToTop();
   }
  constructor(protected navCtrl: NavController, protected navParams: NavParams, protected loadingController: LoadingController,
-    protected http: Http) {
-      super(navCtrl, navParams,loadingController,http);
-    }
+    protected http: Http, protected toastCtrl: ToastController, protected network: Network) {
+      super(navCtrl, navParams,loadingController,http, toastCtrl,network);
+  }
 }

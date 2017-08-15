@@ -226,12 +226,13 @@ import { SplashnextPageTR } from '../pages/splashnext-tr/splashnext-tr';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { JsonpModule } from '@angular/http';
-import {Deeplinks} from "@ionic-native/deeplinks";
+import { Deeplinks } from "@ionic-native/deeplinks";
 import { Camera } from "@ionic-native/camera";
 import { Crop } from "@ionic-native/crop";
 import { PhotoLibrary } from "@ionic-native/photo-library";
 import { Base64ToGallery } from "@ionic-native/base64-to-gallery";
 import { SocialSharing } from "@ionic-native/social-sharing";
+import { Network } from "@ionic-native/network";
 
 @NgModule({
   declarations: [
@@ -353,7 +354,8 @@ import { SocialSharing } from "@ionic-native/social-sharing";
     SplashScreen, 
     Deeplinks,
     Camera, Crop, PhotoLibrary, Base64ToGallery, SocialSharing,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Network
   ]
 })
 export class AppModule {}
