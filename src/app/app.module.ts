@@ -231,6 +231,7 @@ import { FileOpener } from "@ionic-native/file-opener";
 import { FileChooser } from "@ionic-native/file-chooser";
 import { File } from "@ionic-native/file";
 import {Deeplinks} from "@ionic-native/deeplinks";
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -351,7 +352,8 @@ import {Deeplinks} from "@ionic-native/deeplinks";
     StatusBar,
     SplashScreen,
     FileTransfer, FileOpener, FileChooser, File, Deeplinks,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Network
   ]
 })
 export class AppModule {}

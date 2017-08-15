@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Content, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { allAboutPageAR } from '../allabout-ar/allabout-ar';
 import { MarkPageAR } from '../mark-ar/mark-ar';
 import { Dubai101PageAR } from '../dubai101-ar/dubai101-ar';
@@ -7,6 +7,7 @@ import { DownloadsPageAR } from '../downloads-ar/downloads-ar';
 import { NewsPageAR } from '../news-ar/news-ar';
 import { HomePage } from "../home/home";
 import { Http } from "@angular/http";
+import { Network } from "@ionic-native/network";
 
 @Component({
   selector: 'page-home',
@@ -21,8 +22,9 @@ export class HomePageAR extends HomePage {
   DownloadsPageAR = DownloadsPageAR;
   NewsPageAR = NewsPageAR;
 
-  constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController) {
-    super(navCtrl, http, loadingController);
+  constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController,
+  toastCtrl: ToastController, network: Network) {
+    super(navCtrl, http, loadingController,toastCtrl, network);
   }
 
   scrollToTop() {

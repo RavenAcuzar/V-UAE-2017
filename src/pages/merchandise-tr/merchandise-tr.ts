@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Content, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { Dubai101PageTR } from '../dubai101-tr/dubai101-tr';
 import { MarkPageTR } from '../mark-tr/mark-tr';
 import { MerchandisePage } from "../merchandise/merchandise";
 import { Http } from "@angular/http";
+import { Network } from "@ionic-native/network";
 
 @IonicPage()
 @Component({
@@ -13,9 +14,11 @@ import { Http } from "@angular/http";
 export class MerchandisePageTR extends MerchandisePage{
 Dubai101PageTR = Dubai101PageTR;
 MarkPageTR = MarkPageTR;
-constructor(protected http: Http, protected loadingController: LoadingController) {
-  super(http,loadingController);
+constructor(protected http: Http, protected loadingController: LoadingController,
+protected toastCtrl: ToastController,protected network: Network) {
+  super(http,loadingController,toastCtrl,network);
 }
+
 ionViewDidLoad() {
   console.log('ionViewDidLoad MerchandisePage');
 }

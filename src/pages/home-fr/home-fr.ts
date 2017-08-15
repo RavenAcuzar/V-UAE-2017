@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Content, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { allAboutPageFR } from '../allabout-fr/allabout-fr';
 import { MarkPageFR } from '../mark-fr/mark-fr';
 import { Dubai101PageFR } from '../dubai101-fr/dubai101-fr';
@@ -7,6 +7,7 @@ import { DownloadsPageFR } from '../downloads-fr/downloads-fr';
 import { NewsPageFR } from '../news-fr/news-fr';
 import { HomePage } from "../home/home";
 import { Http } from "@angular/http";
+import { Network } from "@ionic-native/network";
 
 @Component({
   selector: 'page-home',
@@ -21,8 +22,9 @@ export class HomePageFR extends HomePage {
   DownloadsPageFR = DownloadsPageFR;
   NewsPageFR = NewsPageFR;
 
-  constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController) {
-    super(navCtrl, http, loadingController);
+  constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController,
+  toastCtrl: ToastController, network: Network) {
+    super(navCtrl, http, loadingController,toastCtrl, network);
   }
 
   scrollToTop() {
