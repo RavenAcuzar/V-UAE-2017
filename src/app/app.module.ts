@@ -233,6 +233,9 @@ import { PhotoLibrary } from "@ionic-native/photo-library";
 import { Base64ToGallery } from "@ionic-native/base64-to-gallery";
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { Network } from "@ionic-native/network";
+import { File } from "@ionic-native/file";
+import { FileTransfer } from "@ionic-native/file-transfer";
+import { AndroidPermissions } from "@ionic-native/android-permissions";
 
 @NgModule({
   declarations: [
@@ -352,7 +355,7 @@ import { Network } from "@ionic-native/network";
   providers: [
     StatusBar,
     SplashScreen, 
-    Deeplinks,
+    Deeplinks, File, FileTransfer, AndroidPermissions,
     Camera, Crop, PhotoLibrary, Base64ToGallery, SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Network
