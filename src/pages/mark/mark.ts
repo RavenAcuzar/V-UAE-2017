@@ -118,7 +118,8 @@ export class MarkPage {
         buttons: [{
           text: 'OK',
           handler: () => { alert.dismiss(); }
-        }]
+        }],
+        cssClass: 'alertDanger'
       });
       alert.present();
       return;
@@ -168,7 +169,8 @@ export class MarkPage {
           }, {
             text: 'OK',
             handler: () => { alert.dismiss(); }
-          }]
+          }],
+          cssClass: 'alert'
         });
         alert.present();
       }, e => {
@@ -182,7 +184,8 @@ export class MarkPage {
         buttons: [{
           text: 'OK',
           handler: () => { alert.dismiss(); }
-        }]
+        }],
+        cssClass: 'alertDanger'
       });
       alert.present();
     } else if (!this.isImageSelected) {
@@ -192,7 +195,8 @@ export class MarkPage {
         buttons: [{
           text: 'OK',
           handler: () => { alert.dismiss(); }
-        }]
+        }],
+        cssClass: 'alertDanger'
       });
       alert.present();
     } else if (!this.isBadgeSelected) {
@@ -202,7 +206,8 @@ export class MarkPage {
         buttons: [{
           text: 'OK',
           handler: () => { alert.dismiss(); }
-        }]
+        }],
+        cssClass: 'alertDanger'
       });
       alert.present();
     }
@@ -222,7 +227,8 @@ export class MarkPage {
         buttons: [{
           text: 'OK',
           handler: () => { alert.dismiss(); }
-        }]
+        }],
+        cssClass: 'alert'
       });
       alert.present();
     });
@@ -236,7 +242,8 @@ export class MarkPage {
       buttons: [{
         text: 'OK',
         handler: () => { alert.dismiss(); }
-      }]
+      }],
+      cssClass: 'alertDanger'
     });
     alert.present();
   };
