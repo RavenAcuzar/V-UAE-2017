@@ -232,6 +232,7 @@ import { Crop } from "@ionic-native/crop";
 import { PhotoLibrary } from "@ionic-native/photo-library";
 import { Base64ToGallery } from "@ionic-native/base64-to-gallery";
 import { SocialSharing } from "@ionic-native/social-sharing";
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -294,6 +295,7 @@ import { SocialSharing } from "@ionic-native/social-sharing";
   imports: [
     BrowserModule, HttpModule, JsonpModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
