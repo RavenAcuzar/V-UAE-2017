@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, AlertController, LoadingController } from 'ionic-angular';
+import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer'
+import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { Base64ToGallery } from "@ionic-native/base64-to-gallery";
+import { File } from '@ionic-native/file'
 import { MarkPage } from '../mark/mark';
 import { FaqsPage } from '../faqs/faqs';
 
@@ -11,145 +15,192 @@ export class DownloadsPage {
   FaqsPage = FaqsPage;
   MarkPage = MarkPage;
 
-  // fileTransferObject: FileTransferObject;
-  // downloadLocation: string = '';
-  // canDownload: boolean = false;
+  fileTransferObject: FileTransferObject;
+  downloadLocation: string = '';
+  canDownload: boolean = false;
 
-  // constructor(protected fileTransfer: FileTransfer, protected navCtrl: NavController,
-  //   protected platform: Platform, protected alertCtrl: AlertController, protected file: File,
-  //   protected fileOpener: FileOpener, protected loadingCtrl: LoadingController) {
+  constructor(
+    protected fileTransfer: FileTransfer,
+    protected navCtrl: NavController,
+    protected platform: Platform,
+    protected alertCtrl: AlertController,
+    protected file: File,
+    protected base64ToGallery: Base64ToGallery,
+    protected androidPermissions: AndroidPermissions,
+    protected loadingCtrl: LoadingController) {
 
-  //   this.fileTransferObject = this.fileTransfer.create();
+    this.fileTransferObject = this.fileTransfer.create();
 
-  //   if (this.platform.is('cordova')) {
-  //     if (this.platform.is('ios')) {
-  //       this.downloadLocation = file.dataDirectory;
+    if (this.platform.is('cordova')) {
+      this.downloadLocation = this.file.cacheDirectory;
+      this.canDownload = true;
+    }
+  }
 
-  //       this.canDownload = true;
-  //     } else if (this.platform.is('android')) {
-  //       this.downloadLocation = file.externalApplicationStorageDirectory;
-  //       this.canDownload = true;
-  //     }
-  //   } else {
-  //     if (this.platform.is('core') || this.platform.is('mobileweb') || this.platform.is('windows')) {
-  //       this.downloadLocation = file.dataDirectory;
-  //       this.canDownload = true;
-  //     } else {
-  //       this.canDownload = false;
-  //     }
-  //   }
-  // }
+  ionViewCanEnter() {
+    if (this.platform.is('android')) {
+      return this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE).then(result => {
+        if (result.hasPermission) {
+          return true;
+        } else {
+          return this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE).then(a => {
+            if (!a.hasPermission) {
+              let alert = this.alertCtrl.create({
+                title: 'Permission not allowed',
+                subTitle: 'You cannot access this app\'s feature without allowing the storage permission.',
+                buttons: [{
+                  text: 'Ok',
+                  handler: () => {
+                    alert.dismiss();
+                    return false;
+                  }
+                }],
+                cssClass: 'alertDanger'
+              });
+              alert.present();
+            }
+            return a.hasPermission;
+          }).catch(e => {
+            console.log(JSON.stringify(e));
+            let alert = this.alertCtrl.create({
+              title: 'Permission not allowed',
+              subTitle: 'You cannot access this app\'s feature without allowing the storage permission.',
+              buttons: [{
+                text: 'Ok',
+                handler: () => {
+                  alert.dismiss();
+                  return false;
+                }
+              }],
+              cssClass: 'alertDanger'
+            });
+            alert.present();
+            return false;
+          });
+        }
+      }).catch(e => {
+        return this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE);
+      });
+    } else {
+      return true;
+    }
+  }
 
-  // downloadMobileWallpaper() {
-  //   this.download("http://the-v.net/images/default-source/vcon17/mobile-wallpaper.png");
-  // }
+  downloadMobileWallpaper() {
+    this.download("http://the-v.net/images/default-source/vcon17/mobile-wallpaper.png", 'mobile-wallpaper.png');
+  }
 
-  // downloadTabletWallpaper() {
-  //   this.download("http://the-v.net/images/default-source/vcon17/tablet-wallpaper.png");
-  // }
+  downloadTabletWallpaper() {
+    this.download("http://the-v.net/images/default-source/vcon17/tablet-wallpaper.png", 'tablet-wallpaper.png');
+  }
 
-  // download(url: string) {
-  //   if (!this.canDownload) {
-  //     let alert = this.alertCtrl.create({
-  //       title: 'Cannot download!',
-  //       subTitle: 'Your platform is not supported.',
-  //       buttons: [{
-  //         text: 'Ok',
-  //         handler: () => {
-  //           alert.dismiss();
-  //           return false;
-  //         }
-  //       }],
-  //       cssClass: 'alertDanger'
-  //     });
-  //     alert.present();
+  download(url: string, filename: string) {
+    if (!this.canDownload) {
+      let alert = this.alertCtrl.create({
+        title: 'Cannot download!',
+        subTitle: 'Your platform is not supported.',
+        buttons: [{
+          text: 'Ok',
+          handler: () => {
+            alert.dismiss();
+            return false;
+          }
+        }],
+        cssClass: 'alertDanger'
+      });
+      alert.present();
 
-  //   } else {
-  //     let filename = "/Wallpaper_Phone.png";
-  //     let folderLocation = "VUAE2017/";
-  //     let fileDestination = this.downloadLocation + folderLocation + filename;
+    } else {
+      let loadingPopup = this.loadingCtrl.create({
+        content: 'Downloading...'
+      });
+      loadingPopup.present();
 
-  //     this.file.checkDir(this.downloadLocation, folderLocation).then(_ => {
-  //       this.downloadFile(fileDestination, url);
-  //     }).catch(e => {
-  //       this.file.createDir(this.downloadLocation, folderLocation, false).then(_ => {
-  //           this.downloadFile(fileDestination, url);
-  //         }).catch(this.onErrorWithWallpaperDownload);
-  //     });
-  //   }
-  // }
+      let imagePath = this.downloadLocation + filename;
+      this.fileTransferObject.download(url, imagePath, true).then((entry) => {
+        entry.file((file) => {
+          let image = new Image();
+          image.onload = () => {
+            let canvas = document.createElement('canvas');
+            let context = canvas.getContext('2d');
 
-  // private downloadFile(fileDestination: string, url: string) {
-  //   let loadingPopup = this.loadingCtrl.create({
-  //     content: 'Downloading...'
-  //   });
-  //   loadingPopup.present();
+            canvas.height = image.height;
+            canvas.width = image.width;
 
-  //   this.fileTransferObject.download(url, fileDestination, true).then((entry) => {
-  //     loadingPopup.dismiss();
-  //     let alert = this.alertCtrl.create({
-  //       title: 'Download successful!',
-  //       subTitle: 'You can now use the wallpaper. Click \'Open\' to view the downloaded wallpaper.',
-  //       buttons: [
-  //         {
-  //           text: 'Open',
-  //           handler: () => {
-  //             entry.file((file) => {
-  //               this.fileOpener.open(entry.toURL(), file.type)
-  //                 .then(() => {
-  //                   alert.dismiss();
-  //                   return false;
-  //                 })
-  //                 .catch(e => {
-  //                   alert.dismiss();
-  //                   this.onErrorWithWallpaperDownload(e);
-  //                 });
-  //             }, e => {
-  //               alert.dismiss();
-  //               this.onErrorWithWallpaperDownload(e);
-  //             });
-  //           }
-  //         }, {
-  //           text: 'Ok',
-  //           handler: () => {
-  //             alert.dismiss();
-  //             return false;
-  //           }
-  //         }
-  //       ],
-  //       cssClass: 'alert'
-  //     });
-  //     alert.present();
-  //   }).catch((error) => {
-  //     loadingPopup.dismiss();
-  //     let alert = this.alertCtrl.create({
-  //       title: 'Error occurred!',
-  //       subTitle: 'The wallpaper was not downloaded successfully. Please try again.',
-  //       buttons: [{
-  //         text: 'Ok',
-  //         handler: () => {
-  //           alert.dismiss();
-  //           return false;
-  //         }
-  //       }],
-  //       cssClass: 'alertDanger'
-  //     });
-  //     alert.present();
-  //   });
-  // }
+            context.drawImage(image, 0, 0, image.width, image.height);
+            this.base64ToGallery.base64ToGallery(canvas.toDataURL(), { prefix: '_img' }).then(libraryItem => {
+              loadingPopup.dismiss();
+              canvas.remove();
 
-  // private onErrorWithWallpaperDownload(error) {
-  //   let alert = this.alertCtrl.create({
-  //     title: 'Error occurred!',
-  //     subTitle: 'Cannot open the downloaded wallpaper. Please try again.',
-  //     buttons: [{
-  //       text: 'Ok',
-  //       handler: () => {
-  //         alert.dismiss();
-  //         return false;
-  //       }
-  //     }],
-  //     cssClass: 'alertDanger'
-  //   });
-  // };
+              let alert = this.alertCtrl.create({
+                title: 'Download successful!',
+                subTitle: 'The wallpaper has now been downloaded to your photo library.',
+                buttons: [{
+                  text: 'Ok',
+                  handler: () => {
+                    alert.dismiss();
+                    return false;
+                  }
+                }],
+                cssClass: 'alert'
+              });
+              alert.present();
+            }).catch(e => {
+              loadingPopup.dismiss();
+              this.onErrorWithWallpaperDownload(e);
+            });
+          };
+          image.onerror = () => {
+            let alert = this.alertCtrl.create({
+              title: 'Cannot download!',
+              subTitle: 'Something went wrong.',
+              buttons: [{
+                text: 'Ok',
+                handler: () => {
+                  alert.dismiss();
+                  return false;
+                }
+              }],
+              cssClass: 'alertDanger'
+            });
+            alert.present();
+          };
+          image.src = imagePath;
+        }, e => {
+          this.onErrorWithWallpaperDownload(e);
+        });
+      }).catch((error) => {
+        loadingPopup.dismiss();
+        let alert = this.alertCtrl.create({
+          title: 'Error occurred!',
+          subTitle: 'The wallpaper was not downloaded successfully. Please try again.',
+          buttons: [{
+            text: 'Ok',
+            handler: () => {
+              alert.dismiss();
+              return false;
+            }
+          }],
+          cssClass: 'alertDanger'
+        });
+        alert.present();
+      });
+    }
+  }
+
+  private onErrorWithWallpaperDownload(error) {
+    let alert = this.alertCtrl.create({
+      title: 'Error occurred!',
+      subTitle: 'Cannot open the downloaded wallpaper. Please try again.',
+      buttons: [{
+        text: 'Ok',
+        handler: () => {
+          alert.dismiss();
+          return false;
+        }
+      }],
+      cssClass: 'alertDanger'
+    });
+    alert.present();
+  };
 }
