@@ -6,8 +6,9 @@ import { NewsPageRU } from '../news-ru/news-ru';
 import { NewslandingPage } from "../newslanding/newslanding";
 import { Http } from "@angular/http";
 import { Network } from "@ionic-native/network";
+import { ConnectionService } from "../../app/services/connection.service";
 
- 
+
 @Component({
   selector: 'page-newslanding',
   templateUrl: 'newslanding-ru.html'
@@ -21,8 +22,8 @@ export class NewslandingPageRU extends NewslandingPage {
   
   
   constructor(public navCtrl: NavController, public http: Http, public loadingController: LoadingController,
-  public toastCtrl:ToastController, network: Network) {
-    super(navCtrl, http, loadingController, toastCtrl, network);
+  public toastCtrl:ToastController, network: Network,protected connectionSvc:ConnectionService) {
+    super(navCtrl, http, loadingController, toastCtrl, network,connectionSvc);
   }
 
   scrollToTop() {

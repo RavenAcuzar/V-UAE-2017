@@ -8,6 +8,7 @@ import { NewsPageRU } from '../news-ru/news-ru';
 import { HomePage } from "../home/home";
 import { Http } from "@angular/http";
 import { Network } from "@ionic-native/network";
+import { ConnectionService } from "../../app/services/connection.service";
 
 @Component({
   selector: 'page-home',
@@ -23,8 +24,8 @@ export class HomePageRU extends HomePage {
   NewsPageRU = NewsPageRU;
 
   constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController,
-  toastCtrl: ToastController, network: Network) {
-    super(navCtrl, http, loadingController,toastCtrl, network);
+  toastCtrl: ToastController, network: Network,protected connectionSvc: ConnectionService) {
+    super(navCtrl, http, loadingController,toastCtrl, network, connectionSvc);
   }
 
   scrollToTop() {

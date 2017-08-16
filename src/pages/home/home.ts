@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
-import { IonicPage, Content, NavController, NavParams, LoadingController, Events, ToastController } from 'ionic-angular';
+import { IonicPage, Content, NavController, NavParams, LoadingController, Events, ToastController, Toast } from 'ionic-angular';
 import { allAboutPage } from '../allabout/allabout';
 import { MarkPage } from '../mark/mark';
 import { Dubai101Page } from '../dubai101/dubai101';
@@ -8,17 +8,19 @@ import { DownloadsPage } from '../downloads/downloads';
 import { NewsPage } from '../news/news';
 import { Observable } from 'rxjs/Rx';
 import { Network } from "@ionic-native/network";
+import { ConnectionService } from "../../app/services/connection.service";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  private isLeaving: boolean= false;
   connectSubscription: any;
-  disconnectSubscription: any;
   @ViewChild(Content) content: Content;
 
   myNews = [];
+
 
   allAboutPage = allAboutPage;
   MarkPage = MarkPage;
@@ -32,9 +34,10 @@ export class HomePage {
   public _hours: number;
   public _minutes: number;
   public _seconds: number;
+  private toastReload: Toast;
 
   constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController,
-  protected toastCtrl: ToastController,protected network: Network) {
+  protected toastCtrl: ToastController,protected network: Network, protected connectionSvc: ConnectionService) {
   }
 
   ionViewDidEnter() {
@@ -45,35 +48,15 @@ export class HomePage {
   }
 
   ionViewDidLeave(){
-    this.disconnectSubscription.unsubscribe();
     this.connectSubscription.unsubscribe();
+    this.isLeaving=true;
+    this.toastReload.dismiss();
   }
   
   checkNetworkConnection(){
-       this.disconnectSubscription = this.network.onDisconnect().subscribe(() => {
-        
-        let toast = this.toastCtrl.create({
-              message: 'No Internet connection! Please connect your device to the internet.',
-              position: 'bottom'
-            });
-            toast.present();
-      });
-      
-      this.connectSubscription = this.network.onConnect().subscribe(() => {
-      
-        let toast = this.toastCtrl.create({
-              message: 'Device is connected!',
-              position: 'bottom',
-              duration: 3000
-            });
-            toast.onDidDismiss(()=>{
-              toast.dismissAll();
-            });
-            toast.present();
-            this.getNews();
-            
-      });
-          
+      this.connectSubscription = this.connectionSvc.subscribeOnConnect(() => {
+        this.getNews();
+      });          
   }
 
   getNews() {
@@ -100,10 +83,17 @@ export class HomePage {
         this.myNews = response.json();
       }, e=>{
           let toast = this.toastCtrl.create({
-              message: 'No Internet connection! Please connect your device to the internet.',
-              position: 'bottom'
+              message: 'Something went wrong! Reload and Try again.',
+              position: 'bottom',
+              showCloseButton: true,
+              closeButtonText: 'Reload'
             });
+            toast.onDidDismiss(()=>{
+              if(!this.isLeaving)
+                this.getNews();
+            })
             toast.present();
+            this.toastReload=toast;
           loadingPopup.dismiss();
       }, () => {
         loadingPopup.dismiss();
