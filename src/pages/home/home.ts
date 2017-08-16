@@ -9,6 +9,7 @@ import { NewsPage } from '../news/news';
 import { Observable } from 'rxjs/Rx';
 import { Network } from "@ionic-native/network";
 import { ConnectionService } from "../../app/services/connection.service";
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'page-home',
@@ -29,20 +30,27 @@ export class HomePage {
   DownloadsPage = DownloadsPage;
 
   private _VDate;
+  private _dateNow;
   private _diff: number;
   public _days: number;
   public _hours: number;
   public _minutes: number;
   public _seconds: number;
   private toastReload: Toast;
+  private subscription: Subscription;
 
   constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController,
   protected toastCtrl: ToastController,protected network: Network, protected connectionSvc: ConnectionService) {
   }
 
   ionViewDidEnter() {
-    this._VDate = "2017-09-08";
-    this.countDown();
+    //this._VDate = "2017-09-08";
+    if(this._dateNow>=this._VDate)
+      {
+        this.subscription.unsubscribe();
+      }
+      else
+        this.countDown();
     this.checkNetworkConnection();
     this.getNews();
   }
@@ -101,19 +109,30 @@ export class HomePage {
   }
     
   ngOnInit() {
-    this._VDate = "2017-09-08";
+    this._VDate = new Date("2017-09-08 00:00:00");
+    this._dateNow= new Date();
     this.countDown();
+    
   }
 
   countDown() {
-    Observable.interval(1000).map((x) => {
+    this.subscription = Observable.interval(1000)
+    .map((x) => {
       this._diff = Date.parse(this._VDate) - Date.parse(new Date().toString());
-    }).subscribe((x) => {
+      this._diff = this.checkDiff(this._diff)})
+    .subscribe((x) => {
       this._days = this.getDays(this._diff);
       this._hours = this.getHours(this._diff);
       this._minutes = this.getMinutes(this._diff);
       this._seconds = this.getSeconds(this._diff);
     });
+  }
+  checkDiff(diff){
+    if(diff < 1000)
+      {
+        return 0;
+      }
+      else return diff;
   }
   getDays(t) {
     return Math.floor(t / (1000 * 60 * 60 * 24));
