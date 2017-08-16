@@ -2,9 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Content } from 'ionic-angular';
 import { Dubai101Page } from '../dubai101/dubai101';
 import { TheSpeakersPage } from '../thespeakers/thespeakers';
-import { Http } from "@angular/http";
+import { Http, URLSearchParams } from "@angular/http";
 import { Storage } from "@ionic/storage";
-import 'rxjs/add/operator/mergeMap';
 
 @Component({
   selector: 'page-sched',
@@ -17,14 +16,20 @@ export class SchedPage {
   TheSpeakersPage = TheSpeakersPage;
 
   config: any = {};
-  events: any = [];
-  private scheduleData: any[] = [];
+  private events: any[] = [];
   private scheduleToday: any = {};
-  private dateTodayStr: string;
+  private scheduleData: any[] = [];
+
+  private dayIndex = 0;
+  private todayDate = new Date();
+  private startDate = new Date("2017-09-08");
+  private isScheduleShown = false;
+  private isEventNotYetStarted = false;
+  private isEventAlreadyFinished = false;
 
   constructor(
     protected http: Http,
-    protected storage: Storage,
+    protected storage: Storage
   ) { }
 
   scrollToTop() {
@@ -36,9 +41,15 @@ export class SchedPage {
   }
 
   reloadData() {
-    this.retrieveConfig().then(() => {
-      this.retrieveScheduleData();
+    return this.retrieveConfig().then(() => {
+      this.refreshScheduleData();
     });
+  }
+
+  reloadDataViaRefresher(e) {
+    this.reloadData().then(() => {
+      e.complete();
+    })
   }
 
   retrieveConfig() {
@@ -58,6 +69,10 @@ export class SchedPage {
           dateToday: new Date()
         };
         resolve();
+      }, () => {
+        if (this.config.overrideDateToday) {
+          this.todayDate = this.config.dateToday;
+        }
       });
     });
   }
@@ -80,49 +95,66 @@ export class SchedPage {
   }
 
   refreshScheduleData() {
+    let body = new URLSearchParams();
+    body.set('language', window.localStorage['mylanguage']);
+
     console.log("Trying to retrieve schedule data from server...");
-    this.http.get('http://192.168.130.199:3000/schedule').subscribe(res => {
-      this.scheduleData = res.json();
-      this.storage.set('schedule', this.scheduleData);
-      this.onSuccessRetrieval();
-    }, e => {
-      console.error("Cannot retrieve schedule data from server.");
-      console.error(JSON.stringify(e));
-    });
+    this.http.get('https://cums.the-v.net/program.aspx', { params: body })
+      .subscribe(res => {
+        this.scheduleData = res.json();
+        this.storage.set('schedule', this.scheduleData);
+        this.onSuccessRetrieval();
+      }, e => {
+        console.error("Cannot retrieve schedule data from server.");
+        console.error(JSON.stringify(e));
+      });
   }
 
   onSuccessRetrieval() {
-    let daySchedule = this.scheduleData.filter(daySched => {
-      let day = new Date(daySched.day);
-      let today = this.config.dateToday;
-      return day.setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0);
-    });
+    let diffIndex = 1;
+    let todayDateMonth = this.todayDate.getMonth();
+    let startDateMonth = this.startDate.getMonth();
 
-    if (daySchedule.length > 1) {
-      throw new Error('There should be no multiple entries for a day.');
-    } else if (daySchedule.length === 0) {
-      // TODO: no schedule for today
-      console.log('no schedule for today');
+    if (todayDateMonth < startDateMonth) {
+      // it's not yet the month of the event
+      // leave diffIndex to be equal to 1
+      this.isEventNotYetStarted = true;
+      this.isEventAlreadyFinished = false;
+    } else if (todayDateMonth === startDateMonth) {
+      let numOfDaysOfEvent = this.scheduleData.length;
+      let todayDateMonthDay = this.todayDate.getDate();
+      let startDateMonthDay = this.startDate.getDate();
+
+      if (todayDateMonthDay < startDateMonthDay) {
+        // the event has not started yet
+        // leave diffIndex to be equal to 1
+        this.isEventNotYetStarted = true;
+        this.isEventAlreadyFinished = false;
+      } else if (todayDateMonthDay > startDateMonthDay + (numOfDaysOfEvent - 1)) {
+        // the event is already finished. ignore diffIndex value.
+        this.isEventNotYetStarted = false;
+        this.isEventAlreadyFinished = true;
+      } else {
+        diffIndex = (todayDateMonthDay - startDateMonthDay) + 1;
+        this.isEventNotYetStarted = false;
+        this.isEventAlreadyFinished = false;
+      }
     } else {
-      this.scheduleToday = daySchedule[0];
-      this.scheduleToday.day = new Date(this.scheduleToday.day);
-      this.scheduleToday.dayStr = this.formatDate(this.scheduleToday.day);
-      this.events = this.scheduleToday.events;
+      // it's past the month of the event. ignore diffIndex value.
+      this.isEventNotYetStarted = true;
+      this.isEventAlreadyFinished = true;
     }
-  }
 
-  private formatDate(date: Date) {
-    var monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
-    ];
-  
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
-  
-    return monthNames[monthIndex] + ' ' + day + ' ' + year;
+    this.isScheduleShown = !this.isEventNotYetStarted && !this.isEventAlreadyFinished;
+    this.dayIndex = 0;
+    for (var i = 0; i < this.scheduleData.length; i++) {
+      let day = this.scheduleData[i];
+      if (parseInt(day.num) === diffIndex) {
+        this.dayIndex = i;
+        break;
+      }
+    }
+    this.scheduleToday = this.scheduleData[this.dayIndex];
+    this.events = String(this.scheduleToday.program).split('-').map(e => e.trim());
   }
 }

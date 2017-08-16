@@ -3,25 +3,27 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <button ion-button>
-      <ion-icon name="refresh" (click)="reloadData()"></ion-icon>
-    </button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="reloadDataViaRefresher($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Refresh" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
   <header class="mainScr mid">
     <h1>
-      Daily Program Schedule <br/> {{scheduleToday.label}}
-      <h2>{{scheduleToday.dayStr}}</h2>
+      Daily Program Schedule <br/> {{scheduleToday.day}}
     </h1>
   </header>
   <article class="cusContent">
-    <div class="table">
+    <!-- <img [src]="scheduleToday.breakdown" style="width: 100%"/> -->
+    <div *ngIf="isEventNotYetStarted">**Event not yet started**</div>
+    <div *ngIf="isEventAlreadyFinished">**Thank you for participating**</div>
+    <div *ngIf="isScheduleShown" class="table">
       <div class="item" *ngFor="let event of events">
-        <h3 [hidden]="!config.isTimeShown">{{event.time}}</h3>
         <div class="inner-item">
-          <h4>{{event.description}}</h4>
+          <h4>{{event}}</h4>
         </div>
       </div>
     </div>
