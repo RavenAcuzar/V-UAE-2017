@@ -5,8 +5,9 @@ import { MarkPageFR } from '../mark-fr/mark-fr';
 import { MerchandisePage } from "../merchandise/merchandise";
 import { Http } from "@angular/http";
 import { Network } from "@ionic-native/network";
+import { ConnectionService } from "../../app/services/connection.service";
 
- 
+
 @Component({
   selector: 'page-merchandise',
   templateUrl: 'merchandise-fr.html'
@@ -15,8 +16,8 @@ export class MerchandisePageFR extends MerchandisePage {
 Dubai101PageFR = Dubai101PageFR;
 MarkPageFR = MarkPageFR;
 constructor(protected http: Http, protected loadingController: LoadingController,
-protected toastCtrl: ToastController,protected network: Network) {
-  super(http,loadingController,toastCtrl,network);
+protected toastCtrl: ToastController,protected network: Network,protected connectionSvc: ConnectionService) {
+  super(http,loadingController,toastCtrl,network, connectionSvc);
 }
 
 ionViewDidLoad() {

@@ -5,8 +5,9 @@ import { MarkPageAR } from '../mark-ar/mark-ar';
 import { MerchandisePage } from "../merchandise/merchandise";
 import { Http } from "@angular/http";
 import { Network } from "@ionic-native/network";
+import { ConnectionService } from "../../app/services/connection.service";
 
- 
+
 @Component({
   selector: 'page-merchandise',
   templateUrl: 'merchandise-ar.html'
@@ -16,8 +17,8 @@ Dubai101PageAR = Dubai101PageAR;
 MarkPageAR = MarkPageAR;
 
 constructor(protected http: Http, protected loadingController: LoadingController,
-protected toastCtrl: ToastController,protected network: Network) {
-  super(http,loadingController,toastCtrl,network);
+protected toastCtrl: ToastController,protected network: Network,protected connectionSvc: ConnectionService) {
+  super(http,loadingController,toastCtrl,network, connectionSvc);
 }
 
 

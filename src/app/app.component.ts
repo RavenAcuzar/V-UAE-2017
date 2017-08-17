@@ -98,6 +98,7 @@ import { SplashPage } from '../pages/splash/splash';
 import { LanguageService } from "./services/language.service";
 
 import { Deeplinks } from "@ionic-native/deeplinks";
+import { ConnectionService } from "./services/connection.service";
 
 @Component({
   templateUrl: 'app.html'
@@ -109,7 +110,7 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar,
-    public splashScreen: SplashScreen, private events: Events, private deeplink: Deeplinks) {
+    public splashScreen: SplashScreen, private events: Events, private deeplink: Deeplinks, protected connectionSrv: ConnectionService) {
     this.initializeApp();
     this.updateMenuLanguage();
 
@@ -169,6 +170,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.connectionSrv.checkNetworkConnection();
     }).catch(_ => {
       alert('Cannot load application!');
     });

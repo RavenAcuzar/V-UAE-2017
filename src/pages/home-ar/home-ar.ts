@@ -8,6 +8,7 @@ import { NewsPageAR } from '../news-ar/news-ar';
 import { HomePage } from "../home/home";
 import { Http } from "@angular/http";
 import { Network } from "@ionic-native/network";
+import { ConnectionService } from "../../app/services/connection.service";
 
 @Component({
   selector: 'page-home',
@@ -23,8 +24,8 @@ export class HomePageAR extends HomePage {
   NewsPageAR = NewsPageAR;
 
   constructor(protected navCtrl: NavController, protected http: Http, protected loadingController: LoadingController,
-  toastCtrl: ToastController, network: Network) {
-    super(navCtrl, http, loadingController,toastCtrl, network);
+  toastCtrl: ToastController, network: Network,protected connectionSvc: ConnectionService) {
+    super(navCtrl, http, loadingController,toastCtrl, network, connectionSvc);
   }
 
   scrollToTop() {

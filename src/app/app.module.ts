@@ -237,6 +237,7 @@ import { File } from "@ionic-native/file";
 import { FileTransfer } from "@ionic-native/file-transfer";
 import { AndroidPermissions } from "@ionic-native/android-permissions";
 import { IonicStorageModule } from "@ionic/storage";
+import { ConnectionService } from "./services/connection.service";
 
 @NgModule({
   declarations: [
@@ -360,7 +361,7 @@ import { IonicStorageModule } from "@ionic/storage";
     Deeplinks, File, FileTransfer, AndroidPermissions,
     Camera, Crop, PhotoLibrary, Base64ToGallery, SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Network
+    Network, ConnectionService
   ]
 })
 export class AppModule {}
