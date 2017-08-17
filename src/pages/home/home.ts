@@ -31,11 +31,11 @@ export class HomePage {
 
   private _VDate;
   private _dateNow;
-  private _diff: number;
-  public _days: number;
-  public _hours: number;
-  public _minutes: number;
-  public _seconds: number;
+  private _diff: number= 0;
+  public _days: number =0;
+  public _hours: number=0;
+  public _minutes: number=0;
+  public _seconds: number=0;
   private toastReload: Toast;
   private subscription: Subscription;
 
@@ -44,7 +44,8 @@ export class HomePage {
   }
 
   ionViewDidEnter() {
-    //this._VDate = "2017-09-08";
+    this._VDate = new Date("2017-09-08T00:00:00");
+    this._dateNow= new Date();
     if(this._dateNow>=this._VDate)
       {
         this.subscription.unsubscribe();
@@ -109,30 +110,25 @@ export class HomePage {
   }
     
   ngOnInit() {
-    this._VDate = new Date("2017-09-08 00:00:00");
-    this._dateNow= new Date();
     this.countDown();
-    
   }
 
   countDown() {
     this.subscription = Observable.interval(1000)
-    .map((x) => {
-      this._diff = Date.parse(this._VDate) - Date.parse(new Date().toString());
-      this._diff = this.checkDiff(this._diff)})
     .subscribe((x) => {
+      console.log('Tick');
+      this._diff = this._VDate.getTime() - new Date().getTime();
+      if(this._diff < 0)
+      {
+        this.subscription.unsubscribe();
+      }
+      else {
       this._days = this.getDays(this._diff);
       this._hours = this.getHours(this._diff);
       this._minutes = this.getMinutes(this._diff);
       this._seconds = this.getSeconds(this._diff);
-    });
-  }
-  checkDiff(diff){
-    if(diff < 1000)
-      {
-        return 0;
       }
-      else return diff;
+    });
   }
   getDays(t) {
     return Math.floor(t / (1000 * 60 * 60 * 24));
