@@ -44,7 +44,7 @@ export class HomePage {
   }
 
   ionViewDidEnter() {
-    this._VDate = new Date("2017-09-08T00:00:00");
+    this._VDate = new Date("2017-09-08T08:00:00+4:00");
     this._dateNow= new Date();
     if(this._dateNow>=this._VDate)
       {
