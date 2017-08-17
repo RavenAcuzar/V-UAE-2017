@@ -13,13 +13,17 @@
   </ion-refresher>
   <header class="mainScr mid">
     <h1>
-      Ежедневное расписание <br/> {{scheduleToday.day}}
+      <span>Ежедневное расписание</span><br/>
+      <span *ngIf="isScheduleShown">{{scheduleToday.day}}</span>
     </h1>
   </header>
   <article class="cusContent">
-    <!-- <img [src]="scheduleToday.breakdown" style="width: 100%"/> -->
-    <div *ngIf="isEventNotYetStarted">**Event not yet started**</div>
-    <div *ngIf="isEventAlreadyFinished">**Thank you for participating**</div>
+    <div *ngIf="isEventNotYetStarted">
+      <h2>Watch this space for the daily V-UAE 2017 program schedule!</h2>
+    </div>
+    <div *ngIf="isEventAlreadyFinished">
+      <h2>Thank you for participating!</h2>
+    </div>
     <div *ngIf="isScheduleShown" class="table">
       <div class="item" *ngFor="let event of events">
         <div class="inner-item">

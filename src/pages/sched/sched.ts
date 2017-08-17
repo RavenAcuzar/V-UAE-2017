@@ -53,27 +53,16 @@ export class SchedPage {
   }
 
   retrieveConfig() {
-    console.log("Retrieving config from server...");
     return new Promise((resolve, reject) => {
-      this.http.get('http://192.168.130.199:3000/schedule/config').subscribe(res => {
-        console.log("Retrieved config from server successfully!");
-        this.config = res.json();
-        this.config.dateToday = this.config.overrideDateToday ? new Date(this.config.dateToday) : new Date();
-        resolve();
-      }, e => {
-        console.log("Failed to retrieve config from server. Using fallback config.");
-        console.error(JSON.stringify(e));
-        this.config = {
-          isTimeShown: false,
-          overrideDateToday: false,
-          dateToday: new Date()
-        };
-        resolve();
-      }, () => {
-        if (this.config.overrideDateToday) {
-          this.todayDate = this.config.dateToday;
-        }
-      });
+      this.config = {
+        isTimeShown: false,
+        overrideDateToday: false,
+        dateToday: new Date()
+      };
+      if (this.config.overrideDateToday) {
+        this.todayDate = this.config.dateToday;
+      }
+      resolve();
     });
   }
 
