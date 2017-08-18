@@ -43,18 +43,24 @@ export class SchedPage {
   }
 
   ionViewDidLoad() {
+    this.updateCanViewSched();
+    
     this.transitionSubscription = this.geofenceService.subscribeToTransition((g) => {
-      this.geofenceService.canViewSchedule().then(state => {
-        this.canViewSched = state.canViewSchedule;
-        this.locationNotEnabled = state.shouldTurnOnLocationServices;
+      this.updateCanViewSched();
+    });
+  }
 
-        if (this.canViewSched) {
-          this.reloadData();
-        }
-      }).catch(e => {
-        this.geofenceService.setupEventGeofence();
-        this.ionViewDidLoad();
-      });
+  updateCanViewSched() {
+    this.geofenceService.canViewSchedule().then(state => {
+      this.canViewSched = state.canViewSchedule;
+      this.locationNotEnabled = state.shouldTurnOnLocationServices;
+
+      if (this.canViewSched) {
+        this.reloadData();
+      }
+    }).catch(e => {
+      this.geofenceService.setupEventGeofence();
+      this.ionViewDidLoad();
     });
   }
 
