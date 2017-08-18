@@ -220,17 +220,22 @@ export class MarkPage {
     }
 
     let filepath = prefix + libraryItem;
-    this.socialSharing.share('#VUAE17', '', filepath).then(() => {
-      let alert = this.alert.create({
-        title: 'Success!',
-        message: 'Your image has been successfully shared.',
-        buttons: [{
-          text: 'OK',
-          handler: () => { alert.dismiss(); }
-        }],
-        cssClass: 'alert'
-      });
-      alert.present();
+    this.socialSharing.share('#VUAE17', '', filepath).then((a) => {
+      console.log(JSON.stringify(a));
+      if (a) {
+        let alert = this.alert.create({
+          title: 'Success!',
+          message: 'Your image has been successfully shared.',
+          buttons: [{
+            text: 'OK',
+            handler: () => { alert.dismiss(); }
+          }],
+          cssClass: 'alert'
+        });
+        alert.present();
+      }
+    }).catch(e => {
+      console.log(JSON.stringify(e));
     });
   }
 
