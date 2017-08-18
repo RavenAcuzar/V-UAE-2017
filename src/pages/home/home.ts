@@ -90,7 +90,23 @@ export class HomePage {
     this.http.post('http://cums.the-v.net/site.aspx', body, options)
       .timeout(20000)
       .subscribe(response => {
-        this.myNews = response.json();
+        try {
+          this.myNews = response.json();
+        } catch (e) {
+          let toast = this.toastCtrl.create({
+              message: 'Something went wrong! Reload and Try again.',
+              position: 'bottom',
+              showCloseButton: true,
+              closeButtonText: 'Reload'
+            });
+            toast.onDidDismiss(()=>{
+              if(!this.isLeaving)
+                this.getNews();
+            })
+            toast.present();
+            this.toastReload=toast;
+          loadingPopup.dismiss(); 
+        }
       }, e=>{
           let toast = this.toastCtrl.create({
               message: 'Something went wrong! Reload and Try again.',
