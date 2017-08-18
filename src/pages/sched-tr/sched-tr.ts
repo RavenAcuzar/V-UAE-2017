@@ -5,6 +5,7 @@ import { TheSpeakersPageTR } from '../thespeakers-tr/thespeakers-tr';
 import { SchedPage } from "../sched/sched";
 import { Http } from "@angular/http";
 import { Storage } from '@ionic/storage';
+import { GeofenceService } from "../../app/services/geofence.service";
 
 @Component({
   selector: 'page-sched',
@@ -18,8 +19,9 @@ export class SchedPageTR extends SchedPage {
   
   constructor(
     protected http: Http,
-    protected storage: Storage
-  ) {
-    super(http, storage);
+    protected storage: Storage,
+    protected geofenceService: GeofenceService
+  ) { 
+    super(http, storage, geofenceService);
   }
 }

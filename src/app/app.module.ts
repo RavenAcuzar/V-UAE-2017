@@ -238,6 +238,8 @@ import { FileTransfer } from "@ionic-native/file-transfer";
 import { AndroidPermissions } from "@ionic-native/android-permissions";
 import { IonicStorageModule } from "@ionic/storage";
 import { ConnectionService } from "./services/connection.service";
+import { GeofenceService } from "./services/geofence.service";
+import { Geofence } from "@ionic-native/geofence";
 
 @NgModule({
   declarations: [
@@ -361,7 +363,7 @@ import { ConnectionService } from "./services/connection.service";
     Deeplinks, File, FileTransfer, AndroidPermissions,
     Camera, Crop, PhotoLibrary, Base64ToGallery, SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Network, ConnectionService
+    Network, Geofence, ConnectionService, GeofenceService
   ]
 })
 export class AppModule {}

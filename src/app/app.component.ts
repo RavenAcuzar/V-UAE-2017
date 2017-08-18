@@ -99,6 +99,7 @@ import { LanguageService } from "./services/language.service";
 
 import { Deeplinks } from "@ionic-native/deeplinks";
 import { ConnectionService } from "./services/connection.service";
+import { GeofenceService } from "./services/geofence.service";
 
 @Component({
   templateUrl: 'app.html'
@@ -110,7 +111,8 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar,
-    public splashScreen: SplashScreen, private events: Events, private deeplink: Deeplinks, protected connectionSrv: ConnectionService) {
+    public splashScreen: SplashScreen, private events: Events, private deeplink: Deeplinks, 
+    protected connectionSrv: ConnectionService, private geofenceService: GeofenceService) {
     this.initializeApp();
     this.updateMenuLanguage();
 
@@ -171,6 +173,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.connectionSrv.checkNetworkConnection();
+      this.geofenceService.setupEventGeofence();
     }).catch(_ => {
       alert('Cannot load application!');
     });

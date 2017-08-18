@@ -59,7 +59,8 @@ export class HomePage {
   ionViewDidLeave(){
     this.connectSubscription.unsubscribe();
     this.isLeaving=true;
-    this.toastReload.dismiss();
+    if (this.toastReload)
+      this.toastReload.dismiss();
   }
   
   checkNetworkConnection(){
@@ -89,7 +90,23 @@ export class HomePage {
     this.http.post('http://cums.the-v.net/site.aspx', body, options)
       .timeout(20000)
       .subscribe(response => {
-        this.myNews = response.json();
+        try {
+          this.myNews = response.json();
+        } catch (e) {
+          let toast = this.toastCtrl.create({
+              message: 'Something went wrong! Reload and Try again.',
+              position: 'bottom',
+              showCloseButton: true,
+              closeButtonText: 'Reload'
+            });
+            toast.onDidDismiss(()=>{
+              if(!this.isLeaving)
+                this.getNews();
+            })
+            toast.present();
+            this.toastReload=toast;
+          loadingPopup.dismiss(); 
+        }
       }, e=>{
           let toast = this.toastCtrl.create({
               message: 'Something went wrong! Reload and Try again.',
@@ -116,7 +133,6 @@ export class HomePage {
   countDown() {
     this.subscription = Observable.interval(1000)
     .subscribe((x) => {
-      console.log('Tick');
       this._diff = this._VDate.getTime() - new Date().getTime();
       if(this._diff < 0)
       {

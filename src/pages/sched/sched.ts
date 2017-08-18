@@ -4,12 +4,15 @@ import { Dubai101Page } from '../dubai101/dubai101';
 import { TheSpeakersPage } from '../thespeakers/thespeakers';
 import { Http, URLSearchParams } from "@angular/http";
 import { Storage } from "@ionic/storage";
+import { GeofenceService } from "../../app/services/geofence.service";
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'page-sched',
   templateUrl: 'sched.html'
 })
 export class SchedPage {
+  transitionSubscription: Subscription;
   @ViewChild(Content) content: Content;
 
   Dubai101Page = Dubai101Page;
@@ -20,6 +23,8 @@ export class SchedPage {
   private scheduleToday: any = {};
   private scheduleData: any[] = [];
 
+  private canViewSched = false;
+  private locationNotEnabled = false;
   private dayIndex = 0;
   private todayDate = new Date();
   private startDate = new Date("2017-09-08");
@@ -29,7 +34,8 @@ export class SchedPage {
 
   constructor(
     protected http: Http,
-    protected storage: Storage
+    protected storage: Storage,
+    protected geofenceService: GeofenceService
   ) { }
 
   scrollToTop() {
@@ -37,7 +43,23 @@ export class SchedPage {
   }
 
   ionViewDidLoad() {
-    this.reloadData();
+    this.transitionSubscription = this.geofenceService.subscribeToTransition((g) => {
+      this.geofenceService.canViewSchedule().then(state => {
+        this.canViewSched = state.canViewSchedule;
+        this.locationNotEnabled = state.shouldTurnOnLocationServices;
+
+        if (this.canViewSched) {
+          this.reloadData();
+        }
+      }).catch(e => {
+        this.geofenceService.setupEventGeofence();
+        this.ionViewDidLoad();
+      });
+    });
+  }
+
+  ionViewDidLeave() {
+    this.transitionSubscription.unsubscribe();
   }
 
   reloadData() {
