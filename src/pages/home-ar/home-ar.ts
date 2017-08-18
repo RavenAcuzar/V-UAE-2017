@@ -27,6 +27,11 @@ export class HomePageAR extends HomePage {
   toastCtrl: ToastController, network: Network,protected connectionSvc: ConnectionService) {
     super(navCtrl, http, loadingController,toastCtrl, network, connectionSvc);
   }
+  navigateToNews(id: String) {
+    this.navCtrl.push(NewsPageAR, {
+      id: id
+    });
+  }
 
   scrollToTop() {
     this.content.scrollToTop();

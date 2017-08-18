@@ -55,9 +55,9 @@
     </div>
   </div>
 
-  <div class="newscat">
+  <div class="AR cusContent newscat">
     <h6>الأخبار والمستجدات</h6>
-    <div class="row" *ngFor="let news of myNews">
+    <div class="row" *ngFor="let news of myNews" dir="rtl">
       <a (click)="navigateToNews(news.Title)" class="col item">
         <h4 [innerHTML]="news.localTitle"></h4>
         <h3>in {{news.SubCategory}}</h3>

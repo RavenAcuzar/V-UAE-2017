@@ -191,6 +191,10 @@ ion-header {
   background: none !important;
 }
 
+ion-content {
+  background-color: #fff;
+}
+
 ion-header::before, ion-header::after {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 }

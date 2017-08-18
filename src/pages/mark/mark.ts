@@ -220,7 +220,7 @@ export class MarkPage {
     }
 
     let filepath = prefix + libraryItem;
-    this.socialSharing.share('#VCON17', '', filepath).then(() => {
+    this.socialSharing.share('#VUAE17', '', filepath).then(() => {
       let alert = this.alert.create({
         title: 'Success!',
         message: 'Your image has been successfully shared.',
