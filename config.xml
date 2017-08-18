@@ -84,6 +84,15 @@
         <config-file parent="NSPhotoLibraryUsageDescription" target="*-Info.plist">
             <string>To save the wallpapers to your device.</string>
         </config-file>
+        <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
+            <string>To check if you're at the event venue</string>
+        </config-file>
+        <config-file parent="NSLocationUsageDescription" target="*-Info.plist">
+            <string>To check if you're at the event venue</string>
+        </config-file>
+        <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
+            <string>To check if you're at the event venue</string>
+        </config-file>
     </platform>
     <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
@@ -96,10 +105,7 @@
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-file" spec="~4.3.2" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.6.3" />
-    <plugin name="cordova-plugin-geofence" spec="^0.7.0">
-        <variable name="GEOFENCE_ALWAYS_USAGE_DESCRIPTION" value="${EXECUTABLE_NAME} Would Like to Use Your Current Location Even In Background." />
-        <variable name="GEOFENCE_IN_USE_USAGE_DESCRIPTION" value="${EXECUTABLE_NAME} Would Like to Use Your Current Location When In Use." />
-    </plugin>
+    <plugin name="cordova-plugin-geofence" spec="git+https://github.com/compelling/cordova-plugin-geofence.git" />
     <plugin name="cordova-plugin-network-information" spec="^1.3.3" />
     <plugin name="cordova-plugin-photo-library" spec="~2.0.4">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="To choose photos" />
