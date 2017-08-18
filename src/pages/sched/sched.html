@@ -18,16 +18,26 @@
     </h1>
   </header>
   <article class="cusContent">
-    <div *ngIf="isEventNotYetStarted">
-      <h2>Watch this space for the daily V-UAE 2017 program schedule!</h2>
+    <div *ngIf="locationNotEnabled">
+      <h1>Location services not enabled!</h1>
+      <p>Enable your device's location services to check out the schedule of the event.</p>
     </div>
-    <div *ngIf="isEventAlreadyFinished">
-      <h2>Thank you for participating!</h2>
+    <div *ngIf="!canViewSched">
+      <h1>See you at Hamdan Sports Complex!</h1>
+      <p>Make sure you're at the event venue to see the event's schedule.</p>
     </div>
-    <div *ngIf="isScheduleShown" class="table">
-      <div class="item" *ngFor="let event of events">
-        <div class="inner-item">
-          <h4>{{event}}</h4>
+    <div *ngIf="canViewSched">
+      <div *ngIf="isEventNotYetStarted">
+        <h2>Watch this space for the daily V-UAE 2017 program schedule!</h2>
+      </div>
+      <div *ngIf="isEventAlreadyFinished">
+        <h2>Thank you for participating!</h2>
+      </div>
+      <div *ngIf="isScheduleShown" class="table">
+        <div class="item" *ngFor="let event of events">
+          <div class="inner-item">
+            <h4>{{event}}</h4>
+          </div>
         </div>
       </div>
     </div>

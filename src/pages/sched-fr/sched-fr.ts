@@ -5,6 +5,7 @@ import { TheSpeakersPageFR } from '../thespeakers-fr/thespeakers-fr';
 import { SchedPage } from "../sched/sched";
 import { Http } from "@angular/http";
 import { Storage } from '@ionic/storage';
+import { GeofenceService } from "../../app/services/geofence.service";
 
 @Component({
   selector: 'page-sched',
@@ -14,12 +15,13 @@ export class SchedPageFR extends SchedPage {
   @ViewChild(Content) content: Content;
   
   Dubai101PageFR = Dubai101PageFR;
-  TheSpeakersPageFR = TheSpeakersPageFR;
+  TheSpeakersPageFR = TheSpeakersPageFR;  
 
   constructor(
     protected http: Http,
-    protected storage: Storage
-  ) {
-    super(http, storage);
+    protected storage: Storage,
+    protected geofenceService: GeofenceService
+  ) { 
+    super(http, storage, geofenceService);
   }
 }
