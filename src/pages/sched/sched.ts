@@ -5,12 +5,14 @@ import { TheSpeakersPage } from '../thespeakers/thespeakers';
 import { Http, URLSearchParams } from "@angular/http";
 import { Storage } from "@ionic/storage";
 import { GeofenceService } from "../../app/services/geofence.service";
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'page-sched',
   templateUrl: 'sched.html'
 })
 export class SchedPage {
+  transitionSubscription: Subscription;
   @ViewChild(Content) content: Content;
 
   Dubai101Page = Dubai101Page;
@@ -41,14 +43,23 @@ export class SchedPage {
   }
 
   ionViewDidLoad() {
-    this.geofenceService.canViewSchedule().then(state => {
-      this.canViewSched = state.canViewSched;
-      this.locationNotEnabled = state.shouldTurnOnLocationServices;
-      
-      if (this.canViewSched) {
-        this.reloadData();
-      }
+    this.transitionSubscription = this.geofenceService.subscribeToTransition((g) => {
+      this.geofenceService.canViewSchedule().then(state => {
+        this.canViewSched = state.canViewSchedule;
+        this.locationNotEnabled = state.shouldTurnOnLocationServices;
+
+        if (this.canViewSched) {
+          this.reloadData();
+        }
+      }).catch(e => {
+        this.geofenceService.setupEventGeofence();
+        this.ionViewDidLoad();
+      });
     });
+  }
+
+  ionViewDidLeave() {
+    this.transitionSubscription.unsubscribe();
   }
 
   reloadData() {

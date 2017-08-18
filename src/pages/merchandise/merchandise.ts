@@ -64,7 +64,8 @@ export class MerchandisePage {
     ionViewDidLeave(){
     this.connectSubscription.unsubscribe();
     this.isLeaving=true;
-    this.toastReload.dismiss();
+    if (this.toastReload)
+      this.toastReload.dismiss();
   }
 
   checkNetworkConnection(){

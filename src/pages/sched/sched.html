@@ -21,6 +21,7 @@
     <div *ngIf="locationNotEnabled">
       <h1>Location services not enabled!</h1>
       <p>Enable your device's location services to check out the schedule of the event.</p>
+      <button (click)="requestLocationPermission()">Enable location services</button>
     </div>
     <div *ngIf="!canViewSched">
       <h1>See you at Hamdan Sports Complex!</h1>

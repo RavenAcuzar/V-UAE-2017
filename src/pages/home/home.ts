@@ -59,7 +59,8 @@ export class HomePage {
   ionViewDidLeave(){
     this.connectSubscription.unsubscribe();
     this.isLeaving=true;
-    this.toastReload.dismiss();
+    if (this.toastReload)
+      this.toastReload.dismiss();
   }
   
   checkNetworkConnection(){
@@ -116,7 +117,6 @@ export class HomePage {
   countDown() {
     this.subscription = Observable.interval(1000)
     .subscribe((x) => {
-      console.log('Tick');
       this._diff = this._VDate.getTime() - new Date().getTime();
       if(this._diff < 0)
       {

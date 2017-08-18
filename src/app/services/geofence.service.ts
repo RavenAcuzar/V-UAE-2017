@@ -3,9 +3,16 @@ import { Storage } from '@ionic/storage';
 import { Injectable } from "@angular/core";
 import { AndroidPermissions } from "@ionic-native/android-permissions";
 import { AlertController } from "ionic-angular";
+import { Subscription } from "rxjs/Subscription";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class GeofenceService {
+    observable: Subject<any>;
+    observer: any;
+    fromFence: { id: string; latitude: number; longitude: number; radius: number; transitionType: number; };
+    intoFence: { id: string; latitude: number; longitude: number; radius: number; transitionType: number; notification: { id: number; title: string; text: string; openAppOnClick: boolean; }; };
+
     public static EVT_LOC_STATE = 'EVT_LOC_STATE';
     private static EVT_GEOFENCE_ID_IN = '69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb';
     private static EVT_GEOFENCE_ID_OUT = '69ca1b88-6fbe-4e80-a4d4-ff4d3748acdc';
@@ -15,20 +22,8 @@ export class GeofenceService {
         private storage: Storage,
         private androidPermissions: AndroidPermissions,
         private alertCtrl: AlertController
-    ) { }
-
-    canViewSchedule(): Promise<any> {
-        return new Promise((resolve, reject) => {
-            this.storage.get(GeofenceService.EVT_LOC_STATE).then(state => {
-                resolve(state);
-            }).catch(e => {
-                reject(e);
-            });
-        });
-    }
-
-    setupEventGeofence() {
-        let intoFence = {
+    ) {
+        this.intoFence = {
             id: GeofenceService.EVT_GEOFENCE_ID_IN,
             latitude: 25.0513009,
             longitude: 55.3179699,
@@ -41,7 +36,7 @@ export class GeofenceService {
                 openAppOnClick: true
             }
         }
-        let fromFence = {
+        this.fromFence = {
             id: GeofenceService.EVT_GEOFENCE_ID_OUT,
             latitude: 25.0513009,
             longitude: 55.3179699,
@@ -49,65 +44,114 @@ export class GeofenceService {
             transitionType: 2
         }
 
+        this.observable = new Subject();
+    }
+
+    canViewSchedule(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.storage.get(GeofenceService.EVT_LOC_STATE).then(state => {
+                resolve(state);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    setupEventGeofence() {
         this.storage.set(GeofenceService.EVT_LOC_STATE, {
             canViewSchedule: false,
             shouldTurnOnLocationServices: false,
             hasErrorInInitialization: false
         });
 
+        this.initEventGeofence();
+
+        this.geofence.initialize().then(() => {
+            this.updateEventGeofence();
+        }).catch(e => {
+            this.storage.get(GeofenceService.EVT_LOC_STATE).then(s => {
+                s.shouldTurnOnLocationServices = true;
+                s.hasErrorInInitialization = true;
+                this.storage.set(GeofenceService.EVT_LOC_STATE, s);
+            });
+        });
+    }
+
+    updateEventGeofence(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.geofence.addOrUpdate([this.intoFence, this.fromFence]).then(() => {
+                this.storage.get(GeofenceService.EVT_LOC_STATE).then(s => {
+                    s.shouldTurnOnLocationServices = false;
+                    s.hasErrorInInitialization = false;
+                    this.storage.set(GeofenceService.EVT_LOC_STATE, s).then(() => {
+                        resolve();
+                    });
+                });
+            }).catch(e => {
+                this.storage.get(GeofenceService.EVT_LOC_STATE).then(s => {
+                    s.shouldTurnOnLocationServices = e.code === 'PERMISSION_DENIED';
+                    s.hasErrorInInitialization = true;
+                    this.storage.set(GeofenceService.EVT_LOC_STATE, s).then(() => {
+                        if (e.code === 'PERMISSION_DENIED') {
+                            this.requestLocationPermission();
+                        } else {
+                            let alert = this.alertCtrl.create({
+                                title: 'Cannot enable geofencing',
+                                subTitle: 'You will not be able to see the event\'s schedule. Cannot initialize geofencing without errors.',
+                                buttons: [{
+                                    text: 'Ok',
+                                    handler: () => {
+                                        alert.dismiss();
+                                        return false;
+                                    }
+                                }],
+                                cssClass: 'alert'
+                            });
+                            alert.present();
+                            reject();
+                        }
+                    });
+                });
+            });
+        });
+    }
+
+    subscribeToTransition(callback: (any) => void): Subscription {
+        return this.observable.subscribe(g => {
+            callback(g);
+        });
+    }
+
+    private initEventGeofence() {
         this.geofence.onTransitionReceived().subscribe(g => {
             for (var i = 0; i < g.length; i++) {
-                switch (g[i].notification.id) {
+                switch (g[i].id) {
                     case GeofenceService.EVT_GEOFENCE_ID_IN:
                         this.storage.get(GeofenceService.EVT_LOC_STATE).then(s => {
                             s.canViewSchedule = true;
-                            this.storage.set(GeofenceService.EVT_LOC_STATE, s);
+                            this.storage.set(GeofenceService.EVT_LOC_STATE, s).then(s => {
+                                this.observable.next(s);
+                            }).catch(s => {
+                                this.observable.error(s);
+                            });
                         });
                         break;
                     case GeofenceService.EVT_GEOFENCE_ID_OUT:
                         this.storage.get(GeofenceService.EVT_LOC_STATE).then(s => {
                             s.canViewSchedule = false;
-                            this.storage.set(GeofenceService.EVT_LOC_STATE, s);
+                            this.storage.set(GeofenceService.EVT_LOC_STATE, s).then(s => {
+                                this.observable.next(s);
+                            }).catch(s => {
+                                this.observable.error(s);
+                            });
                         });
                         break;
                 }
             }
         });
-
-        this.geofence.addOrUpdate([intoFence, fromFence]).then(() => {
-            this.storage.get(GeofenceService.EVT_LOC_STATE).then(s => {
-                s.shouldTurnOnLocationServices = false;
-                s.hasErrorInInitialization = false;
-                this.storage.set(GeofenceService.EVT_LOC_STATE, s);
-            });
-        }).catch(e => {
-            this.storage.get(GeofenceService.EVT_LOC_STATE).then(s => {
-                s.shouldTurnOnLocationServices = e.code === 'PERMISSION_DENIED';
-                s.hasErrorInInitialization = true;
-                this.storage.set(GeofenceService.EVT_LOC_STATE, s);
-
-                if (e.code === 'PERMISSION_DENIED') {
-                    this.requestLocationPermission();
-                } else {
-                    let alert = this.alertCtrl.create({
-                        title: 'Cannot enable geofencing',
-                        subTitle: 'You will not be able to see the event\'s schedule. Cannot initialize geofencing without errors.',
-                        buttons: [{
-                            text: 'Ok',
-                            handler: () => {
-                                alert.dismiss();
-                                return false;
-                            }
-                        }],
-                        cssClass: 'alert'
-                    });
-                    alert.present();
-                }
-            });
-        });
     }
 
-    private requestLocationPermission() {
+    requestLocationPermission() {
         this.androidPermissions.requestPermissions([
             this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION,
             this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION
