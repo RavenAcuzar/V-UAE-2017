@@ -23,6 +23,12 @@ export class NewslandingPageAR extends NewslandingPage {
   constructor(public navCtrl: NavController, public http: Http, public loadingController: LoadingController,
   public toastCtrl:ToastController, network: Network,protected connectionSvc:ConnectionService) {
     super(navCtrl, http, loadingController, toastCtrl, network,connectionSvc);
+    
+  }
+  navigateToNews(id: String) {
+    this.navCtrl.push(NewsPageAR, {
+      id: id
+    });
   }
 
   scrollToTop() {

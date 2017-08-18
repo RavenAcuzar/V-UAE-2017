@@ -27,6 +27,11 @@ export class HomePageRU extends HomePage {
   toastCtrl: ToastController, network: Network,protected connectionSvc: ConnectionService) {
     super(navCtrl, http, loadingController,toastCtrl, network, connectionSvc);
   }
+  navigateToNews(id: String) {
+    this.navCtrl.push(NewsPageRU, {
+      id: id
+    });
+  }
 
   scrollToTop() {
     this.content.scrollToTop();

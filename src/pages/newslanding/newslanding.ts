@@ -90,7 +90,7 @@ export class NewslandingPage {
       id: id
     });
   }
-
+  
   scrollToTop() {
     this.content.scrollToTop();
   }

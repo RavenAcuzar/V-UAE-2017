@@ -26,6 +26,12 @@ export class NewslandingPageTR extends NewslandingPage {
     super(navCtrl, http, loadingController, toastCtrl, network,connectionSvc);
   }
 
+  navigateToNews(id: String) {
+    this.navCtrl.push(NewsPageTR, {
+      id: id
+    });
+  }
+
   scrollToTop() {
     this.content.scrollToTop();
   }

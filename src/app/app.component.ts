@@ -211,9 +211,9 @@ export class MyApp {
       { title: 'المتحدثين', component: TheSpeakersPageAR },
       { title: 'الجدول اليومي للبرنامج', component: SchedPageAR },
       { title: 'دبي 101', component: Dubai101PageAR },
-      { title: 'معروضات #VCON17', component: MerchandisePageAR },
+      { title: 'معروضات #VUAE17', component: MerchandisePageAR },
       { title: 'ضع علامتك للفي-كون', component: MarkPageAR },
-      { title: 'صور خلفيات #VCON17', component: DownloadsPageAR },
+      { title: 'صور خلفيات #VUAE17', component: DownloadsPageAR },
       { title: 'الأسئلة الشائعة', component: FaqsPageAR },
       { title: 'اتصل بنا', component: ContactPageAR },
       { title: 'أختار اللغة', component: SplashPage }
@@ -239,9 +239,9 @@ export class MyApp {
       { title: 'Спикеры', component: TheSpeakersPageRU },
       { title: 'Ежедневное расписание', component: SchedPageRU },
       { title: 'Дубай 101', component: Dubai101PageRU },
-      { title: 'Товары #VCON17', component: MerchandisePageRU },
+      { title: 'Товары #VUAE17', component: MerchandisePageRU },
       { title: 'Сделай свой значок V-Con', component: MarkPageRU },
-      { title: 'Обои #VCON17', component: DownloadsPageRU },
+      { title: 'Обои #VUAE17', component: DownloadsPageRU },
       { title: 'Вопросы-ответы', component: FaqsPageRU },
       { title: 'Контакты', component: ContactPageRU },
       { title: 'Выбор языка', component: SplashPage }
