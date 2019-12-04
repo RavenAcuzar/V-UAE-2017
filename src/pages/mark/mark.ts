@@ -220,6 +220,7 @@ export class MarkPage {
     }
 
     let filepath = prefix + libraryItem;
+    console.log('Filepath: ' + filepath);
     this.socialSharing.share('#VUAE17', '', filepath).then((a) => {
       console.log(JSON.stringify(a));
       if (a) {

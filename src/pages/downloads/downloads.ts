@@ -3,7 +3,7 @@ import { NavController, Platform, AlertController, LoadingController } from 'ion
 import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer'
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { Base64ToGallery } from "@ionic-native/base64-to-gallery";
-import { File } from '@ionic-native/file'
+import { File } from '@ionic-native/file';
 import { MarkPage } from '../mark/mark';
 import { FaqsPage } from '../faqs/faqs';
 
