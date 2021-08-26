@@ -3,7 +3,7 @@
 
 The V-UAE 2017 mobile app is made for all limitless V-Con participants.
 
-The V-UAE 2017 mobile app is made for all V-Con participants, who aim to make the most of an unbelievable, life-changing experience. It is packed with interactive and comprehensive features such as downloadable wallpapers, #VUAE2018-marked photo generator, daily program schedule, exclusive V-Con merchandise dock, and regular news and updates! You can even select the language of your choice to use the app in English, Arabic, French, Russian, or Turkish!
+The V-UAE 2017 mobile app is made for all V-Con participants, who aim to make the most of an unbelievable, life-changing experience. It is packed with interactive and comprehensive features such as downloadable wallpapers, #VUAE2017-marked photo generator, daily program schedule, exclusive V-Con merchandise dock, and regular news and updates! You can even select the language of your choice to use the app in English, Arabic, French, Russian, or Turkish!
 
 Download now on [AppStore](https://apps.apple.com/ph/app/v-uae-vuae2018/id1144318387)
 
