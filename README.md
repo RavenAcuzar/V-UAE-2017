@@ -55,7 +55,7 @@ ionic cordova build android
 ionic cordova build ios
 ```
 
-##Key Features
+### Key Features
 - Downloadable wallpapers.
 - Responsive Design (Mobile and Tablet optimized).
 - Downloadable photo frame generator with social sharing.
